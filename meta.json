@@ -1,0 +1,28 @@
+{
+  "id": "70256130444",
+  "name": "memorials",
+  "pageTitle": "<Title>",
+  "shareTitle": "<Title>",
+  "shareText": "<Text>",
+  "tweetText": "<Text>",
+  "publishYear": 2016,
+  "publishDate": "2016-8-24T00:00:00Z",
+  "url": "http://interactives.dallasnews.com/2016/memorials/",
+  "authors": "<Authors - comma-separated, lowercase>",
+  "desk": "<Desk>",
+  "section": "<Section>",
+  "keywords": [
+    "interactives",
+    "dallas",
+    "dallas news",
+    "dfw news",
+    "dallas newspaper",
+    "dallas morning news",
+    "dallas morning news newspaper"
+  ],
+  "imgURL": "http://interactives.dallasnews.com/2016/memorials/undefined",
+  "imgWidth": "<Width - w/out \"px\">",
+  "imgHeight": "<Height - w/out \"px\">",
+  "sectionTwitter": "<handle - w/out \"@\">",
+  "authorTwitter": "<handle - w/out \"@\">"
+}
