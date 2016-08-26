@@ -18,59 +18,93 @@
 }
 
 .no-pad {
-	padding-left: 0px !important;
-	padding-right: 0px !important;
+	padding-left: 0rem !important;
+	padding-right: 0rem !important;
 }
 
 #map {
 	width: 100%;
-	height: 600px;
+	height: 60rem;
 }
 
 .map-wrapper {
 	position: relative;
 }
 
-.full-submission {
+#add-minus {
 	position: absolute;
-	height: 100px;
-	width: 100px;
-	background: blue;
+	width: 10rem;
+	height: 10rem;
+	background: lighten($chartGray, 15%);
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	border-radius: 10rem;
+	margin-top: -50px;
+	box-shadow: 2px 2px 3px rgba(33, 33, 33, 0.25), -2px -2px 3px rgba(33, 33, 33, 0.25), 2px -2px 3px rgba(33, 33, 33, 0.25), -2px 2px 3px rgba(33, 33, 33, 0.25);
+}
+
+#full-submission {
+	position: absolute;
+	height: 20rem;
+	width: 90%;
+	background: $chartYellow;
 	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	padding: 2rem 3rem;
+
+	h1 {
+		font-size: 3rem;
+		font-weight: bold;
+		line-height: 3.6rem;
+	}
+	h2 {
+		font-size: 2rem;
+		line-height: 2.4rem;
+	}
+	p {
+		font-size: 1.5rem;
+	}
+}
+
+.fa-plus {
+
 }
 
 .submission-panel {
-	height: 400px;
-	border-left: 5px white solid;
+	height: 40rem;
+	border-left: 0.5rem white solid;
 }
 
 .submissions{
-	height: 500px;
+	height: 50rem;
 	overflow-y: scroll;
 	background-color: lighten($chartGray, 15%);
 }
 
 .submission-pv {
-	height: 100px;
-	border-bottom: 1px #ccc solid;
-	padding-left: 20px;
+	height: 10rem;
+	border-bottom: 0.1rem #ccc solid;
+	padding-left: 2rem;
 	cursor: pointer;
-	padding-top: 20px;
-	padding-bottom: 20px;
+	padding-top: 2rem;
+	padding-bottom: 2rem;
 
 	h1 {
-		font-size: 20px;
-		line-height: 4px;
+		font-size: 2rem;
+		line-height: 0.4rem;
 		font-weight: bold;
 	}
 	h2 {
-		font-size: 14px;
-		line-height: 16px;
+		font-size: 1.4rem;
+		line-height: 1.6rem;
 	}
 	p {
-		margin-top: -7px;
-		font-size: 12px;
-		line-height: 16px;
+		margin-top: -0.7rem;
+		font-size: 1.2rem;
+		line-height: 1.6rem;
 	}
 
 	&:hover {
@@ -79,6 +113,6 @@
 }
 
 .submission-nav {
-	height: 100px;
+	height: 10rem;
 	background-color: lighten($chartGray, 15%);
 }
