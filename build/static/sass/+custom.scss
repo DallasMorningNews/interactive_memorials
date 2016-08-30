@@ -11,6 +11,18 @@
 @import 'variables';
 @import 'mixins';
 
+$dark-gray: rgb(68, 68, 68);
+
+div, button {
+	-webkit-transition-duration: 0.5s; /* Safari */
+	transition-duration: 0.5s;
+}
+
+.header1 {
+	font-size: 1.5rem;
+	line-height: 0.1rem;
+	font-weight: bold;
+}
 
 .contentWell {
 	max-width: 100%;
@@ -24,53 +36,152 @@
 
 #map {
 	width: 100%;
-	height: 60rem;
+	height: 70rem;
 }
 
 .map-wrapper {
 	position: relative;
 }
 
-#add-minus {
+.show {
+	display: block;
+}
+
+#see-responses {
 	position: absolute;
+	z-index: 2000;
 	width: 10rem;
 	height: 10rem;
-	background: lighten($chartGray, 15%);
 	left: 0;
 	right: 0;
 	margin: 0 auto;
-	border-radius: 10rem;
-	margin-top: -50px;
+	border-radius: 50%;
+	border: none;
+	margin-top: -5rem;
+	background-color: white;
 	box-shadow: 2px 2px 3px rgba(33, 33, 33, 0.25), -2px -2px 3px rgba(33, 33, 33, 0.25), 2px -2px 3px rgba(33, 33, 33, 0.25), -2px 2px 3px rgba(33, 33, 33, 0.25);
+	font-size: 6rem;
+	background-color: white;
+	color: $chartYellow;
+	outline: none;
+
+	&:hover {
+		color: #444;
+		background-color: $chartYellow;
+	}
 }
+
+
 
 #full-submission {
 	position: absolute;
 	height: 20rem;
-	width: 90%;
-	background: $chartYellow;
+	width: 100%;
+	background: rgba(white, .8);
 	bottom: 0;
 	left: 0;
 	right: 0;
 	margin: 0 auto;
 	padding: 2rem 3rem;
+	-webkit-box-shadow: 0px 4px 7px -2px rgba(79,79,79,.6);
+	-moz-box-shadow: 0px 4px 7px -2px rgba(79,79,79,.6);
+	box-shadow: 0px 4px 7px -2px rgba(79,79,79,.6);
 
-	h1 {
-		font-size: 3rem;
-		font-weight: bold;
-		line-height: 3.6rem;
-	}
-	h2 {
-		font-size: 2rem;
-		line-height: 2.4rem;
-	}
-	p {
-		font-size: 1.5rem;
+	#full-submission-text {
+	max-width: 90rem;
+	margin-left: auto;
+	margin-right: auto;
+
+		.text-left {
+			border-right: 0.2rem #ccc solid;
+
+		}
+		h1 {
+			font-size: 3rem;
+			font-weight: bold;
+			line-height: 3.6rem;
+		}
+		h2 {
+			font-size: 2rem;
+			line-height: 2.4rem;
+		}
+		p {
+			font-size: 1.4rem;
+			line-height: 1.9rem;
+			padding-left: 2rem;
+		}
 	}
 }
 
-.fa-plus {
+#form-wrapper {
+	position: absolute;
+	z-index: 1000;
+	height: 70rem;
+	width: 100%;
+	background: lighten(#ccc, 15%);
+	top: 0;
 
+	h1 {
+		font-size: 2rem;
+	}
+}
+
+form.submission-form {
+	position: absolute;
+	width: 50rem;
+	left: 0;
+	right: 0;
+	top: 50%;
+	-ms-transform: translateY(-50%); /* IE 9 */
+	-webkit-transform: translateY(-50%); /* Chrome, Safari, Opera */
+	transform: translateY(-50%);
+	margin: 0 auto;
+}
+
+.control-label {
+	font-size: 15px;
+	text-align: left;
+}
+
+.form-horizontal {
+	position: absolute;
+	top: 50%;
+	-ms-transform: translateY(-50%); /* IE 9 */
+	-webkit-transform: translateY(-50%); /* Chrome, Safari, Opera */
+	transform: translateY(-50%);
+	left: 0;
+	right: 0;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 80rem;
+	width: 80rem;
+
+	.control-label {
+		text-align: left;
+
+		@extend .header1;
+		line-height: normal;
+	}
+	.form-control:focus {
+		box-shadow: inset 0 -2px 0 $chartYellow;
+	}
+	.form-group {
+		margin-left: 0;
+		margin-right: 0;
+	}
+	.help-block {
+		@extend .header1;
+		font-weight: normal;
+		line-height: normal;
+	}
+	.btn {
+		color: $dark-gray;
+		font-weight: bold;
+
+		&:hover {
+			background-color: $chartYellow;
+		}
+	}
 }
 
 .submission-panel {
@@ -79,9 +190,12 @@
 }
 
 .submissions{
-	height: 50rem;
+	height: 60rem;
 	overflow-y: scroll;
 	background-color: lighten($chartGray, 15%);
+	-webkit-box-shadow: inset 0px 4px 7px -2px rgba(79,79,79,.6);
+	-moz-box-shadow: inset 0px 4px 7px -2px rgba(79,79,79,.6);
+	box-shadow: inset 0px 4px 7px -2px rgba(79,79,79,.6);
 }
 
 .submission-pv {
@@ -93,26 +207,70 @@
 	padding-bottom: 2rem;
 
 	h1 {
-		font-size: 2rem;
-		line-height: 0.4rem;
-		font-weight: bold;
+		@extend .header1;
 	}
 	h2 {
 		font-size: 1.4rem;
-		line-height: 1.6rem;
+		line-height: 1.2rem;
 	}
 	p {
 		margin-top: -0.7rem;
-		font-size: 1.2rem;
-		line-height: 1.6rem;
+		font-size: 1.1rem;
+		line-height: 1.5rem;
 	}
 
 	&:hover {
-		background-color: $chartYellow;
+		background-color: lighten($chartYellow, 15%);
 	}
+
+}
+
+.relative {
+	position: relative;
+	height: 10rem;
 }
 
 .submission-nav {
 	height: 10rem;
-	background-color: lighten($chartGray, 15%);
+	background-color: $chartYellow;
+	text-align: center;
+	position: relative;
+
+	h1 {
+		font-size: 1.9rem;
+		font-weight: bold;
+		text-transform: uppercase;
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 50%;
+		-ms-transform: translateY(-50%); /* IE 9 */
+		-webkit-transform: translateY(-50%); /* Chrome, Safari, Opera */
+		transform: translateY(-50%);
+		line-height: 2.4rem;
+	}
+}
+
+.sub-btn {
+	cursor: pointer;
+
+	&:hover {
+		background-color: lighten($chartYellow, 10%);
+	}
+}
+
+.fa-chevron-left, .fa-chevron-right {
+	position: absolute;
+	top: 50%;
+	-ms-transform: translateY(-50%); /* IE 9 */
+    -webkit-transform: translateY(-50%); /* Chrome, Safari, Opera */
+    transform: translateY(-50%);
+}
+
+.fa-chevron-left {
+	left: 1rem;
+}
+
+.fa-chevron-right {
+	right: 1rem;
 }

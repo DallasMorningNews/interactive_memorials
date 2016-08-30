@@ -2,6 +2,8 @@ $(document).ready(function() {
 
 	//custom scripting goes here
 
+
+	// mapbox gl code
 	var map = new mapboxgl.Map({
 	  container: 'map', // the #id of your map
 	  center: [-96.9785, 32.8924], // just like Leaflet, where the map should center on load
@@ -11,14 +13,26 @@ $(document).ready(function() {
 
 	map.scrollZoom.disable();
 	map.addControl(new mapboxgl.Geocoder());
-
 	map.addControl(new mapboxgl.Navigation());
 
 
+	// submissions nav code
 
+	$('#add-minus').click(function() {
+		$('#form-wrapper').removeClass('hide');
+	});
 
-
-
+	$("#see-responses").click(function(e) {
+	        e.preventDefault();
+	        if ($(this).hasClass("expanded") === true) {
+	            $(this).children("span").text("+");
+	            $("#form-wrapper").removeClass('hide').slideDown(1000);
+	        } else {
+	            $(this).children("span").text("-");
+	            $("#form-wrapper").slideUp();
+	        }
+	        $(this).toggleClass("expanded");
+	});
 
 	// injecting current year into footer
 	// DO NOT DELETE

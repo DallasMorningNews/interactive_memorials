@@ -1,3 +1,13 @@
+div, button {
+  -webkit-transition-duration: 0.5s;
+  /* Safari */
+  transition-duration: 0.5s; }
+
+.header1, .form-horizontal .control-label, .form-horizontal .help-block, .submission-pv h1 {
+  font-size: 1.5rem;
+  line-height: 0.1rem;
+  font-weight: bold; }
+
 .contentWell {
   max-width: 100%;
   width: 100%; }
@@ -8,51 +18,135 @@
 
 #map {
   width: 100%;
-  height: 60rem; }
+  height: 70rem; }
 
 .map-wrapper {
   position: relative; }
 
-#add-minus {
+.show {
+  display: block; }
+
+#see-responses {
   position: absolute;
+  z-index: 2000;
   width: 10rem;
   height: 10rem;
-  background: #efefef;
   left: 0;
   right: 0;
   margin: 0 auto;
-  border-radius: 10rem;
-  margin-top: -50px;
-  box-shadow: 2px 2px 3px rgba(33, 33, 33, 0.25), -2px -2px 3px rgba(33, 33, 33, 0.25), 2px -2px 3px rgba(33, 33, 33, 0.25), -2px 2px 3px rgba(33, 33, 33, 0.25); }
+  border-radius: 50%;
+  border: none;
+  margin-top: -5rem;
+  background-color: white;
+  box-shadow: 2px 2px 3px rgba(33, 33, 33, 0.25), -2px -2px 3px rgba(33, 33, 33, 0.25), 2px -2px 3px rgba(33, 33, 33, 0.25), -2px 2px 3px rgba(33, 33, 33, 0.25);
+  font-size: 6rem;
+  background-color: white;
+  color: #fec44f;
+  outline: none; }
+  #see-responses:hover {
+    color: #444;
+    background-color: #fec44f; }
 
 #full-submission {
   position: absolute;
   height: 20rem;
-  width: 90%;
-  background: #fec44f;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.8);
   bottom: 0;
   left: 0;
   right: 0;
   margin: 0 auto;
-  padding: 2rem 3rem; }
-  #full-submission h1 {
-    font-size: 3rem;
-    font-weight: bold;
-    line-height: 3.6rem; }
-  #full-submission h2 {
-    font-size: 2rem;
-    line-height: 2.4rem; }
-  #full-submission p {
-    font-size: 1.5rem; }
+  padding: 2rem 3rem;
+  -webkit-box-shadow: 0px 4px 7px -2px rgba(79, 79, 79, 0.6);
+  -moz-box-shadow: 0px 4px 7px -2px rgba(79, 79, 79, 0.6);
+  box-shadow: 0px 4px 7px -2px rgba(79, 79, 79, 0.6); }
+  #full-submission #full-submission-text {
+    max-width: 90rem;
+    margin-left: auto;
+    margin-right: auto; }
+    #full-submission #full-submission-text .text-left {
+      border-right: 0.2rem #ccc solid; }
+    #full-submission #full-submission-text h1 {
+      font-size: 3rem;
+      font-weight: bold;
+      line-height: 3.6rem; }
+    #full-submission #full-submission-text h2 {
+      font-size: 2rem;
+      line-height: 2.4rem; }
+    #full-submission #full-submission-text p {
+      font-size: 1.4rem;
+      line-height: 1.9rem;
+      padding-left: 2rem; }
+
+#form-wrapper {
+  position: absolute;
+  z-index: 1000;
+  height: 70rem;
+  width: 100%;
+  background: #f2f2f2;
+  top: 0; }
+  #form-wrapper h1 {
+    font-size: 2rem; }
+
+form.submission-form {
+  position: absolute;
+  width: 50rem;
+  left: 0;
+  right: 0;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  /* IE 9 */
+  -webkit-transform: translateY(-50%);
+  /* Chrome, Safari, Opera */
+  transform: translateY(-50%);
+  margin: 0 auto; }
+
+.control-label {
+  font-size: 15px;
+  text-align: left; }
+
+.form-horizontal {
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  /* IE 9 */
+  -webkit-transform: translateY(-50%);
+  /* Chrome, Safari, Opera */
+  transform: translateY(-50%);
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 80rem;
+  width: 80rem; }
+  .form-horizontal .control-label {
+    text-align: left;
+    line-height: normal; }
+  .form-horizontal .form-control:focus {
+    box-shadow: inset 0 -2px 0 #fec44f; }
+  .form-horizontal .form-group {
+    margin-left: 0;
+    margin-right: 0; }
+  .form-horizontal .help-block {
+    font-weight: normal;
+    line-height: normal; }
+  .form-horizontal .btn {
+    color: #444444;
+    font-weight: bold; }
+    .form-horizontal .btn:hover {
+      background-color: #fec44f; }
 
 .submission-panel {
   height: 40rem;
   border-left: 0.5rem white solid; }
 
 .submissions {
-  height: 50rem;
+  height: 60rem;
   overflow-y: scroll;
-  background-color: #efefef; }
+  background-color: #efefef;
+  -webkit-box-shadow: inset 0px 4px 7px -2px rgba(79, 79, 79, 0.6);
+  -moz-box-shadow: inset 0px 4px 7px -2px rgba(79, 79, 79, 0.6);
+  box-shadow: inset 0px 4px 7px -2px rgba(79, 79, 79, 0.6); }
 
 .submission-pv {
   height: 10rem;
@@ -61,20 +155,56 @@
   cursor: pointer;
   padding-top: 2rem;
   padding-bottom: 2rem; }
-  .submission-pv h1 {
-    font-size: 2rem;
-    line-height: 0.4rem;
-    font-weight: bold; }
   .submission-pv h2 {
     font-size: 1.4rem;
-    line-height: 1.6rem; }
+    line-height: 1.2rem; }
   .submission-pv p {
     margin-top: -0.7rem;
-    font-size: 1.2rem;
-    line-height: 1.6rem; }
+    font-size: 1.1rem;
+    line-height: 1.5rem; }
   .submission-pv:hover {
-    background-color: #fec44f; }
+    background-color: #fede9b; }
+
+.relative {
+  position: relative;
+  height: 10rem; }
 
 .submission-nav {
   height: 10rem;
-  background-color: #efefef; }
+  background-color: #fec44f;
+  text-align: center;
+  position: relative; }
+  .submission-nav h1 {
+    font-size: 1.9rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    /* IE 9 */
+    -webkit-transform: translateY(-50%);
+    /* Chrome, Safari, Opera */
+    transform: translateY(-50%);
+    line-height: 2.4rem; }
+
+.sub-btn {
+  cursor: pointer; }
+  .sub-btn:hover {
+    background-color: #fed582; }
+
+.fa-chevron-left, .fa-chevron-right {
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  /* IE 9 */
+  -webkit-transform: translateY(-50%);
+  /* Chrome, Safari, Opera */
+  transform: translateY(-50%); }
+
+.fa-chevron-left {
+  left: 1rem; }
+
+.fa-chevron-right {
+  right: 1rem; }
