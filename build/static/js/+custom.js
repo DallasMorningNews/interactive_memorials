@@ -14,6 +14,8 @@ $(document).ready(function() {
 	map.scrollZoom.disable();
 	map.addControl(new mapboxgl.Geocoder());
 	map.addControl(new mapboxgl.Navigation());
+	mapboxgl.accessToken = 'pk.eyJ1IjoibWFjbWFuIiwiYSI6ImVEbmNmZjAifQ.zVzy9cyjNT1tMYOTex51HQ';
+
 
 
 	// submissions nav code
@@ -26,10 +28,10 @@ $(document).ready(function() {
 	        e.preventDefault();
 	        if ($(this).hasClass("expanded") === true) {
 	            $(this).children("span").text("+");
-	            $("#form-wrapper").removeClass('hide').slideDown(1000);
+	            $("#form-wrapper").removeClass("visible");
 	        } else {
 	            $(this).children("span").text("-");
-	            $("#form-wrapper").slideUp();
+				$("#form-wrapper").addClass("visible");
 	        }
 	        $(this).toggleClass("expanded");
 	});
