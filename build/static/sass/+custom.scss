@@ -45,6 +45,7 @@ div, button {
 .tool-wrapper {
 	font-family: $sans;
 	height: 80vh;
+	position: relative;
 }
 
 .relative {
@@ -285,8 +286,6 @@ RIGHT PANEL
 .right-panel {
 	border-left: 0.5rem white solid;
 	background-color: lighten($chartGray, 15%);
-	height: 80vh;
-	overflow-y: auto;
 
 	@media only screen and (max-width: 678px) {
 		border-left: none;
@@ -313,31 +312,32 @@ RIGHT PANEL
 		transform: translateY(-50%);
 		line-height: 2.4rem;
 	}
-}
 
-.sub-btn {
-	cursor: pointer;
+	.sub-btn {
+		cursor: pointer;
 
-	&:hover {
-		background-color: darken($chartYellow, 10%);
+		&:hover {
+			background-color: darken($chartYellow, 10%);
+		}
+	}
+
+	.fa-chevron-left, .fa-chevron-right {
+		position: absolute;
+		top: 50%;
+		-ms-transform: translateY(-50%); /* IE 9 */
+	    -webkit-transform: translateY(-50%); /* Chrome, Safari, Opera */
+	    transform: translateY(-50%);
+	}
+
+	.fa-chevron-left {
+		left: 1rem;
+	}
+
+	.fa-chevron-right {
+		right: 1rem;
 	}
 }
 
-.fa-chevron-left, .fa-chevron-right {
-	position: absolute;
-	top: 50%;
-	-ms-transform: translateY(-50%); /* IE 9 */
-    -webkit-transform: translateY(-50%); /* Chrome, Safari, Opera */
-    transform: translateY(-50%);
-}
-
-.fa-chevron-left {
-	left: 1rem;
-}
-
-.fa-chevron-right {
-	right: 1rem;
-}
 
 .submissions{
 	overflow-y: auto;

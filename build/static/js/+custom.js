@@ -16,6 +16,7 @@ $(document).ready(function() {
 
 
 		var submissionData;
+		var clickLocation;
 
 		// mapbox gl code
 			// mapboxgl.util.getJSON('http://maps.dallasnews.com/styles.json', function(req, styles) {
@@ -74,7 +75,6 @@ $(document).ready(function() {
 					$.each(data, function(k,v) {
 						   var content = submissionTemplate(v);
 						   $(".submissions").append(content);
-						   console.log(content);
 					});
 				}
 
@@ -116,13 +116,11 @@ $(document).ready(function() {
 					  });
 					});
 
-					console.log(parks);
 					createMap(parks);
 				}
 
 				// Map points customization
 					function createMap(data) {
-						console.log("creating map");
 						data = GeoJSON.parse(data, {Point: ['lat', 'long'], include: ['race', 'location']});
 
 						map.on('load', function () {
@@ -153,6 +151,37 @@ $(document).ready(function() {
 				            });
 						});
 					}
+
+				// Get location on click
+					map.on('click', function (e) {
+						JSON.stringify(e.lngLat);
+
+					clickLocation = e.lngLat;
+
+					// When a click event occurs near a place, open a popup at the location of
+					// the feature, with description HTML from its properties.
+					    // var features = map.queryRenderedFeatures(e.point, { layers: ['places'] });
+						//
+					    // if (!features.length) {
+					    //     return;
+					    // }
+						//
+					    // var feature = features[0];
+
+					    // Populate the popup and set its coordinates
+					    // based on the feature found.
+
+						var div = document.createElement('div');
+						div.innerHTML = 'Hello, world!';
+						var popup = new mapboxgl.Popup()
+						  .setLngLat(e.lngLat)
+						  .setDOMContent(div)
+						  .addTo(map);
+					    // var popup = new mapboxgl.Popup()
+					    //     .setLngLat(clickLocation)
+					    //     .setHTML("Hello")
+					    //     .addTo(map);
+					});
 
 	// injecting current year into footer
 	// DO NOT DELETE

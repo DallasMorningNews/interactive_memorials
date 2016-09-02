@@ -950,7 +950,8 @@ div, button {
 
 .tool-wrapper {
   font-family: "Gotham A", "Gotham B", Arial, sans-serif;
-  height: 80vh; }
+  height: 80vh;
+  position: relative; }
 
 .relative {
   position: relative;
@@ -1134,9 +1135,7 @@ RIGHT PANEL
 ***************************/
 .right-panel {
   border-left: 0.5rem white solid;
-  background-color: #efefef;
-  height: 80vh;
-  overflow-y: auto; }
+  background-color: #efefef; }
   @media only screen and (max-width: 678px) {
     .right-panel {
       border-left: none;
@@ -1161,26 +1160,22 @@ RIGHT PANEL
     /* Chrome, Safari, Opera */
     transform: translateY(-50%);
     line-height: 2.4rem; }
-
-.sub-btn {
-  cursor: pointer; }
-  .sub-btn:hover {
-    background-color: #feb31c; }
-
-.fa-chevron-left, .fa-chevron-right {
-  position: absolute;
-  top: 50%;
-  -ms-transform: translateY(-50%);
-  /* IE 9 */
-  -webkit-transform: translateY(-50%);
-  /* Chrome, Safari, Opera */
-  transform: translateY(-50%); }
-
-.fa-chevron-left {
-  left: 1rem; }
-
-.fa-chevron-right {
-  right: 1rem; }
+  .submission-nav .sub-btn {
+    cursor: pointer; }
+    .submission-nav .sub-btn:hover {
+      background-color: #feb31c; }
+  .submission-nav .fa-chevron-left, .submission-nav .fa-chevron-right {
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    /* IE 9 */
+    -webkit-transform: translateY(-50%);
+    /* Chrome, Safari, Opera */
+    transform: translateY(-50%); }
+  .submission-nav .fa-chevron-left {
+    left: 1rem; }
+  .submission-nav .fa-chevron-right {
+    right: 1rem; }
 
 .submissions {
   overflow-y: auto;
