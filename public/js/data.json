@@ -1,0 +1,57 @@
+[
+  {
+	"lat": 32.789383,
+	"long": -96.801756,
+    "firstName": "Jennifer",
+    "lastName": "Lawrence",
+    "email": "jlaw@real.com",
+	"race": "Black or African Am.",
+	"location": "Klyde Warren Park",
+	"why": "Before they sold out shabby chic pinterest, VHS meditation heirloom deep v stumptown kogi literally XOXO tumblr. Kickstarter chillwave offal, twee YOLO schlitz four dollar toast disrupt waistcoat quinoa drinking vinegar flexitarian locavore sartorial kale chips. Tilde sriracha cardigan neutra readymade yr. Umami pickled ugh cronut, direct trade tote bag franzen ennui williamsburg offal food truck venmo. Truffaut swag wayfarers tofu beard 8-bit, meh authentic cold-pressed gochujang austin dreamcatcher slow-carb. Yr 90's shoreditch fanny pack fingerstache. Pug tofu marfa pabst, offal ennui art party try-hard fixie tumblr plaid vinyl.",
+	"learnMore": "Pop-up gochujang next level roof party typewriter. Gluten-free whatever four loko, meditation bicycle rights freegan tote bag green juice butcher lumbersexual. Put a bird on it sustainable health goth flannel ethical franzen. Franzen ethical pickled chambray tofu normcore. Listicle kitsch salvia, drinking vinegar gentrify keytar actually selfies flannel chia. Pitchfork etsy franzen craft beer. PBR&B cred tumblr, pop-up yr salvia tote bag gochujang keffiyeh normcore."
+  },
+  {
+	"lat": 32.952775,
+	"long": -96.781391,
+    "firstName": "Miley",
+    "lastName": "Cyrus",
+    "email": "miley@real.com",
+	"race": "Asian",
+	"location": "Arapaho Park",
+	"why": "Polaroid franzen leggings shabby chic. Fap 3 wolf moon YOLO, vice skateboard put a bird on it 8-bit.",
+	"learnMore": "Biodiesel neutra thundercats, mumblecore skateboard pitchfork vegan helvetica kogi messenger bag aesthetic man bun bitters. Fashion axe pug banh mi, flexitarian echo park everyday carry before they sold out sartorial aesthetic farm-to-table jean shorts craft beer health goth affogato tousled."
+  },
+  {
+	"lat": 32.789383,
+  	"long": -96.801756,
+    "firstName": "Mike",
+    "lastName": "Stroud",
+    "email": "mikestroud@ratatat.com",
+	"race": "Asian",
+	"location": "Klyde Warren Park",
+	"why": "Bacon ipsum dolor amet bresaola fatback rump filet mignon, kielbasa pork chop tongue sirloin jerky ground round shoulder. Rump ball tip leberkas, meatball pork belly beef biltong chuck prosciutto corned beef drumstick pork chop ground round cupim pastrami. Tri-tip shankle pork belly porchetta pork shoulder, short loin cow bresaola. Short ribs ball tip shank pork chop bresaola.",
+	"learnMore": "maps.google.com"
+  },
+  {
+	"lat": 32.683268,
+	"long": -96.852476,
+    "firstName": "Nic",
+    "lastName": "Cage",
+    "email": "thenickelbackofactors@sad.com",
+	"race": "Black or African Am.",
+	"location": "Bahama Beach Waterpark",
+	"why": "Protect, refugee gun control countries human potential education. UNICEF Gandhi resolve scalable sanitation; meaningful work reduce child mortality lasting change. International, youth maintain Rockefeller worldwide; Global South; open source forward-thinking Bono. Educate complexity institutions UNHCR engage facilitate respect. Volunteer, outcomes, action pathway to a better life Kickstarter amplify. Many voices advocate, enabler catalyst tackling new approaches solve plumpy'nut policymakers. Global organization citizenry NGO, poverty combat malaria assistance. Nonprofit social impact, expanding community ownership opportunity connect fluctuation political nutrition. Legitimize inspiration dedicated policy readiness recognize potential. Prevention crisis management agency, humanitarian capacity building donation Rosa Parks natural resources. Carbon emissions reductions.",
+	"learnMore": ""
+  },
+  {
+	"lat": 32.782417,
+	"long": -96.787649,
+    "firstName": "Kristi",
+    "lastName": "Walker",
+    "email": "kwalker@dallasnews.com",
+	"race": "Other",
+	"location": "Deep Ellum Dog Park",
+	"why": "Jujubes jelly-o marshmallow marzipan gummi bears toffee. Liquorice dragée croissant apple pie tiramisu ice cream chocolate cake sesame snaps. Chocolate cake cake croissant gummies.",
+	"learnMore": "you know where to look"
+  }
+]

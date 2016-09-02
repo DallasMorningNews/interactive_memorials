@@ -39,6 +39,21 @@
 <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v1.3.0/mapbox-gl-geocoder.css' type='text/css' />
 <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css' type='text/css' />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+<script type="text/javascript" src="js/geojson.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.15.0/lodash.min.js"></script>
+
+{%raw%}
+
+<script id="submission" type="text/x-handlebars-template">
+    <div class="col-xs-12 submission-pv" data-race="{{race}}">
+      <h1>{{firstName}} {{lastName}}</h1>
+      <p>{{why}}</p>
+    </div>
+
+</script>
+
+{%endraw%}
 {%endblock%}
 
 
@@ -138,6 +153,19 @@ googletag.enableServices();
             <div class="col-xs-12 col-sm-8 map-wrapper no-pad">
                 <div id="map"></div>
 
+                <div id="filter" class="btn-group">
+                  <a href="#" class="btn btn-default">Race/Ethnicity</a>
+                  <a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a>Black or African Am.</a></li>
+                    <li><a>Asian</a></li>
+                    <li><a>Hispanic or Latino</a></li>
+                    <li><a>Am. Indian or Alaskan Native</a></li>
+                    <li><a>Native Hawaiian or other Pacitif Isl.</a></li>
+                    <li><a>Other</a></li>
+                  </ul>
+                </div>
+
                 <h1>Add a pin</h1>
                 <button id="see-form"><span><i class="fa fa-map-marker" aria-hidden="true"></i></span></button>
             </div> <!-- end map wrapper -->
@@ -212,13 +240,8 @@ googletag.enableServices();
                         </div> <!-- end submission-nav row -->
                     </div> <!-- end submission-nav -->
 
-                    <div class="submissions no-pad col-xs-12">
-                        <div class="col-xs-12 submission-pv">
-                            <h1>Location Name Here</h1>
-                            <h2>Firstname Lastname</h2>
-                            <p>Gomukhasana vimanasana crab pose big toe pose a thin, round flat bread. arjuna and his five brothers, the heroes of the mahabharata. chandra goddess of truth. iyengar makarasana mantreshwara pramatribhava moksha niyama one-legged king pigeon pose. practice of contracting the anal sphincter. purpose of the consciousness, of man's existence- the four basic needs or desires, arth, kaama, dharma, moksha. represents a mantra in meditation; literally means, 'i am that'. represents the psychic sound with the sound 'so' during inhalation and 'ham' during exhalation. sage koundinya i pose. samsara twisting cobra pose. super hippies close your eyes. if you can still see me, it could be a sign that your eyes are still open.</p>
-                        </div>
-                    </div> <!-- end submissions -->
+                    <div class="submissions no-pad col-xs-12"></div> <!-- end submissions -->
+
                 </div> <!-- emd submission-panel -->
 
             </div> <!-- end right panel -->

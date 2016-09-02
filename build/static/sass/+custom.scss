@@ -94,6 +94,22 @@ MAP
 	}
 }
 
+#filter {
+	position: absolute;
+	top: 35px;
+	right: 70px;
+
+	@media only screen and (max-width: 678px) {
+		top: 60px;
+		left: 10px;
+	}
+}
+
+.dropdown-menu {
+	right: 0;
+	left: auto;
+}
+
 #see-form {
 	position: absolute;
 	display: block;
@@ -145,8 +161,8 @@ FORM
 	width: 100%;
 	height: 100%;
 	background: lighten($chartGray, 15%);
-	top: 110%;
 	overflow-y: auto;
+	padding-bottom: 20px;
 
 	h1 {
 		font-size: 2.4rem;
@@ -166,7 +182,7 @@ FORM
 
 		@media only screen and (max-width: 678px) {
  			position: relative;
-			height: 100rem;
+			// height: 100rem;
 			overflow-y: hidden;
 		}
 	}
@@ -191,7 +207,6 @@ form.submission-form {
 }
 
 .form-horizontal {
-	position: absolute;
 	left: 0;
 	right: 0;
 	margin-left: auto;
@@ -271,6 +286,7 @@ RIGHT PANEL
 	border-left: 0.5rem white solid;
 	background-color: lighten($chartGray, 15%);
 	height: 80vh;
+	overflow-y: auto;
 
 	@media only screen and (max-width: 678px) {
 		border-left: none;
@@ -341,11 +357,6 @@ RIGHT PANEL
 		@extend .header1;
 		padding-top: 1rem;
 		line-height: 1.8rem;
-		margin-bottom: 0.5rem;
-	}
-	h2 {
-		font-size: 1.4rem;
-		line-height: 1.6rem;
 		margin-bottom: 2rem;
 	}
 	p {

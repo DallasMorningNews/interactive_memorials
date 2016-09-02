@@ -987,6 +987,19 @@ MAP
       border-left: none;
       height: 40rem; } }
 
+#filter {
+  position: absolute;
+  top: 35px;
+  right: 70px; }
+  @media only screen and (max-width: 678px) {
+    #filter {
+      top: 60px;
+      left: 10px; } }
+
+.dropdown-menu {
+  right: 0;
+  left: auto; }
+
 #see-form {
   position: absolute;
   display: block;
@@ -1029,8 +1042,8 @@ FORM
   width: 100%;
   height: 100%;
   background: #efefef;
-  top: 110%;
-  overflow-y: auto; }
+  overflow-y: auto;
+  padding-bottom: 20px; }
   #form-wrapper h1 {
     font-size: 2.4rem;
     line-height: 2.7rem;
@@ -1047,7 +1060,6 @@ FORM
     @media only screen and (max-width: 678px) {
       #form-wrapper.visible {
         position: relative;
-        height: 100rem;
         overflow-y: hidden; } }
 
 form.submission-form {
@@ -1068,7 +1080,6 @@ form.submission-form {
   text-align: left; }
 
 .form-horizontal {
-  position: absolute;
   left: 0;
   right: 0;
   margin-left: auto;
@@ -1124,7 +1135,8 @@ RIGHT PANEL
 .right-panel {
   border-left: 0.5rem white solid;
   background-color: #efefef;
-  height: 80vh; }
+  height: 80vh;
+  overflow-y: auto; }
   @media only screen and (max-width: 678px) {
     .right-panel {
       border-left: none;
@@ -1185,10 +1197,6 @@ RIGHT PANEL
   .submission-pv h1 {
     padding-top: 1rem;
     line-height: 1.8rem;
-    margin-bottom: 0.5rem; }
-  .submission-pv h2 {
-    font-size: 1.4rem;
-    line-height: 1.6rem;
     margin-bottom: 2rem; }
   .submission-pv p {
     margin-top: -0.7rem;
