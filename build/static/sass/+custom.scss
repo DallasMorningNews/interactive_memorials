@@ -66,6 +66,7 @@ MAP
 .map-wrapper {
 	position: relative;
 	overflow: hidden;
+	height: 80vh;
 	padding-bottom: .5rem;
 
 	h1 {
@@ -86,8 +87,11 @@ MAP
 }
 
 #map {
+	position: absolute;
+	top: 0;
+	bottom: 0;
 	width: 100%;
-	height: 80vh;
+	// height: 80vh;
 
 	@media only screen and (max-width: 678px) {
 		border-left: none;
@@ -294,10 +298,11 @@ RIGHT PANEL
 }
 
 .submission-nav {
-	height: 10rem;
+	height: 100px;
 	background-color: $chartYellow;
 	text-align: center;
 	position: relative;
+
 
 	h1 {
 		font-size: 2.6rem;
@@ -340,6 +345,7 @@ RIGHT PANEL
 
 
 .submissions{
+	height: calc(80vh - 100px);
 	overflow-y: auto;
 	background-color: lighten($chartGray, 15%);
 	-webkit-box-shadow: inset 0px 4px 7px -2px rgba(79,79,79,.6);

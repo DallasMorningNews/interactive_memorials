@@ -965,6 +965,7 @@ MAP
 .map-wrapper {
   position: relative;
   overflow: hidden;
+  height: 80vh;
   padding-bottom: .5rem; }
   .map-wrapper h1 {
     font-size: 1.6rem;
@@ -981,8 +982,10 @@ MAP
         right: 10.5rem; } }
 
 #map {
-  width: 100%;
-  height: 80vh; }
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%; }
   @media only screen and (max-width: 678px) {
     #map {
       border-left: none;
@@ -1142,7 +1145,7 @@ RIGHT PANEL
       height: 100%; } }
 
 .submission-nav {
-  height: 10rem;
+  height: 100px;
   background-color: #fec44f;
   text-align: center;
   position: relative; }
@@ -1178,6 +1181,7 @@ RIGHT PANEL
     right: 1rem; }
 
 .submissions {
+  height: calc(80vh - 100px);
   overflow-y: auto;
   background-color: #efefef;
   -webkit-box-shadow: inset 0px 4px 7px -2px rgba(79, 79, 79, 0.6);

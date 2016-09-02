@@ -152,11 +152,13 @@ $(document).ready(function() {
 						});
 					}
 
+				var test = [-96.88511621093734, 32.94312368618192];
+
 				// Get location on click
 					map.on('click', function (e) {
-						JSON.stringify(e.lngLat);
-
-					clickLocation = e.lngLat;
+						clickLocation = e.lngLat;
+						var coord = [clickLocation.lng, clickLocation.lat];
+						console.log(clickLocation);
 
 					// When a click event occurs near a place, open a popup at the location of
 					// the feature, with description HTML from its properties.
@@ -171,17 +173,38 @@ $(document).ready(function() {
 					    // Populate the popup and set its coordinates
 					    // based on the feature found.
 
-						var div = document.createElement('div');
-						div.innerHTML = 'Hello, world!';
-						var popup = new mapboxgl.Popup()
-						  .setLngLat(e.lngLat)
-						  .setDOMContent(div)
-						  .addTo(map);
-					    // var popup = new mapboxgl.Popup()
-					    //     .setLngLat(clickLocation)
-					    //     .setHTML("Hello")
-					    //     .addTo(map);
+						// var div = document.createElement('div');
+						// div.innerHTML = 'Hello, world!';
+						// var popup = new mapboxgl.Popup()
+						//   .setLngLat(e.lngLat)
+						//   .setDOMContent(div)
+						//   .addTo(map);
+
+
+
+					    var popup = new mapboxgl.Popup()
+					        .setLngLat(test)
+					        .setHTML("Hello")
+					        .addTo(map);
 					});
+
+					map.on('click', function (e) {
+					    var features = map.queryRenderedFeatures(e.point, { layers: ['memorialSubmissions'] });
+
+					    if (!features.length) {
+					        return;
+					    }
+
+					    var feature = features[0];
+
+					    // Populate the popup and set its coordinates
+					    // based on the feature found.
+					    var popup = new mapboxgl.Popup()
+					        .setLngLat(feature.geometry.coordinates)
+					        .setHTML("work pls")
+					        .addTo(map);
+					});
+
 
 	// injecting current year into footer
 	// DO NOT DELETE
