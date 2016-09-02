@@ -2,13 +2,32 @@ $(document).ready(function() {
 
 	//custom scripting goes here
 
-
 	// mapbox gl code
+
+	// mapboxgl.util.getJSON('http://maps.dallasnews.com/styles.json', function(req, styles) {
+	//   styles.layers = styles.layers.map(function(layer) {
+	//     if(layer.id === 'building') {
+	//       layer.paint['fill-color'] = 'red';
+	//     }
+	//     else if(layer.id === 'waterway' || layer.id === 'waterway_stream') {
+	//       layer.paint['line-color'] = '#2B93B5';
+	//     }
+	//     else if(layer.id === 'water') {
+	//       layer.paint['fill-color'] = '#2B93B5';
+	//     }
+	// 	else if(layer.id === 'landuse_park') {
+	//       layer.paint['fill-color'] = 'green';
+	//     }
+	//     return layer;
+	//   });
+	//
+    // });
+
 	var map = new mapboxgl.Map({
-	  container: 'map', // the #id of your map
-	  center: [-96.9785, 32.8924], // just like Leaflet, where the map should center on load
-	  zoom: 9, // just like Leaflet, the map's default zoom level
-	  style: 'http://maps.dallasnews.com/styles.json' // <= this tells Mapbox GL to use our vector tiles
+		container: 'map', // the #id of your map
+		center: [-96.9785, 32.8924], // just like Leaflet, where the map should center on load
+		zoom: 9, // just like Leaflet, the map's default zoom level
+		style: 'http://maps.dallasnews.com/styles.json' // <= this tells Mapbox GL to use our vector tiles
 	});
 
 	map.scrollZoom.disable();
@@ -18,22 +37,16 @@ $(document).ready(function() {
 
 
 
-	// submissions nav code
+	// Shows/hides submission form
 
-	$('#add-minus').click(function() {
-		$('#form-wrapper').removeClass('hide');
+	$("#see-form").click(function() {
+		$("#form-wrapper").addClass("visible");
+		$('#see-form').hide();
 	});
 
-	$("#see-responses").click(function(e) {
-	        e.preventDefault();
-	        if ($(this).hasClass("expanded") === true) {
-	            $(this).children("span").text("+");
-	            $("#form-wrapper").removeClass("visible");
-	        } else {
-	            $(this).children("span").text("-");
-				$("#form-wrapper").addClass("visible");
-	        }
-	        $(this).toggleClass("expanded");
+	$('.close').click(function() {
+		$('#form-wrapper').removeClass('visible');
+		$('#see-form').show();
 	});
 
 	// injecting current year into footer

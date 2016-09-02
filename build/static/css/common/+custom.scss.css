@@ -1,128 +1,128 @@
-@charset "UTF-8";
+/***
+TABLE OF CONTENTS
+
+MAP - All content in left panel (map + add pin button)
+FORM - Form content (hidden until pin button is pressed)
+RIGHT PANNEL - All content in right panel (excludes form)
+***/
+body {
+  color: #323232; }
+
 div, button {
-  -webkit-transition-duration: 0.5s;
+  -webkit-transition-duration: 0.6s;
   /* Safari */
-  transition-duration: 0.5s; }
+  transition-duration: 0.6s; }
 
 .header1, .form-horizontal .control-label, .form-horizontal .help-block, .submission-pv h1 {
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   line-height: 0.1rem;
   font-weight: bold; }
-
-.contentWell {
-  max-width: 100%;
-  width: 100%; }
 
 .no-pad {
   padding-left: 0rem !important;
   padding-right: 0rem !important; }
 
-#map {
-  width: 100%;
-  height: 70rem; }
+.tool-wrapper {
+  font-family: "Gotham A", "Gotham B", Arial, sans-serif;
+  height: 80vh; }
 
+.relative {
+  position: relative;
+  height: 10rem; }
+
+/***************************
+****************************
+MAP
+****************************
+***************************/
 .map-wrapper {
   position: relative;
   overflow: hidden;
   padding-bottom: .5rem; }
+  .map-wrapper h1 {
+    font-size: 1.6rem;
+    font-weight: bold;
+    position: absolute;
+    z-index: 1000;
+    bottom: 25px;
+    right: 130px;
+    text-transform: uppercase;
+    cursor: pointer; }
+    @media only screen and (max-width: 678px) {
+      .map-wrapper h1 {
+        bottom: 0.5rem;
+        right: 10.5rem; } }
 
-.show {
-  display: block; }
+#map {
+  width: 100%;
+  height: 80vh; }
+  @media only screen and (max-width: 678px) {
+    #map {
+      border-left: none;
+      height: 40rem; } }
 
-#see-responses {
-  position: relative;
+#see-form {
+  position: absolute;
   display: block;
   z-index: 2000;
-  width: 10rem;
-  height: 10rem;
+  bottom: 40px;
+  right: 40px;
+  width: 7rem;
+  height: 7rem;
   margin: 0 auto;
   border-radius: 50%;
   border: none;
   margin-top: -5rem;
   background-color: white;
-  box-shadow: 2px 2px 3px rgba(33, 33, 33, 0.25), -2px -2px 3px rgba(33, 33, 33, 0.25), 2px -2px 3px rgba(33, 33, 33, 0.25), -2px 2px 3px rgba(33, 33, 33, 0.25);
-  font-size: 6rem;
-  background-color: white;
-  color: #fec44f;
+  box-shadow: 2px 2px 0.5px rgba(33, 33, 33, 0.25), -2px -2px 3px rgba(33, 33, 33, 0.25), 2px -2px 3px rgba(33, 33, 33, 0.25), -2px 2px 3px rgba(33, 33, 33, 0.25);
+  font-size: 4rem;
+  background-color: #fec44f;
+  color: #444;
   outline: none; }
-  #see-responses:hover {
-    color: #444;
-    background-color: #fec44f; }
+  #see-form:hover {
+    color: #fec44f;
+    background-color: white; }
+  @media only screen and (max-width: 678px) {
+    #see-form {
+      border-left: none;
+      width: 5rem;
+      height: 5rem;
+      font-size: 4rem;
+      margin-bottom: 20px;
+      bottom: 10px; } }
 
-#full-submission {
-  position: absolute;
-  width: 100%;
-  min-height: 200px;
-  background: rgba(255, 255, 255, 0.8);
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: 0 auto;
-  padding: 2rem 3rem;
-  -webkit-box-shadow: 0px 4px 7px -2px rgba(79, 79, 79, 0.6);
-  -moz-box-shadow: 0px 4px 7px -2px rgba(79, 79, 79, 0.6);
-  box-shadow: 0px 4px 7px -2px rgba(79, 79, 79, 0.6);
-  padding-bottom: 12rem; }
-  #full-submission #full-submission-text {
-    max-width: 90rem;
-    margin-left: auto;
-    margin-right: auto; }
-    #full-submission #full-submission-text h1 {
-      font-size: 3rem;
-      font-weight: bold;
-      line-height: 3.2rem;
-      margin-bottom: 0.8rem; }
-    #full-submission #full-submission-text h2 {
-      font-size: 2rem;
-      line-height: 2.4rem; }
-    #full-submission #full-submission-text p {
-      font-size: 1.4rem;
-      line-height: 1.9rem;
-      padding-left: 3rem;
-      border-left: 1px #ccc solid; }
-      @media only screen and (max-width: 768px) {
-        #full-submission #full-submission-text p {
-          border-left: none; } }
-      @media only screen and (max-width: 768px) {
-        #full-submission #full-submission-text p {
-          padding-left: 0; } }
-      #full-submission #full-submission-text p::before {
-        content: "“";
-        display: block;
-        width: 20px;
-        height: 20px;
-        position: absolute;
-        top: 50%;
-        -ms-transform: translateY(-50%);
-        /* IE 9 */
-        -webkit-transform: translateY(-50%);
-        /* Chrome, Safari, Opera */
-        transform: translateY(-50%);
-        font-size: 16px;
-        line-height: 30px;
-        margin-bottom: 0;
-        font-weight: bold;
-        background-color: #fec44f;
-        border-radius: 50%;
-        text-align: center;
-        color: white;
-        font-family: Merriweather, Georgia, serif;
-        left: 6px; }
-
-textarea {
-  resize: none; }
-
+/***************************
+****************************
+FORM
+****************************
+***************************/
 #form-wrapper {
   position: absolute;
+  display: none;
   z-index: 1000;
-  height: 70rem;
   width: 100%;
-  background: #f2f2f2;
-  top: 110%; }
+  height: 100%;
+  background: #efefef;
+  top: 110%;
+  overflow-y: auto; }
   #form-wrapper h1 {
-    font-size: 2rem; }
+    font-size: 2.4rem;
+    line-height: 2.7rem;
+    font-weight: bold;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    max-width: 80rem;
+    padding-top: 3rem;
+    margin-bottom: 2.4rem; }
   #form-wrapper.visible {
-    top: 0; }
+    top: 0;
+    display: block; }
+    @media only screen and (max-width: 678px) {
+      #form-wrapper.visible {
+        position: relative;
+        height: 100rem;
+        overflow-y: hidden; } }
 
 form.submission-form {
   position: absolute;
@@ -143,21 +143,20 @@ form.submission-form {
 
 .form-horizontal {
   position: absolute;
-  top: 50%;
-  -ms-transform: translateY(-50%);
-  /* IE 9 */
-  -webkit-transform: translateY(-50%);
-  /* Chrome, Safari, Opera */
-  transform: translateY(-50%);
   left: 0;
   right: 0;
   margin-left: auto;
   margin-right: auto;
   max-width: 80rem;
-  width: 80rem; }
+  width: 90%; }
   .form-horizontal .control-label {
     text-align: left;
-    line-height: normal; }
+    line-height: normal;
+    font-size: 1.5rem; }
+    @media only screen and (max-width: 678px) {
+      .form-horizontal .control-label {
+        font-size: 1.3rem;
+        line-height: 1.5rem; } }
   .form-horizontal .form-control:focus {
     box-shadow: inset 0 -2px 0 #fec44f; }
   .form-horizontal .form-group {
@@ -169,42 +168,41 @@ form.submission-form {
   .form-horizontal .btn {
     color: #444444;
     font-weight: bold;
-    outline: none; }
+    outline: none;
+    margin-top: 1.2rem; }
     .form-horizontal .btn:hover {
       background-color: #fec44f; }
 
-.submission-panel {
-  height: 40rem;
-  border-left: 0.5rem white solid; }
+textarea {
+  resize: none; }
 
-.submissions {
-  height: 60rem;
-  overflow-y: scroll;
+button.close {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  outline: none;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  background-color: white;
+  box-shadow: 2px 2px 1px rgba(33, 33, 33, 0.2), -2px -2px 1px rgba(33, 33, 33, 0.2), 2px -2px 1px rgba(33, 33, 33, 0.2), -2px 2px 1px rgba(33, 33, 33, 0.2);
+  font-size: 2.5rem; }
+  button.close:hover {
+    background-color: #fec44f; }
+
+/***************************
+****************************
+RIGHT PANEL
+****************************
+***************************/
+.right-panel {
+  border-left: 0.5rem white solid;
   background-color: #efefef;
-  -webkit-box-shadow: inset 0px 4px 7px -2px rgba(79, 79, 79, 0.6);
-  -moz-box-shadow: inset 0px 4px 7px -2px rgba(79, 79, 79, 0.6);
-  box-shadow: inset 0px 4px 7px -2px rgba(79, 79, 79, 0.6); }
-
-.submission-pv {
-  height: 10rem;
-  border-bottom: 0.1rem #ccc solid;
-  padding-left: 2rem;
-  cursor: pointer;
-  padding-top: 2rem;
-  padding-bottom: 2rem; }
-  .submission-pv h2 {
-    font-size: 1.4rem;
-    line-height: 1.2rem; }
-  .submission-pv p {
-    margin-top: -0.7rem;
-    font-size: 1.1rem;
-    line-height: 1.5rem; }
-  .submission-pv:hover {
-    background-color: #fede9b; }
-
-.relative {
-  position: relative;
-  height: 10rem; }
+  height: 80vh; }
+  @media only screen and (max-width: 678px) {
+    .right-panel {
+      border-left: none;
+      height: 100%; } }
 
 .submission-nav {
   height: 10rem;
@@ -212,9 +210,9 @@ form.submission-form {
   text-align: center;
   position: relative; }
   .submission-nav h1 {
-    font-size: 1.9rem;
+    font-size: 2.6rem;
+    line-height: 3.6;
     font-weight: bold;
-    text-transform: uppercase;
     position: absolute;
     left: 0;
     right: 0;
@@ -229,7 +227,7 @@ form.submission-form {
 .sub-btn {
   cursor: pointer; }
   .sub-btn:hover {
-    background-color: #fed582; }
+    background-color: #feb31c; }
 
 .fa-chevron-left, .fa-chevron-right {
   position: absolute;
@@ -245,3 +243,28 @@ form.submission-form {
 
 .fa-chevron-right {
   right: 1rem; }
+
+.submissions {
+  overflow-y: auto;
+  background-color: #efefef;
+  -webkit-box-shadow: inset 0px 4px 7px -2px rgba(79, 79, 79, 0.6);
+  -moz-box-shadow: inset 0px 4px 7px -2px rgba(79, 79, 79, 0.6);
+  box-shadow: inset 0px 4px 7px -2px rgba(79, 79, 79, 0.6); }
+
+.submission-pv {
+  border-bottom: 0.1rem #ccc solid;
+  padding-left: 2rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem; }
+  .submission-pv h1 {
+    padding-top: 1rem;
+    line-height: 1.8rem;
+    margin-bottom: 0.5rem; }
+  .submission-pv h2 {
+    font-size: 1.4rem;
+    line-height: 1.6rem;
+    margin-bottom: 2rem; }
+  .submission-pv p {
+    margin-top: -0.7rem;
+    font-size: 1.3rem;
+    line-height: 1.8rem; }
