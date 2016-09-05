@@ -4,7 +4,7 @@ $(document).ready(function() {
 
 
 		// Shows/hides submission form
-			$("#see-form, .map-wrapper h1").click(function() {
+			$(".yes-btn #see-form, .map-wrapper h1").click(function() {
 				$("#form-wrapper").addClass("visible");
 				$('#see-form, .map-wrapper h1').hide();
 			});
@@ -152,35 +152,10 @@ $(document).ready(function() {
 						});
 					}
 
-
-					// map.on('click', function (e) {
-					//
-					//     var clickLocation = e.lnglat;
-					//     var popup;
-					//     var features = map.queryRenderedFeatures(e.point, { layers: ['memorialSubmissions'] });
-					//
-					//     if (!features.length) {
-					//
-					//         popup = new mapboxgl.Popup()
-					//             .setLngLat(clickLocation)
-					//             .setHTML("This location has no submissions. Would you like to add one?")
-					//             .addTo(map);
-					//
-					//     } else {
-					//         var feature = features[0];
-					//
-					//         popup = new mapboxgl.Popup()
-					//             .setLngLat(feature.geometry.coordinates)
-					//             .setHTML("<strong>" + feature.properties.location + "</strong><br> Would you like to add a memorial submission here?")
-					//             .addTo(map);
-					//     }
-					//
-					// });
-
 					map.on('click', function (e) {
                         clickLocation = e.lngLat;
                         var coord = [clickLocation.lng, clickLocation.lat];
-                        console.log(clickLocation);
+						var popupContent = "<p>Would you like to add a memorial submission here?</p><a class='yes-btn btn btn-primary btn-sm'>Yes</a><a class='no-btn btn btn-default btn-sm'>No</a>";
 
                         // setting features equal to all the circles on the map
                         var features = map.queryRenderedFeatures(e.point, { layers: ['memorialSubmissions'] });
@@ -191,7 +166,7 @@ $(document).ready(function() {
                         if (!features.length) {
                             popup = new mapboxgl.Popup()
                                 .setLngLat(coord)
-                                .setHTML("Hello")
+								.setHTML("This location has no submissions. Would you like to add one?")
                                 .addTo(map);
                         }
 
@@ -204,45 +179,12 @@ $(document).ready(function() {
                             // based on the feature found.
                             popup = new mapboxgl.Popup()
                                 .setLngLat(feature.geometry.coordinates)
-								.setHTML("<strong>" + feature.properties.location + "</strong><br> Would you like to add a memorial submission here?")
+								.setHTML("<h5><strong>" + feature.properties.location + "</strong></h5>" + popupContent)
                                 .addTo(map);
                         }
 
                     });
 
-					// map.on('click', function (e) {
-					//
-					// 	var pinCoord;
-					//
-					// 	if (e.lngLat === pinCoord) {
-					// 		clickLocation = pinCoord;
-					// 	} else {
-					// 		clickLocation = e.lngLat;
-					// 	}
-					//
-					// 	var popup1 = new mapboxgl.Popup()
-					// 		.setLngLat(clickLocation)
-					// 		.setHTML("This location has no submissions. Would you like to add one?")
-					// 		.addTo(map);
-					//
-					// 	var features = map.queryRenderedFeatures(e.point, { layers: ['memorialSubmissions'] });
-					//
-					// 	if (!features.length) {
-					// 		return;
-					// 	}
-					//
-					// 	var feature = features[0];
-					//
-					// 	pinCoord = feature.geometry.coordinates;
-					//
-					//
-					// 	popup1.remove();
-					//
-					// 	var popup2 = new mapboxgl.Popup()
-					// 		.setLngLat(clickLocation)
-					// 		.setHTML("<strong>" + feature.properties.location + "</strong><br> Would you like to add a memorial submission here?")
-					// 		.addTo(map);
-					// });
 
 	// injecting current year into footer
 	// DO NOT DELETE

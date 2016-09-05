@@ -1000,6 +1000,30 @@ MAP
       left: 0;
       right: auto; } }
 
+.yes-btn, .no-btn {
+  text-transform: none;
+  margin-top: 1rem;
+  font-weight: bold; }
+
+.no-btn {
+  margin-left: 10px; }
+
+.yes-btn {
+  background-color: #fec44f;
+  color: #444; }
+  .yes-btn:hover, .yes-btn:active, .yes-btn:focus {
+    background-color: #fec44f;
+    color: #444; }
+
+.mapboxgl-popup-content {
+  font-family: "Gotham A", "Gotham B", Arial, sans-serif; }
+  .mapboxgl-popup-content p {
+    font-size: 1.3rem;
+    line-height: 1.6rem; }
+
+.mapboxgl-popup {
+  max-width: 200px; }
+
 #see-form {
   position: absolute;
   display: block;

@@ -111,6 +111,38 @@ MAP
 	}
 }
 
+.yes-btn, .no-btn {
+	text-transform: none;
+	margin-top: 1rem;
+	font-weight: bold;
+}
+
+.no-btn {
+	margin-left: 10px;
+}
+
+.yes-btn {
+	background-color: $chartYellow;
+	color: #444;
+
+	&:hover, &:active, &:focus {
+		background-color: $chartYellow;
+		color: #444;
+	}
+}
+
+.mapboxgl-popup-content {
+	font-family: $sans;
+	p {
+		font-size: 1.3rem;
+		line-height: 1.6rem;
+	}
+}
+
+.mapboxgl-popup {
+	max-width: 200px;
+}
+
 #see-form {
 	position: absolute;
 	display: block;
