@@ -56,10 +56,10 @@ $(document).ready(function() {
 			// adds zoom options
 				map.addControl(new mapboxgl.Navigation());
 			// adds cursor: pointer to map points
-			map.on('mousemove', function (e) {
-			    var features = map.queryRenderedFeatures(e.point, { layers: ['memorialSubmissions'] });
-			    map.getCanvas().style.cursor = (features.length) ? 'pointer' : '';
-			});
+				map.on('mousemove', function (e) {
+				    var features = map.queryRenderedFeatures(e.point, { layers: ['memorialSubmissions'] });
+				    map.getCanvas().style.cursor = (features.length) ? 'pointer' : '';
+				});
 
 		// ADDING DATA TO MAP
 			// creating and compiling the template for our person objects
@@ -79,10 +79,10 @@ $(document).ready(function() {
 				}
 
 				function formatData(data) {
-					// placeholder array for parks mapping data
+					// placeholder array for parks mapfeatureg data
 					var parks = [ ];
 
-					// iterate over our original datra and create a new object to add to our parks mapping array
+					// iterate over our original datra and create a new object to add to our parks mapfeatureg array
 					$.each(data, function(k,v) {
 
 					  var currentSub = {
@@ -96,7 +96,7 @@ $(document).ready(function() {
 					});
 
 
-					// LODASH: go through our new parks mapping data, and filter out any that have a duplicate location
+					// LODASH: go through our new parks mapfeatureg data, and filter out any that have a duplicate location
 					parks = _.uniqBy(parks, "location");
 
 					// iterate over the submissions data again and grab each one's park and race
@@ -104,7 +104,7 @@ $(document).ready(function() {
 					  var currentPark = value.location;
 					  var currentRace = value.race;
 
-					  // then, iterate over the parks mapping data, and find the matching park
+					  // then, iterate over the parks mapfeatureg data, and find the matching park
 					  $.each(parks, function(k,v) {
 					    if (currentPark === v.location) {
 
@@ -136,10 +136,10 @@ $(document).ready(function() {
 				                "source": "memorials",
 				                "type": "circle",
 				                "paint": {
-				                    "circle-radius": 5,
-									// {
-				                    //     stops: [[1, 10], [8, 10], [16, 9]]
-				                    // },
+				                    "circle-radius":
+									{
+				                        stops: [[1, 10], [8, 10], [16, 9]]
+				                    },
 				                    "circle-color": "#FBD44B",
 				                    "circle-opacity": {
 				                        "property": "opacity",
@@ -152,59 +152,68 @@ $(document).ready(function() {
 						});
 					}
 
-				var test = [-96.88511621093734, 32.94312368618192];
-
 				// Get location on click
 					map.on('click', function (e) {
-						clickLocation = e.lngLat;
-						var coord = [clickLocation.lng, clickLocation.lat];
-						console.log(clickLocation);
 
-					// When a click event occurs near a place, open a popup at the location of
-					// the feature, with description HTML from its properties.
-					    // var features = map.queryRenderedFeatures(e.point, { layers: ['places'] });
-						//
-					    // if (!features.length) {
-					    //     return;
-					    // }
-						//
-					    // var feature = features[0];
+						var features = map.queryRenderedFeatures(e.point, { layers: ['memorialSubmissions'] });
 
-					    // Populate the popup and set its coordinates
-					    // based on the feature found.
+						if (!features.length) {
+							return;
+						}
 
-						// var div = document.createElement('div');
-						// div.innerHTML = 'Hello, world!';
-						// var popup = new mapboxgl.Popup()
-						//   .setLngLat(e.lngLat)
-						//   .setDOMContent(div)
-						//   .addTo(map);
+						var feature = features[0];
 
+						if (e.lngLat === feature.geometry.coordinates) {
+							clickLocation = feature.geometry.coordinates;
+						} else {
+							clickLocation = e.lngLat;
+						}
 
-
-					    var popup = new mapboxgl.Popup()
-					        .setLngLat(test)
-					        .setHTML("Hello")
+						var popup2 = new mapboxgl.Popup()
+					        .setLngLat(clickLocation)
+					        .setHTML("<strong>" + feature.properties.location + "</strong><br> Would you like to add a memorial submission here?")
 					        .addTo(map);
+
+					    // var popup1 = new mapboxgl.Popup()
+					    //     .setLngLat(clickLocation)
+					    //     .setHTML("This location has no submissions. Would you like to add one?")
+					    //     .addTo(map);
+
 					});
 
 					map.on('click', function (e) {
-					    var features = map.queryRenderedFeatures(e.point, { layers: ['memorialSubmissions'] });
 
-					    if (!features.length) {
-					        return;
-					    }
+						var pinCoord;
 
-					    var feature = features[0];
+						if (e.lngLat === pinCoord) {
+							clickLocation = pinCoord;
+						} else {
+							clickLocation = e.lngLat;
+						}
 
-					    // Populate the popup and set its coordinates
-					    // based on the feature found.
-					    var popup = new mapboxgl.Popup()
-					        .setLngLat(feature.geometry.coordinates)
-					        .setHTML("work pls")
-					        .addTo(map);
+						var popup1 = new mapboxgl.Popup()
+							.setLngLat(clickLocation)
+							.setHTML("This location has no submissions. Would you like to add one?")
+							.addTo(map);
+
+						var features = map.queryRenderedFeatures(e.point, { layers: ['memorialSubmissions'] });
+
+						if (!features.length) {
+							return;
+						}
+
+						var feature = features[0];
+
+						pinCoord = feature.geometry.coordinates;
+
+
+						popup1.remove();
+
+						var popup2 = new mapboxgl.Popup()
+							.setLngLat(clickLocation)
+							.setHTML("<strong>" + feature.properties.location + "</strong><br> Would you like to add a memorial submission here?")
+							.addTo(map);
 					});
-
 
 	// injecting current year into footer
 	// DO NOT DELETE
