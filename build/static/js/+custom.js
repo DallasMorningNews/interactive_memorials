@@ -2,8 +2,8 @@ $(document).ready(function() {
 
 	//custom scripting goes here
 
-
 		var submissionData;
+		var filteredData = [];
 		var clickLocation;
 		var centerCoord;
 		var coord = [];
@@ -12,6 +12,18 @@ $(document).ready(function() {
 		var geocoder = new mapboxgl.Geocoder({
 			    container: 'geocoder-container' // Optional. Specify a unique container for the control to be added to.
 			});
+
+		//bootstrap dropdown
+
+	    $(".dropdown-menu li a").click(function(){
+
+	      $(".btn:first-child").text($(this).text());
+	      $(".btn:first-child").val($(this).text());
+
+	   });
+
+
+
 
 		// mapbox gl code
 			// mapboxgl.util.getJSON('http://maps.dallasnews.com/styles.json', function(req, styles) {
@@ -63,7 +75,9 @@ $(document).ready(function() {
 				$.getJSON('js/data.json', function(data) {
 					submissionData = data;
 					writeSubmissions(submissionData);
-					formatData(submissionData);
+					map.on('load', function () {
+						formatData(submissionData);
+					});
 				});
 
 				function writeSubmissions(data) {
@@ -73,9 +87,13 @@ $(document).ready(function() {
 					});
 				}
 
+
+
+
 				function formatData(data) {
 					// placeholder array for parks mapfeatureg data
-					var parks = [ ];
+					var parks = [];
+
 
 					// iterate over our original datra and create a new object to add to our parks mapfeatureg array
 					$.each(data, function(k,v) {
@@ -112,13 +130,29 @@ $(document).ready(function() {
 					});
 
 					createMap(parks);
+
+					// $("#black").click(function(){
+					//
+					// 	var filteredParks = [];
+					//
+					// 	if (_.indexOf(v.races, "Black or African Am.") === -1) {
+					// 	  v.races.push(filteredParks);
+					// 	}
+					//
+					// 	map.removeLayer(memorialSubmissions);
+					// 	createMap(filteredParks);
+					//
+					//
+					// });
 				}
+
+
 
 				// Map points customization
 					function createMap(data) {
 						data = GeoJSON.parse(data, {Point: ['lat', 'long'], include: ['race', 'location']});
+						console.log(data);
 
-						map.on('load', function () {
 							// adding the data source
 				            map.addSource("memorials", {
 				                type: "geojson",
@@ -145,18 +179,6 @@ $(document).ready(function() {
 				                }
 				            });
 
-							map.addLayer({
-							        "id": "route-hover",
-							        "type": "fill",
-							        "source": "memorials",
-							        "layout": {},
-							        "paint": {
-							            "fill-color": "#627BC1",
-							            "fill-opacity": 1
-							        },
-							        "filter": ["==", "name", ""]
-							    });
-						});
 					}
 
 					map.on('click', function (e) {
@@ -254,6 +276,40 @@ $(document).ready(function() {
 							$('#form-wrapper').removeClass('visible');
 							$('#see-form, .map-wrapper h1').show();
 						});
+
+					// Getting the value of the dropdown
+						$('.dropdown-menu li').click(function() {
+							var race = $(this).attr("data-race");
+							filteringData(race);
+						});
+
+					// Formatting the filteredData
+					function filteringData(race) {
+						if (race !== "all") {
+							filteredData = [];
+							$.each(submissionData, function(k,v) {
+								if (v.race === race) {
+									filteredData.push(v);
+								}
+							});
+							console.log(filteredData);
+
+							clearMap();
+							formatData(filteredData);
+						} else {
+							clearMap();
+							formatData(submissionData);
+						}
+					}
+
+					// Clears the map of markers
+					function clearMap() {
+						console.log("Test");
+						map.off("click");
+						map.off("mousemove");
+						map.removeSource("memorials");
+						map.removeLayer("memorialSubmissions");
+					}
 
 
 
