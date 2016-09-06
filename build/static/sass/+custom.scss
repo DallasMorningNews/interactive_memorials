@@ -111,7 +111,7 @@ MAP
 	}
 }
 
-.yes-btn, .no-btn {
+.yes-btn-nocir, .yes-btn-cir, .no-btn {
 	text-transform: none;
 	margin-top: 1rem;
 	font-weight: bold;
@@ -121,18 +121,24 @@ MAP
 	margin-left: 10px;
 }
 
-.yes-btn {
+.yes-btn-nocir, .yes-btn-cir {
 	background-color: $chartYellow;
 	color: #444;
 
 	&:hover, &:active, &:focus {
-		background-color: $chartYellow;
-		color: #444;
+		background-color: $chartYellow !important;
+		background-image: none;
+		color: #444 !important;
 	}
 }
 
+
+
 .mapboxgl-popup-content {
 	font-family: $sans;
+	h5 {
+		font-weight: bold;
+	}
 	p {
 		font-size: 1.3rem;
 		line-height: 1.6rem;
@@ -140,7 +146,19 @@ MAP
 }
 
 .mapboxgl-popup {
-	max-width: 200px;
+	max-width: 220px;
+}
+
+#geocoder-container {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    margin-top: 10px;
+}
+
+#geocoder-container > div {
+    min-width:50%;
+    margin-left:25%;
 }
 
 #see-form {
@@ -207,6 +225,10 @@ FORM
 		max-width: 80rem;
 		padding-top: 3rem;
 		margin-bottom: 2.4rem;
+	}
+
+	textarea, select {
+		color: #444;
 	}
 
 	&.visible {
@@ -285,7 +307,7 @@ form.submission-form {
 }
 
 textarea {
-    resize: none;
+    resize: vertical;
 }
 
 button.close {

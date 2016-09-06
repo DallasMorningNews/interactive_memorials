@@ -3,20 +3,15 @@ $(document).ready(function() {
 	//custom scripting goes here
 
 
-		// Shows/hides submission form
-			$(".yes-btn #see-form, .map-wrapper h1").click(function() {
-				$("#form-wrapper").addClass("visible");
-				$('#see-form, .map-wrapper h1').hide();
-			});
-
-			$('.close').click(function() {
-				$('#form-wrapper').removeClass('visible');
-				$('#see-form, .map-wrapper h1').show();
-			});
-
-
 		var submissionData;
 		var clickLocation;
+		var centerCoord;
+		var coord = [];
+		var popupContentCir = "<p>Would you like to add a memorial suggestion here?</p><a class='yes-btn-cir btn btn-primary btn-sm'>Yes</a><a class='no-btn btn btn-default btn-sm'>No</a>";
+		var popupContentNoCir = "<p>Would you like to add a memorial suggestion here?</p><a class='yes-btn-nocir btn btn-primary btn-sm'>Yes</a><a class='no-btn btn btn-default btn-sm'>No</a>";
+		var geocoder = new mapboxgl.Geocoder({
+			    container: 'geocoder-container' // Optional. Specify a unique container for the control to be added to.
+			});
 
 		// mapbox gl code
 			// mapboxgl.util.getJSON('http://maps.dallasnews.com/styles.json', function(req, styles) {
@@ -51,7 +46,7 @@ $(document).ready(function() {
 			// disables zoom
 				map.scrollZoom.disable();
 			// add search bar
-				map.addControl(new mapboxgl.Geocoder());
+				map.addControl(geocoder);
 				mapboxgl.accessToken = 'pk.eyJ1IjoibWFjbWFuIiwiYSI6ImVEbmNmZjAifQ.zVzy9cyjNT1tMYOTex51HQ';
 			// adds zoom options
 				map.addControl(new mapboxgl.Navigation());
@@ -149,13 +144,24 @@ $(document).ready(function() {
 				                    }
 				                }
 				            });
+
+							map.addLayer({
+							        "id": "route-hover",
+							        "type": "fill",
+							        "source": "memorials",
+							        "layout": {},
+							        "paint": {
+							            "fill-color": "#627BC1",
+							            "fill-opacity": 1
+							        },
+							        "filter": ["==", "name", ""]
+							    });
 						});
 					}
 
 					map.on('click', function (e) {
                         clickLocation = e.lngLat;
-                        var coord = [clickLocation.lng, clickLocation.lat];
-						var popupContent = "<p>Would you like to add a memorial submission here?</p><a class='yes-btn btn btn-primary btn-sm'>Yes</a><a class='no-btn btn btn-default btn-sm'>No</a>";
+                        coord = [clickLocation.lng, clickLocation.lat];
 
                         // setting features equal to all the circles on the map
                         var features = map.queryRenderedFeatures(e.point, { layers: ['memorialSubmissions'] });
@@ -163,11 +169,13 @@ $(document).ready(function() {
                         var popup;
                         // checking to see if the click was on one of the circles.
                         // if it's not, do all the code inside this if statement
+
                         if (!features.length) {
                             popup = new mapboxgl.Popup()
                                 .setLngLat(coord)
-								.setHTML("This location has no submissions. Would you like to add one?")
+								.setHTML("<h5>" + popupContentNoCir + "</h5>")
                                 .addTo(map);
+								map.flyTo({center: coord});
                         }
 
                         // else, if the click is on the circle, do all the code
@@ -179,11 +187,74 @@ $(document).ready(function() {
                             // based on the feature found.
                             popup = new mapboxgl.Popup()
                                 .setLngLat(feature.geometry.coordinates)
-								.setHTML("<h5><strong>" + feature.properties.location + "</strong></h5>" + popupContent)
+								.setHTML("<h5>" + feature.properties.location + "</h5>" + popupContentCir)
                                 .addTo(map);
                         }
 
+						if (features.length) {
+							// Get coordinates from the symbol and center the map on those coordinates
+							map.flyTo({center: features[0].geometry.coordinates});
+						}
+
+						// Shows/hides submission form and respective buttons
+						// Adds value to textarea
+
+							$('#form-wrapper').removeClass('visible');
+
+							$(".yes-btn-cir").click(function() {
+								$("#form-wrapper").addClass("visible");
+								$('#see-form, .map-wrapper h1').hide();
+								$('.mapboxgl-popup').hide();
+								$('textarea#location-blank').val(feature.properties.location + coord);
+							});
+
+							$(".no-btn").click(function() {
+								$('.mapboxgl-popup').hide();
+								$('#form-wrapper').removeClass('visible');
+								$('textarea#location-blank').val('');
+							});
+
+							$(".yes-btn-nocir").click(function() {
+								$("#form-wrapper").addClass("visible");
+								$('#see-form, .map-wrapper h1').hide();
+								$('.mapboxgl-popup').hide();
+								$('textarea#location-blank').val(coord);
+							});
+
+
                     });
+
+					// Listen for the `geocoder.input` event that is triggered when a user
+				    // makes a selection and add a symbol that matches the result.
+				    geocoder.on('result', function(ev) {
+
+						$('.mapboxgl-popup').hide();
+
+						centerCoord = ev.result.geometry.coordinates;
+                        var coord = [centerCoord[0], centerCoord[1]];
+
+                        var popup;
+
+                        popup = new mapboxgl.Popup()
+							.setLngLat(coord)
+							.setHTML("<h5>" + popupContentNoCir + "</h5>")
+                            .addTo(map);
+							// map.flyTo({center: coord});
+                        // }
+
+				    });
+
+					// Shows/hides submission form and respective buttons
+						$("#see-form, .map-wrapper h1").click(function() {
+							$("#form-wrapper").addClass("visible");
+							$('#see-form, .map-wrapper h1').hide();
+						});
+
+						$('.close').click(function() {
+							$('#form-wrapper').removeClass('visible');
+							$('#see-form, .map-wrapper h1').show();
+						});
+
 
 
 	// injecting current year into footer

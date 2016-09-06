@@ -74,7 +74,7 @@ MAP
       left: 0;
       right: auto; } }
 
-.yes-btn, .no-btn {
+.yes-btn-nocir, .yes-btn-cir, .no-btn {
   text-transform: none;
   margin-top: 1rem;
   font-weight: bold; }
@@ -82,21 +82,34 @@ MAP
 .no-btn {
   margin-left: 10px; }
 
-.yes-btn {
+.yes-btn-nocir, .yes-btn-cir {
   background-color: #fec44f;
   color: #444; }
-  .yes-btn:hover, .yes-btn:active, .yes-btn:focus {
-    background-color: #fec44f;
-    color: #444; }
+  .yes-btn-nocir:hover, .yes-btn-nocir:active, .yes-btn-nocir:focus, .yes-btn-cir:hover, .yes-btn-cir:active, .yes-btn-cir:focus {
+    background-color: #fec44f !important;
+    background-image: none;
+    color: #444 !important; }
 
 .mapboxgl-popup-content {
   font-family: "Gotham A", "Gotham B", Arial, sans-serif; }
+  .mapboxgl-popup-content h5 {
+    font-weight: bold; }
   .mapboxgl-popup-content p {
     font-size: 1.3rem;
     line-height: 1.6rem; }
 
 .mapboxgl-popup {
-  max-width: 200px; }
+  max-width: 220px; }
+
+#geocoder-container {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  margin-top: 10px; }
+
+#geocoder-container > div {
+  min-width: 50%;
+  margin-left: 25%; }
 
 #see-form {
   position: absolute;
@@ -152,6 +165,8 @@ FORM
     max-width: 80rem;
     padding-top: 3rem;
     margin-bottom: 2.4rem; }
+  #form-wrapper textarea, #form-wrapper select {
+    color: #444; }
   #form-wrapper.visible {
     top: 0;
     display: block; }
@@ -209,7 +224,7 @@ form.submission-form {
       background-color: #fec44f; }
 
 textarea {
-  resize: none; }
+  resize: vertical; }
 
 button.close {
   position: absolute;
