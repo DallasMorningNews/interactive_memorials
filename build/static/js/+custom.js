@@ -12,6 +12,9 @@ $(document).ready(function() {
 		var geocoder = new mapboxgl.Geocoder({
 			    container: 'geocoder-container' // Optional. Specify a unique container for the control to be added to.
 			});
+		var counter = 0;
+		var parks = [];
+		var race = "all";
 
 		//bootstrap dropdown
 
@@ -92,7 +95,7 @@ $(document).ready(function() {
 
 				function formatData(data) {
 					// placeholder array for parks mapfeatureg data
-					var parks = [];
+					parks = [];
 
 
 					// iterate over our original datra and create a new object to add to our parks mapfeatureg array
@@ -131,6 +134,12 @@ $(document).ready(function() {
 
 					createMap(parks);
 
+					// adds cursor: pointer to map points
+						map.on('mousemove', function (e) {
+							var features = map.queryRenderedFeatures(e.point, { layers: ['memorialSubmissions'] });
+							map.getCanvas().style.cursor = (features.length) ? 'pointer' : '';
+						});
+
 					// $("#black").click(function(){
 					//
 					// 	var filteredParks = [];
@@ -151,7 +160,6 @@ $(document).ready(function() {
 				// Map points customization
 					function createMap(data) {
 						data = GeoJSON.parse(data, {Point: ['lat', 'long'], include: ['race', 'location']});
-						console.log(data);
 
 							// adding the data source
 				            map.addSource("memorials", {
@@ -279,12 +287,14 @@ $(document).ready(function() {
 
 					// Getting the value of the dropdown
 						$('.dropdown-menu li').click(function() {
-							var race = $(this).attr("data-race");
+							race = $(this).attr("data-race");
 							filteringData(race);
 						});
 
 					// Formatting the filteredData
 					function filteringData(race) {
+						counter = 0;
+
 						if (race !== "all") {
 							filteredData = [];
 							$.each(submissionData, function(k,v) {
@@ -292,24 +302,80 @@ $(document).ready(function() {
 									filteredData.push(v);
 								}
 							});
-							console.log(filteredData);
 
 							clearMap();
 							formatData(filteredData);
+
+							$(".submissions").html("");
+
+							console.log(filteredData);
+							if (filteredData.length === 0) {
+								$(".submission-nav h1").html("No locations");
+							} else {
+								$(".submission-nav h1").html(filteredData[counter].location);
+								writeSubmissions(filteredData);
+								displaySubmissions(filteredData[counter].location);
+							}
+
 						} else {
 							clearMap();
 							formatData(submissionData);
+							$(".submissions").html("");
+							$(".submission-nav h1").html("All locations");
+							writeSubmissions(submissionData);
 						}
 					}
 
 					// Clears the map of markers
 					function clearMap() {
-						console.log("Test");
-						map.off("click");
-						map.off("mousemove");
+						// map.off("click");
+						// map.off("mousemove");
 						map.removeSource("memorials");
 						map.removeLayer("memorialSubmissions");
 					}
+
+					// Displays submissions
+					function displaySubmissions(parkName) {
+						$.each($(".submission-pv"), function() {
+							if ($(this).attr("data-park") === parkName) {
+								$(this).removeClass("no-show");
+							} else {
+								$(this).addClass("no-show");
+							}
+						});
+					}
+
+					// ENTER DESCRIPTION HERE ????
+					function changeParks(thisObj) {
+					    if (thisObj.attr("id") === "sub-btn-prev" && counter > 0) {
+					        counter --;
+							console.log("going back");
+					    } else if (thisObj.attr("id") === "sub-btn-next" && counter < (parks.length - 1)) {
+					        counter ++;
+							console.log("going forward");
+					    }
+						console.log(submissionData, counter);
+						if (race === "all") {
+							$(".submission-nav h1").html(submissionData[counter].location);
+							displaySubmissions(submissionData[counter].location);
+						} else {
+							$(".submission-nav h1").html(filteredData[counter].location);
+							displaySubmissions(filteredData[counter].location);
+						}
+
+					}
+
+					$(".sub-btn").click(function() {
+					    changeParks($(this));
+						console.log(filteredData[counter].location);
+					});
+
+
+					// $(".dropdown-menu li a").click(function(){
+					//
+					// }
+
+
 
 
 

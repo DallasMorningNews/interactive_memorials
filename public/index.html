@@ -84,8 +84,9 @@
 
 
 <script id="submission" type="text/x-handlebars-template">
-    <div class="col-xs-12 submission-pv" data-race="{{race}}">
+    <div id="pv" class="col-xs-12 submission-pv" data-race="{{race}}" data-park="{{location}}">
       <h1>{{firstName}} {{lastName}}</h1>
+      <h2>Memorial category: {{race}}</h2>          
       <p>{{why}}</p>
     </div>
 
@@ -224,11 +225,11 @@ googletag.enableServices();
                   <ul class="dropdown-menu">
                     <li data-race="all"><a>All races/ethnicities</a></li>
                     <li data-race="Black or African Am."><a>Black or African Am.</a></li>
-                    <li data-race=""><a>Asian</a></li>
-                    <li data-race=""><a>Hispanic or Latino</a></li>
-                    <li data-race=""><a>Am. Indian or Alaskan Native</a></li>
-                    <li data-race=""><a>Native Hawaiian or other Pacitif Isl.</a></li>
-                    <li data-race=""><a>Other</a></li>
+                    <li data-race="Asian"><a>Asian</a></li>
+                    <li data-race="Hispanic or Latino"><a>Hispanic or Latino</a></li>
+                    <li data-race="Am. Indian or Alaskan Native"><a>Am. Indian or Alaskan Native</a></li>
+                    <li data-race="Native Hawaiian or other Pacitif Isl."><a>Native Hawaiian or other Pacitif Isl.</a></li>
+                    <li data-race="Other"><a>Other</a></li>
                   </ul>
                 </div>
 
@@ -297,10 +298,10 @@ googletag.enableServices();
                             <div id="sub-btn-prev" class="relative sub-btn col-xs-1">
                                 <i class="fa fa-2x fa-chevron-left" aria-hidden="true"></i>
                             </div>
-                            <div id="sub-btn-next" class="relative col-xs-10">
-                                <h1>Park Name Here</h1>
+                            <div class="park-name relative col-xs-10">
+                                <h1>All submissions</h1>
                             </div>
-                            <div class="relative sub-btn col-xs-1">
+                            <div id="sub-btn-next" class="relative sub-btn col-xs-1">
                                 <i class="fa fa-2x fa-chevron-right" aria-hidden="true"></i>
                             </div>
                         </div> <!-- end submission-nav row -->
