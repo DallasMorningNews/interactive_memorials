@@ -17,6 +17,7 @@ $(document).ready(function() {
 		var race = "all";
 		var customStyles;
 		var circleColor = "#fec44f";
+		var location;
 
 		//bootstrap dropdown
 
@@ -179,17 +180,6 @@ $(document).ready(function() {
 				                        stops: [[1, 10], [8, 10], [16, 9]]
 				                    },
 									'circle-color': circleColor,
-									// {
-									//     property: 'raceKey',
-									//     stops: [
-									//         [0, '#fec44f'],
-									//         [1, '#e34e36'],
-									// 		[2, '#329ce8'],
-									// 		[3, '#52b033'],
-									// 		[4, '#8554bf'],
-									// 		[5, '#ff8f24']
-									//     ]
-									// },
 									"circle-opacity": 0.8
 				                }
 				            });
@@ -226,6 +216,12 @@ $(document).ready(function() {
                                 .setLngLat(feature.geometry.coordinates)
 								.setHTML("<h5>" + feature.properties.location + "</h5>" + popupContentCir)
                                 .addTo(map);
+
+								$(".submissions").html("");
+								$(".submission-nav h1").html(feature.properties.location);
+
+								writeSubmissions(submissionData);
+								displaySubmissions(filteredData.location);
                         }
 
 						if (features.length) {
@@ -257,8 +253,6 @@ $(document).ready(function() {
 								$('.mapboxgl-popup').hide();
 								$('textarea#location-blank').val(coord);
 							});
-
-
                     });
 
 					// Listen for the `geocoder.input` event that is triggered when a user
@@ -358,10 +352,8 @@ $(document).ready(function() {
 					function changeParks(thisObj) {
 					    if (thisObj.attr("id") === "sub-btn-prev" && counter > 0) {
 					        counter --;
-							console.log("going back");
 					    } else if (thisObj.attr("id") === "sub-btn-next" && counter < (parks.length - 1)) {
 					        counter ++;
-							console.log("going forward");
 					    }
 						console.log(submissionData, counter);
 						if (race === "all") {
@@ -377,6 +369,11 @@ $(document).ready(function() {
 					$(".sub-btn").click(function() {
 					    changeParks($(this));
 					});
+
+
+					// $(".dropdown-menu li a").click(function(){
+					//
+					// }
 
 
 
