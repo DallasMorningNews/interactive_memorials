@@ -16,7 +16,6 @@ FORM - Form content (hidden until pin button is pressed)
 RIGHT PANNEL - All content in right panel (excludes form)
 ***/
 
-
 @import 'variables';
 @import 'mixins';
 
@@ -152,13 +151,13 @@ MAP
 #geocoder-container {
     position: absolute;
     top: 0;
-    width: 100%;
+    width: 500px;
     margin-top: 10px;
 }
 
 #geocoder-container > div {
-    min-width:50%;
-    margin-left:25%;
+    min-width: 50%;
+    margin-left: 10px;
 }
 
 #see-form {
@@ -420,23 +419,23 @@ RIGHT PANEL
 		// margin-bottom: 2rem;
 		width: 100%;
 
-		&::before {
-		    display: block;
-		    width: 20px;
-		    height: 20px;
-		    position: absolute;
-		    top: -10px;
-		    font-size: 16px;
-		    line-height: 30px;
-		    margin-bottom: 0;
-		    font-weight: bold;
-		    background-color: #0185d3;
-		    border-radius: 50%;
-		    text-align: center;
-		    color: white;
-		    font-family: Merriweather, Georgia, serif;
-		    left: 20px;
-		}
+		// &::before {
+		//     display: block;
+		//     width: 20px;
+		//     height: 20px;
+		//     position: absolute;
+		//     top: -10px;
+		//     font-size: 16px;
+		//     line-height: 30px;
+		//     margin-bottom: 0;
+		//     font-weight: bold;
+		//     background-color: #0185d3;
+		//     border-radius: 50%;
+		//     text-align: center;
+		//     color: white;
+		//     font-family: Merriweather, Georgia, serif;
+		//     left: 20px;
+		// }
 	}
 	p {
 		margin-top: -0.7rem;

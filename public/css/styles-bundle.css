@@ -1030,12 +1030,12 @@ MAP
 #geocoder-container {
   position: absolute;
   top: 0;
-  width: 100%;
+  width: 500px;
   margin-top: 10px; }
 
 #geocoder-container > div {
   min-width: 50%;
-  margin-left: 25%; }
+  margin-left: 10px; }
 
 #see-form {
   position: absolute;
@@ -1235,22 +1235,6 @@ RIGHT PANEL
     font-size: 1.5rem;
     line-height: 1.7rem;
     width: 100%; }
-    .submission-pv h2::before {
-      display: block;
-      width: 20px;
-      height: 20px;
-      position: absolute;
-      top: -10px;
-      font-size: 16px;
-      line-height: 30px;
-      margin-bottom: 0;
-      font-weight: bold;
-      background-color: #0185d3;
-      border-radius: 50%;
-      text-align: center;
-      color: white;
-      font-family: Merriweather, Georgia, serif;
-      left: 20px; }
   .submission-pv p {
     margin-top: -0.7rem;
     font-size: 1.3rem;
