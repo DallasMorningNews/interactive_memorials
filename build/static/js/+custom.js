@@ -217,12 +217,12 @@ $(document).ready(function() {
 								.setHTML("<h5>" + feature.properties.location + "</h5>" + popupContentCir)
                                 .addTo(map);
 
-								$(".submissions").html("");
+
 								$(".submission-nav h1").html(feature.properties.location);
 
-								writeSubmissions(submissionData);
-								displaySubmissions(filteredData.location);
+							displaySubmissions(feature.properties.location);
                         }
+
 
 						if (features.length) {
 							// Get coordinates from the symbol and center the map on those coordinates
@@ -352,9 +352,22 @@ $(document).ready(function() {
 					function changeParks(thisObj) {
 					    if (thisObj.attr("id") === "sub-btn-prev" && counter > 0) {
 					        counter --;
+							$("#sub-btn-prev").removeClass("unclickable");
 					    } else if (thisObj.attr("id") === "sub-btn-next" && counter < (parks.length - 1)) {
 					        counter ++;
+							$("#sub-btn-next").removeClass("unclickable");
 					    }
+
+						if (thisObj.attr("id") === "sub-btn-prev" && counter <= 0) {
+							$("#sub-btn-prev").addClass("unclickable");
+							$("#sub-btn-next").removeClass("unclickable");
+						} else if (thisObj.attr("id") == "sub-btn-next" && counter >= (parks.length - 1)) {
+							$("#sub-btn-next").addClass("unclickable");
+							$("#sub-btn-prev").removeClass("unclickable");
+						} else {
+							$("#sub-btn-prev").removeClass("unclickable");
+							$("#sub-btn-next").removeClass("unclickable");
+						}
 						console.log(submissionData, counter);
 						if (race === "all") {
 							$(".submission-nav h1").html(submissionData[counter].location);
@@ -365,6 +378,7 @@ $(document).ready(function() {
 						}
 
 					}
+
 
 					$(".sub-btn").click(function() {
 					    changeParks($(this));

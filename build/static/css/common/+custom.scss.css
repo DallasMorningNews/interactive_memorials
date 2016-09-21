@@ -285,9 +285,9 @@ RIGHT PANEL
     /* Chrome, Safari, Opera */
     transform: translateY(-50%); }
   .submission-nav .fa-chevron-left {
-    left: 1rem; }
+    left: 20px; }
   .submission-nav .fa-chevron-right {
-    right: 1rem; }
+    right: 20px; }
 
 .submissions {
   height: calc(80vh - 100px);
@@ -296,6 +296,12 @@ RIGHT PANEL
   -webkit-box-shadow: inset 0px 4px 7px -2px rgba(79, 79, 79, 0.6);
   -moz-box-shadow: inset 0px 4px 7px -2px rgba(79, 79, 79, 0.6);
   box-shadow: inset 0px 4px 7px -2px rgba(79, 79, 79, 0.6); }
+
+.unclickable .fa-chevron-left, .unclickable .fa-chevron-right {
+  color: #e69a01; }
+
+.unclickable:hover {
+  background: #fec44f !important; }
 
 .submission-pv {
   border-bottom: 0.1rem #ccc solid;

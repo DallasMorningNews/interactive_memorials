@@ -384,11 +384,11 @@ RIGHT PANEL
 	}
 
 	.fa-chevron-left {
-		left: 1rem;
+		left: 20px;
 	}
 
 	.fa-chevron-right {
-		right: 1rem;
+		right: 20px;
 	}
 }
 
@@ -400,6 +400,15 @@ RIGHT PANEL
 	-webkit-box-shadow: inset 0px 4px 7px -2px rgba(79,79,79,.6);
 	-moz-box-shadow: inset 0px 4px 7px -2px rgba(79,79,79,.6);
 	box-shadow: inset 0px 4px 7px -2px rgba(79,79,79,.6);
+}
+
+.unclickable {
+	.fa-chevron-left, .fa-chevron-right {
+		color: darken($chartYellow, 20%);
+	}
+	&:hover {
+		background: $chartYellow !important;
+	}
 }
 
 .submission-pv {
