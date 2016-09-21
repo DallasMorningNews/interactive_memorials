@@ -273,21 +273,21 @@ RIGHT PANEL
     transform: translateY(-50%);
     line-height: 2.4rem; }
   .submission-nav .sub-btn {
-    cursor: pointer; }
+    cursor: pointer;
+    background-color: #feb31c;
+    color: #444; }
     .submission-nav .sub-btn:hover {
-      background-color: #feb31c; }
+      background: #feab03; }
   .submission-nav .fa-chevron-left, .submission-nav .fa-chevron-right {
     position: absolute;
+    left: 0;
+    right: 0;
     top: 50%;
     -ms-transform: translateY(-50%);
     /* IE 9 */
     -webkit-transform: translateY(-50%);
     /* Chrome, Safari, Opera */
     transform: translateY(-50%); }
-  .submission-nav .fa-chevron-left {
-    left: 20px; }
-  .submission-nav .fa-chevron-right {
-    right: 20px; }
 
 .submissions {
   height: calc(80vh - 100px);
@@ -300,16 +300,12 @@ RIGHT PANEL
 .unclickable .fa-chevron-left, .unclickable .fa-chevron-right {
   color: #e69a01; }
 
-.unclickable:hover {
-  background: #fec44f !important; }
-
 .submission-pv {
   border-bottom: 0.1rem #ccc solid;
   padding-left: 2rem;
   padding-top: 2rem;
   padding-bottom: 2rem; }
   .submission-pv h1 {
-    padding-top: 1rem;
     line-height: 1.5rem; }
   .submission-pv h2 {
     font-size: 1.5rem;

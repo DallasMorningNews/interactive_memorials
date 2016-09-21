@@ -369,29 +369,28 @@ RIGHT PANEL
 
 	.sub-btn {
 		cursor: pointer;
+		background-color: darken($chartYellow, 10%);
+		color: #444;
 
 		&:hover {
-			background-color: darken($chartYellow, 10%);
+			background: darken($chartYellow, 15%);
 		}
 	}
 
 	.fa-chevron-left, .fa-chevron-right {
 		position: absolute;
+		left: 0;
+		right: 0;
 		top: 50%;
 		-ms-transform: translateY(-50%); /* IE 9 */
 	    -webkit-transform: translateY(-50%); /* Chrome, Safari, Opera */
 	    transform: translateY(-50%);
 	}
-
-	.fa-chevron-left {
-		left: 20px;
-	}
-
-	.fa-chevron-right {
-		right: 20px;
-	}
 }
 
+// #sub-btn-prev {
+// 	border-right: 1px #777 solid;
+// }
 
 .submissions{
 	height: calc(80vh - 100px);
@@ -407,7 +406,7 @@ RIGHT PANEL
 		color: darken($chartYellow, 20%);
 	}
 	&:hover {
-		background: $chartYellow !important;
+		// background: $chartYellow !important;
 	}
 }
 
@@ -419,7 +418,6 @@ RIGHT PANEL
 
 	h1 {
 		@extend .header1;
-		padding-top: 1rem;
 		line-height: 1.5rem;
 	}
 	h2 {

@@ -86,7 +86,7 @@
 <script id="submission" type="text/x-handlebars-template">
     <div id="pv" class="col-xs-12 submission-pv" data-race="{{race}}" data-park="{{location}}">
       <h1>{{firstName}} {{lastName}}</h1>
-      <h2><span style="color: {{color}}; font-size: 2rem;">&#9679</span> <strong>Memorial category:</strong> {{race}}</h2>          
+      <h2><span style="color: {{color}}; font-size: 2rem;">&#9679</span> <strong>Memorial category:</strong> {{race}}</h2>
       <p>{{why}}</p>
     </div>
 
@@ -220,8 +220,8 @@ googletag.enableServices();
                 <div id="popup"></div>
 
                 <div id="filter" class="btn-group">
-                  <a class="btn btn-default">All races/ethnicities</a>
-                  <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></a>
+                  <a class="btn btn-default filter-btn">All races/ethnicities</a>
+                  <a class="btn btn-default dropdown-toggle filter-btn" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></a>
                   <ul class="dropdown-menu">
                     <li data-race="all"><a>All races/ethnicities</a></li>
                     <li data-race="Black or African Am."><a>Black or African Am.</a></li>
@@ -299,7 +299,7 @@ googletag.enableServices();
                                 <i class="fa fa-2x fa-chevron-left" aria-hidden="true"></i>
                             </div>
                             <div class="park-name relative col-xs-10">
-                                <h1>All submissions</h1>
+                                <h1>All locations</h1>
                             </div>
                             <div id="sub-btn-next" class="relative sub-btn col-xs-1">
                                 <i class="fa fa-2x fa-chevron-right" aria-hidden="true"></i>
