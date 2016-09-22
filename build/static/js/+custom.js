@@ -276,6 +276,11 @@ $(document).ready(function() {
 
 				    });
 
+					// Shows add a pin text on pin button hover
+						$("#see-form").on("mouseover", function() {
+							$(".add-pin").show();
+						});
+
 					// Shows/hides submission form and respective buttons
 						$("#see-form, .map-wrapper h1").click(function() {
 							$("#form-wrapper").addClass("visible");
@@ -332,8 +337,6 @@ $(document).ready(function() {
 
 					// Clears the map of markers
 					function clearMap() {
-						// map.off("click");
-						// map.off("mousemove");
 						map.removeSource("memorials");
 						map.removeLayer("memorialSubmissions");
 					}

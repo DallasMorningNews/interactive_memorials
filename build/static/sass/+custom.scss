@@ -68,15 +68,48 @@ MAP
 		position: absolute;
 		z-index: 1000;
 		bottom: 25px;
-		right: 130px;
+		right: 50px;
 		text-transform: uppercase;
 		cursor: pointer;
+		display: none;
+
+		&:hover {
+			display: block;
+		}
 
 		@media only screen and (max-width: 678px) {
 			bottom: 0.5rem;
 			right: 10.5rem;
 		}
 	}
+
+	// .add-pin {
+	// 	position: absolute;
+	// 	display: none;
+	// 	bottom: 60px;
+	// 	right: 105px;
+	// 	background: white;
+	// 	height: 30px;
+	// 	width: 120px;
+	// }
+	//
+	// h1 {
+	// 	font-size: 1.6rem;
+	// 	font-weight: bold;
+	// 	position: relative;
+	// 	text-align: center;
+	// 	z-index: 1000;
+	// 	bottom: 25px;
+	// 	text-transform: uppercase;
+	// 	cursor: pointer;
+	// 	top: 50%;
+	// 	@extend .transform;
+	//
+	// 	@media only screen and (max-width: 678px) {
+	// 		bottom: 0.5rem;
+	// 		right: 10.5rem;
+	// 	}
+	// }
 }
 
 #map {
@@ -395,10 +428,10 @@ RIGHT PANEL
 .submissions{
 	height: calc(80vh - 100px);
 	overflow-y: auto;
-	background-color: lighten($chartGray, 15%);
-	-webkit-box-shadow: inset 0px 4px 7px -2px rgba(79,79,79,.6);
-	-moz-box-shadow: inset 0px 4px 7px -2px rgba(79,79,79,.6);
-	box-shadow: inset 0px 4px 7px -2px rgba(79,79,79,.6);
+	background-color: lighten($chartGray, 20%);
+	-webkit-box-shadow: inset 0px 4px 7px -3px rgba(79,79,79,.6);
+	-moz-box-shadow: inset 0px 4px 7px -3px rgba(79,79,79,.6);
+	box-shadow: inset 0px 4px 7px -3px rgba(79,79,79,.6), inset 0px -4px 7px -4px rgba(79,79,79,.6);
 }
 
 .unclickable {
@@ -406,7 +439,7 @@ RIGHT PANEL
 		color: darken($chartYellow, 20%);
 	}
 	&:hover {
-		// background: $chartYellow !important;
+		background: darken($chartYellow, 10%) !important;
 	}
 }
 
