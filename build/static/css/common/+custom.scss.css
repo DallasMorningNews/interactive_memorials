@@ -86,23 +86,29 @@ MAP
   margin-left: 10px; }
 
 .yes-btn-nocir, .yes-btn-cir {
-  background-color: #c9c9c9;
-  color: #444; }
+  background-color: #e34e36;
+  color: white; }
   .yes-btn-nocir:hover, .yes-btn-nocir:active, .yes-btn-nocir:focus, .yes-btn-cir:hover, .yes-btn-cir:active, .yes-btn-cir:focus {
-    background-color: #c9c9c9 !important;
+    background-color: #ca341c !important;
     background-image: none;
-    color: #444 !important; }
+    color: white !important; }
+
+.btn-default {
+  background-color: #e6e6e6; }
 
 .mapboxgl-popup-content {
   font-family: "Gotham A", "Gotham B", Arial, sans-serif; }
   .mapboxgl-popup-content h5 {
-    font-weight: bold; }
+    font-size: 2.4rem;
+    line-height: 2.8rem;
+    color: #e34e36; }
   .mapboxgl-popup-content p {
-    font-size: 1.3rem;
-    line-height: 1.6rem; }
+    font-size: 1.5rem;
+    line-height: 1.8rem; }
 
 .mapboxgl-popup {
-  max-width: 220px; }
+  max-width: 220px;
+  z-index: 1000; }
 
 #geocoder-container {
   position: absolute;
@@ -127,14 +133,13 @@ MAP
   border: none;
   margin-top: -5rem;
   background-color: white;
-  box-shadow: 2px 2px 0.5px rgba(33, 33, 33, 0.25), -2px -2px 3px rgba(33, 33, 33, 0.25), 2px -2px 3px rgba(33, 33, 33, 0.25), -2px 2px 3px rgba(33, 33, 33, 0.25);
   font-size: 4rem;
-  background-color: Red;
-  color: #444;
+  background-color: #e34e36;
+  color: white;
   outline: none; }
   #see-form:hover {
-    color: #c9c9c9;
-    background-color: white; }
+    color: white;
+    background-color: #ca341c; }
   @media only screen and (max-width: 678px) {
     #see-form {
       border-left: none;
@@ -222,7 +227,10 @@ form.submission-form {
     color: #444444;
     font-weight: bold;
     outline: none;
-    margin-top: 1.2rem; }
+    margin-top: 1.2rem;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none; }
     .form-horizontal .btn:hover {
       background-color: #c9c9c9; }
 
@@ -249,27 +257,26 @@ RIGHT PANEL
 ****************************
 ***************************/
 .right-panel {
-  border-left: 0.5rem white solid;
+  border-left: 10px white solid;
   background-color: #efefef; }
   @media only screen and (max-width: 678px) {
     .right-panel {
       border-left: none;
       height: 100%; } }
 
+#submission-panel {
+  height: 80vh; }
+
 .submission-nav {
   height: 100px;
-  background-color: Red;
   text-align: center;
   position: relative;
   z-index: 2000;
-  -webkit-box-shadow: 0px 4px 2px rgba(79, 79, 79, 0.5);
-  -moz-box-shadow: 0px 4px 2px rgba(79, 79, 79, 0.5);
-  box-shadow: 0px 4px 7px rgba(79, 79, 79, 0.5);
-  margin-bottom: 2px; }
+  background: #e34e36;
+  margin-bottom: 20px; }
   .submission-nav h1 {
     font-size: 3rem;
     line-height: 3.3rem;
-    font-weight: bold;
     position: absolute;
     left: 0;
     right: 0;
@@ -278,12 +285,13 @@ RIGHT PANEL
     /* IE 9 */
     -webkit-transform: translateY(-50%);
     /* Chrome, Safari, Opera */
-    transform: translateY(-50%); }
+    transform: translateY(-50%);
+    color: white; }
   .submission-nav .sub-btn {
     cursor: pointer;
-    color: #444; }
+    color: white; }
     .submission-nav .sub-btn:hover {
-      background: #c9c9c9; }
+      background: #e03a20; }
   .submission-nav .fa-chevron-left, .submission-nav .fa-chevron-right {
     position: absolute;
     left: 0;
@@ -296,28 +304,62 @@ RIGHT PANEL
     transform: translateY(-50%); }
 
 .submissions {
-  height: calc(80vh - 100px);
+  display: block;
+  height: calc(80vh - 150px);
+  margin-left: auto;
+  margin-right: auto;
   overflow-y: auto;
-  background-color: #fcfcfc;
-  -webkit-box-shadow: inset 0px 4px 7px -3px rgba(79, 79, 79, 0.6);
-  -moz-box-shadow: inset 0px 4px 7px -3px rgba(79, 79, 79, 0.6);
-  box-shadow: inset 0px 4px 7px -3px rgba(79, 79, 79, 0.6), inset 0px -4px 7px -4px rgba(79, 79, 79, 0.6); }
+  width: 80%; }
+  .submissions::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; }
+
+#shadow1 {
+  position: absolute;
+  z-index: 1000;
+  height: 10px;
+  width: 80%;
+  left: 0;
+  right: 0;
+  margin: -1px auto;
+  -webkit-box-shadow: inset 0px 7px 8px -5px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: inset 0px 7px 8px -5px rgba(0, 0, 0, 0.4);
+  box-shadow: inset 0px 7px 8px -5px rgba(0, 0, 0, 0.4); }
+
+#shadow2 {
+  position: absolute;
+  z-index: 1000;
+  height: 10px;
+  width: 80%;
+  bottom: 30px;
+  left: 0;
+  right: 0;
+  margin: -1px auto;
+  -webkit-box-shadow: inset 0px -7px 8px -5px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: inset 0px -7px 8px -5px rgba(0, 0, 0, 0.4);
+  box-shadow: inset 0px -7px 8px -5px rgba(0, 0, 0, 0.4); }
+
+.submission-pv:first-child, .submission-race:first-child {
+  color: red; }
 
 .unclickable .fa-chevron-left, .unclickable .fa-chevron-right {
-  color: #969696; }
+  color: #ca341c; }
 
 .unclickable:hover {
-  background: #b0b0b0 !important; }
+  background-color: #e34e36 !important; }
 
 .submission-race {
   padding: 0 !important;
-  border-bottom: none !important; }
+  border-bottom: none !important;
+  margin-bottom: 0 !important; }
   .submission-race h2 {
     padding-left: 2rem; }
 
 .submission-pv, .submission-race {
   padding-left: 2rem;
-  padding-bottom: 3rem; }
+  padding-bottom: 3rem;
+  background-color: white;
+  margin-bottom: 20px; }
   .submission-pv h1, .submission-race h1 {
     font-size: 2.4rem;
     line-height: 3.6rem;
@@ -328,7 +370,7 @@ RIGHT PANEL
     margin-bottom: 1rem;
     width: 100%;
     text-transform: uppercase;
-    background-color: #e3e3e3; }
+    background-color: #c9c9c9; }
   .submission-pv p, .submission-race p {
     margin-top: -0.7rem;
     font-size: 1.6rem;

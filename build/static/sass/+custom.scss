@@ -153,31 +153,36 @@ MAP
 }
 
 .yes-btn-nocir, .yes-btn-cir {
-	background-color: $chartGray;
-	color: #444;
+	background-color: $chartRed;
+	color: white;
 
 	&:hover, &:active, &:focus {
-		background-color: $chartGray !important;
+		background-color: darken($chartRed, 10%) !important;
 		background-image: none;
-		color: #444 !important;
+		color: white !important;
 	}
 }
 
-
+.btn-default {
+	background-color: lighten(#ccc, 10%);
+}
 
 .mapboxgl-popup-content {
 	font-family: $sans;
 	h5 {
-		font-weight: bold;
+		font-size: 2.4rem;
+		line-height: 2.8rem;
+		color: $chartRed;
 	}
 	p {
-		font-size: 1.3rem;
-		line-height: 1.6rem;
+		font-size: 1.5rem;
+		line-height: 1.8rem;
 	}
 }
 
 .mapboxgl-popup {
 	max-width: 220px;
+	z-index: 1000;
 }
 
 #geocoder-container {
@@ -205,15 +210,14 @@ MAP
 	border: none;
 	margin-top: -5rem;
 	background-color: white;
-	box-shadow: 2px 2px 0.5px rgba(33, 33, 33, 0.25), -2px -2px 3px rgba(33, 33, 33, 0.25), 2px -2px 3px rgba(33, 33, 33, 0.25), -2px 2px 3px rgba(33, 33, 33, 0.25);
 	font-size: 4rem;
-	background-color: Red;
-	color: #444;
+	background-color: $chartRed;
+	color: white;
 	outline: none;
 
 	&:hover {
-		color: $chartGray;
-		background-color: white;
+		color: white;
+		background-color: darken($chartRed, 10%);
 	}
 
 	@media only screen and (max-width: 678px) {
@@ -330,7 +334,9 @@ form.submission-form {
 		font-weight: bold;
 		outline: none;
 		margin-top: 1.2rem;
-
+		box-shadow: none;
+		-webkit-box-shadow: none;
+		box-shadow: none;
 		&:hover {
 			background-color: $chartGray;
 		}
@@ -369,8 +375,9 @@ RIGHT PANEL
 ***************************/
 
 .right-panel {
-	border-left: 0.5rem white solid;
+	border-left: 10px white solid;
 	background-color: lighten($chartGray, 15%);
+;
 
 	@media only screen and (max-width: 678px) {
 		border-left: none;
@@ -378,22 +385,24 @@ RIGHT PANEL
 	}
 }
 
+#submission-panel {
+	height: 80vh;
+}
+
 .submission-nav {
 	height: 100px;
-	background-color: Red;
 	text-align: center;
 	position: relative;
 	// border-bottom: 4px solid #777;
 	z-index: 2000;
-	-webkit-box-shadow:  0px 4px 2px rgba(79,79,79,.5);
-	-moz-box-shadow:  0px 4px 2px rgba(79,79,79,.5);
-	box-shadow:  0px 4px 7px rgba(79,79,79,.5);
-	margin-bottom: 2px;
+	background: $chartRed;
+
+	margin-bottom: 20px;
 
 	h1 {
 		font-size: 3rem;
 		line-height: 3.3rem;
-		font-weight: bold;
+		// font-weight: bold;
 		position: absolute;
 		left: 0;
 		right: 0;
@@ -401,14 +410,15 @@ RIGHT PANEL
 		-ms-transform: translateY(-50%); /* IE 9 */
 		-webkit-transform: translateY(-50%); /* Chrome, Safari, Opera */
 		transform: translateY(-50%);
+		color: white;
 	}
 
 	.sub-btn {
 		cursor: pointer;
-		color: #444;
+		color: white;
 
 		&:hover {
-			background: $chartGray;
+			background: darken($chartRed, 5%);
 		}
 	}
 
@@ -424,20 +434,54 @@ RIGHT PANEL
 }
 
 .submissions{
-	height: calc(80vh - 100px);
+	display: block;
+	height: calc(80vh - 150px);
+	margin-left: auto;
+	margin-right: auto;
 	overflow-y: auto;
-	background-color: lighten($chartGray, 20%);
-	-webkit-box-shadow: inset 0px 4px 7px -3px rgba(79,79,79,.6);
-	-moz-box-shadow: inset 0px 4px 7px -3px rgba(79,79,79,.6);
-	box-shadow: inset 0px 4px 7px -3px rgba(79,79,79,.6), inset 0px -4px 7px -4px rgba(79,79,79,.6);
+	width: 80%;
+
+	&::-webkit-scrollbar {
+		width: 0px;
+		background: transparent;
+	}
+}
+#shadow1 {
+	position: absolute;
+	z-index: 1000;
+	height: 10px;
+	width: 80%;
+	left: 0;
+	right: 0;
+	margin: -1px auto;
+	-webkit-box-shadow: inset 0px 7px 8px -5px rgba(0,0,0,0.4);
+	-moz-box-shadow: inset 0px 7px 8px -5px rgba(0,0,0,0.4);
+	box-shadow: inset 0px 7px 8px -5px rgba(0,0,0,0.4);
+}
+#shadow2 {
+	position: absolute;
+	z-index: 1000;
+	height: 10px;
+	width: 80%;
+	bottom: 30px;
+	left: 0;
+	right: 0;
+	margin: -1px auto;
+	-webkit-box-shadow: inset 0px -7px 8px -5px rgba(0,0,0,0.4);
+	-moz-box-shadow: inset 0px -7px 8px -5px rgba(0,0,0,0.4);
+	box-shadow: inset 0px -7px 8px -5px rgba(0,0,0,0.4);
+}
+
+.submission-pv:first-child {
+	color: red;
 }
 
 .unclickable {
 	.fa-chevron-left, .fa-chevron-right {
-		color: darken($chartGray, 20%);
+		color: darken($chartRed, 10%);
 	}
 	&:hover {
-		background: darken($chartGray, 10%) !important;
+		background-color: $chartRed !important;
 	}
 }
 
@@ -446,6 +490,7 @@ RIGHT PANEL
 	padding: 0 !important;
 	border-bottom: none !important;
 	// border-top: 0.1rem #ccc solid;
+	margin-bottom: 0 !important;
 
 	h2 {
 		padding-left: 2rem;
@@ -458,6 +503,8 @@ RIGHT PANEL
 .submission-pv {
 	padding-left: 2rem;
 	padding-bottom: 3rem;
+	background-color: white;
+	margin-bottom: 20px;
 	// border-bottom: 0.1rem #ccc solid;
 
 	h1 {
@@ -472,7 +519,7 @@ RIGHT PANEL
 		margin-bottom: 1rem;
 		width: 100%;
 		text-transform: uppercase;
-		background-color: darken(#fcfcfc, 10%);
+		background-color: darken(#fcfcfc, 20%);
 	}
 	p {
 		margin-top: -0.7rem;
