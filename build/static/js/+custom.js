@@ -343,7 +343,7 @@ $(document).ready(function() {
 
 					// Displays submissions
 					function displaySubmissions(parkName) {
-						$.each($(".submission-pv"), function() {
+						$.each($(".submission-race, .submission-pv"), function() {
 							if ($(this).attr("data-park") === parkName) {
 								$(this).removeClass("no-show");
 							} else {

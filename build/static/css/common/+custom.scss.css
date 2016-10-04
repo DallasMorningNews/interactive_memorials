@@ -8,9 +8,9 @@ RIGHT PANNEL - All content in right panel (excludes form)
 body {
   color: #323232; }
 
-.header1, .form-horizontal .control-label, .form-horizontal .help-block, .submission-pv h1 {
-  font-size: 1.7rem;
-  line-height: 0.1rem;
+.header1, .form-horizontal .control-label, .form-horizontal .help-block, .submission-pv h1, .submission-race h1 {
+  font-size: 2rem;
+  line-height: 2.5rem;
   font-weight: bold; }
 
 .no-pad {
@@ -86,10 +86,10 @@ MAP
   margin-left: 10px; }
 
 .yes-btn-nocir, .yes-btn-cir {
-  background-color: #fec44f;
+  background-color: #c9c9c9;
   color: #444; }
   .yes-btn-nocir:hover, .yes-btn-nocir:active, .yes-btn-nocir:focus, .yes-btn-cir:hover, .yes-btn-cir:active, .yes-btn-cir:focus {
-    background-color: #fec44f !important;
+    background-color: #c9c9c9 !important;
     background-image: none;
     color: #444 !important; }
 
@@ -133,7 +133,7 @@ MAP
   color: #444;
   outline: none; }
   #see-form:hover {
-    color: #fec44f;
+    color: #c9c9c9;
     background-color: white; }
   @media only screen and (max-width: 678px) {
     #see-form {
@@ -211,7 +211,7 @@ form.submission-form {
         font-size: 1.3rem;
         line-height: 1.5rem; } }
   .form-horizontal .form-control:focus {
-    box-shadow: inset 0 -2px 0 #fec44f; }
+    box-shadow: inset 0 -2px 0 #c9c9c9; }
   .form-horizontal .form-group {
     margin-left: 0;
     margin-right: 0; }
@@ -224,7 +224,7 @@ form.submission-form {
     outline: none;
     margin-top: 1.2rem; }
     .form-horizontal .btn:hover {
-      background-color: #fec44f; }
+      background-color: #c9c9c9; }
 
 textarea {
   resize: vertical; }
@@ -241,7 +241,7 @@ button.close {
   box-shadow: 2px 2px 1px rgba(33, 33, 33, 0.2), -2px -2px 1px rgba(33, 33, 33, 0.2), 2px -2px 1px rgba(33, 33, 33, 0.2), -2px 2px 1px rgba(33, 33, 33, 0.2);
   font-size: 2.5rem; }
   button.close:hover {
-    background-color: #fec44f; }
+    background-color: #c9c9c9; }
 
 /***************************
 ****************************
@@ -260,10 +260,15 @@ RIGHT PANEL
   height: 100px;
   background-color: #fec44f;
   text-align: center;
-  position: relative; }
+  position: relative;
+  z-index: 2000;
+  -webkit-box-shadow: 0px 4px 2px rgba(79, 79, 79, 0.5);
+  -moz-box-shadow: 0px 4px 2px rgba(79, 79, 79, 0.5);
+  box-shadow: 0px 4px 7px rgba(79, 79, 79, 0.5);
+  margin-bottom: 2px; }
   .submission-nav h1 {
-    font-size: 2.6rem;
-    line-height: 3.6;
+    font-size: 3rem;
+    line-height: 3.3rem;
     font-weight: bold;
     position: absolute;
     left: 0;
@@ -273,14 +278,12 @@ RIGHT PANEL
     /* IE 9 */
     -webkit-transform: translateY(-50%);
     /* Chrome, Safari, Opera */
-    transform: translateY(-50%);
-    line-height: 2.4rem; }
+    transform: translateY(-50%); }
   .submission-nav .sub-btn {
     cursor: pointer;
-    background-color: #feb31c;
     color: #444; }
     .submission-nav .sub-btn:hover {
-      background: #feab03; }
+      background: #c9c9c9; }
   .submission-nav .fa-chevron-left, .submission-nav .fa-chevron-right {
     position: absolute;
     left: 0;
@@ -301,26 +304,35 @@ RIGHT PANEL
   box-shadow: inset 0px 4px 7px -3px rgba(79, 79, 79, 0.6), inset 0px -4px 7px -4px rgba(79, 79, 79, 0.6); }
 
 .unclickable .fa-chevron-left, .unclickable .fa-chevron-right {
-  color: #e69a01; }
+  color: #969696; }
 
 .unclickable:hover {
-  background: #feb31c !important; }
+  background: #b0b0b0 !important; }
 
-.submission-pv {
-  border-bottom: 0.1rem #ccc solid;
+.submission-race {
+  padding: 0 !important;
+  border-bottom: none !important; }
+  .submission-race h2 {
+    padding-left: 2rem; }
+
+.submission-pv, .submission-race {
   padding-left: 2rem;
-  padding-top: 2rem;
-  padding-bottom: 2rem; }
-  .submission-pv h1 {
-    line-height: 1.5rem; }
-  .submission-pv h2 {
-    font-size: 1.5rem;
-    line-height: 1.7rem;
-    width: 100%; }
-  .submission-pv p {
+  padding-bottom: 3rem; }
+  .submission-pv h1, .submission-race h1 {
+    font-size: 2.4rem;
+    line-height: 3.6rem;
+    font-weight: normal; }
+  .submission-pv h2, .submission-race h2 {
+    font-size: 1.4rem;
+    line-height: 2rem;
+    margin-bottom: 1rem;
+    width: 100%;
+    text-transform: uppercase;
+    background-color: #e3e3e3; }
+  .submission-pv p, .submission-race p {
     margin-top: -0.7rem;
-    font-size: 1.3rem;
-    line-height: 1.8rem; }
+    font-size: 1.6rem;
+    line-height: 2.4rem; }
 
 .no-show {
   display: none; }

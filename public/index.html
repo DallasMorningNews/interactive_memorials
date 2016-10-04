@@ -84,10 +84,12 @@
 
 
 <script id="submission" type="text/x-handlebars-template">
+    <div class="col-xs-12 submission-race" data-race="{{race}}" data-park="{{location}}">
+        <h2><span style="color: {{color}}; font-size: 2rem;">&#9679</span>  {{race}} memorial</h2>
+    </div>
     <div id="pv" class="col-xs-12 submission-pv" data-race="{{race}}" data-park="{{location}}">
-      <h1>{{firstName}} {{lastName}}</h1>
-      <h2><span style="color: {{color}}; font-size: 2rem;">&#9679</span> <strong>Memorial category:</strong> {{race}}</h2>
-      <p>{{why}}</p>
+        <h1>{{firstName}} {{lastName}}</h1>
+        <p>{{why}}</p>
     </div>
 
 </script>
@@ -232,7 +234,7 @@ googletag.enableServices();
                     <li data-race="Other"><a>Other</a></li>
                   </ul>
                 </div>
-                
+
                 <h1>Add a pin</h1>
                 <button id="see-form"><span><i class="fa fa-map-marker" aria-hidden="true"></i></span></button>
             </div> <!-- end map wrapper -->
