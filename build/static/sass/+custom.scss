@@ -434,9 +434,9 @@ RIGHT PANEL
 	z-index: 999;
 	// border-bottom: 4px solid #777;
 	background: $chartRed;
-	-webkit-box-shadow:  0px 7px 8px -5px rgba(0,0,0,0.4);
-	-moz-box-shadow:  0px 7px 8px -5px rgba(0,0,0,0.4);
-	box-shadow:  0px 7px 8px -5px rgba(0,0,0,0.4);
+	// -webkit-box-shadow:  0px 7px 8px -5px rgba(0,0,0,0.4);
+	// -moz-box-shadow:  0px 7px 8px -5px rgba(0,0,0,0.4);
+	// box-shadow:  0px 7px 8px -5px rgba(0,0,0,0.4);
 
 	h1 {
 		font-size: 3rem;
@@ -475,7 +475,7 @@ RIGHT PANEL
 
 .card {
 	overflow: auto;
-	margin: 20px 0;
+	margin: 25px 0;
 	-webkit-box-shadow:  0px 4px 8px -5px rgba(0,0,0,0.4);
 	-moz-box-shadow:  0px 4px 8px -5px rgba(0,0,0,0.4);
 	box-shadow:  0px 4px 8px -5px rgba(0,0,0,0.4);
@@ -487,7 +487,7 @@ RIGHT PANEL
 	margin-left: auto;
 	margin-right: auto;
 	overflow-y: auto;
-	width: 80%;
+	width: 90%;
 
 	&::-webkit-scrollbar {
 		width: 0px;
@@ -506,7 +506,7 @@ RIGHT PANEL
 	margin: -1px auto;
 	-webkit-box-shadow: inset 0px -5px 8px -5px rgba(0,0,0,0.4);
 	-moz-box-shadow: inset 0px -5px 8px -5px rgba(0,0,0,0.4);
-	box-shadow: inset 0px -5px 8px -5px rgba(0,0,0,0.4);
+	box-shadow: inset 0px -10px 8px -5px rgba(0,0,0,0.4);
 }
 
 .submission-pv:first-child {
