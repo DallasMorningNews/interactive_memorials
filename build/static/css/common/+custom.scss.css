@@ -85,8 +85,7 @@ MAP
 
 .dropdown-menu {
   right: 0;
-  left: auto;
-  max-width: 266.93px; }
+  left: auto; }
   @media only screen and (max-width: 678px) {
     .dropdown-menu {
       left: 0;
