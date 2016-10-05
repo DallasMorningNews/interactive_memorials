@@ -934,6 +934,12 @@ RIGHT PANNEL - All content in right panel (excludes form)
 body {
   color: #323232; }
 
+.transition, #see-form {
+  -o-transition: .5s;
+  -ms-transition: .5s;
+  -moz-transition: .5s;
+  -webkit-transition: all 0.4s; }
+
 .header1, .form-horizontal .control-label, .form-horizontal .help-block, .submission-pv h1, .submission-race h1 {
   font-size: 2rem;
   line-height: 2.5rem;
@@ -1019,9 +1025,6 @@ MAP
     background-image: none;
     color: white !important; }
 
-.btn-default {
-  background-color: #e6e6e6; }
-
 .mapboxgl-popup-content {
   font-family: "Gotham A", "Gotham B", Arial, sans-serif; }
   .mapboxgl-popup-content h5 {
@@ -1029,8 +1032,9 @@ MAP
     line-height: 2.8rem;
     color: #e34e36; }
   .mapboxgl-popup-content p {
-    font-size: 1.5rem;
-    line-height: 1.8rem; }
+    font-size: 1.8rem;
+    line-height: 2.1rem;
+    color: #444; }
 
 .mapboxgl-popup {
   max-width: 220px;
@@ -1083,24 +1087,15 @@ FORM
 #form-wrapper {
   position: absolute;
   display: none;
-  z-index: 1000;
+  z-index: 2000;
   width: 100%;
   height: 100%;
   background: #efefef;
   overflow-y: auto;
+  overflow-x: hidden;
   padding-bottom: 20px; }
-  #form-wrapper h1 {
-    font-size: 2.4rem;
-    line-height: 2.7rem;
-    font-weight: bold;
-    margin-left: auto;
-    margin-right: auto;
-    width: 90%;
-    max-width: 80rem;
-    padding-top: 3rem;
-    margin-bottom: 2.4rem; }
   #form-wrapper textarea, #form-wrapper select {
-    color: #444; }
+    font-size: 1.5rem; }
   #form-wrapper.visible {
     top: 0;
     display: block; }
@@ -1123,26 +1118,28 @@ form.submission-form {
   margin: 0 auto; }
 
 .control-label {
-  font-size: 15px;
   text-align: left; }
 
 .form-horizontal {
   left: 0;
   right: 0;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 2rem auto 0;
   max-width: 80rem;
   width: 90%; }
   .form-horizontal .control-label {
     text-align: left;
     line-height: normal;
-    font-size: 1.5rem; }
+    font-size: 2rem;
+    line-height: 2.6rem;
+    font-weight: normal; }
     @media only screen and (max-width: 678px) {
       .form-horizontal .control-label {
         font-size: 1.3rem;
         line-height: 1.5rem; } }
+  .form-horizontal .form-control {
+    font-size: 1.5rem; }
   .form-horizontal .form-control:focus {
-    box-shadow: inset 0 -2px 0 #c9c9c9; }
+    box-shadow: inset 0 -2px 0 #e34e36; }
   .form-horizontal .form-group {
     margin-left: 0;
     margin-right: 0; }
@@ -1160,22 +1157,29 @@ form.submission-form {
     .form-horizontal .btn:hover {
       background-color: #c9c9c9; }
 
+#form-wrapper textarea, #form-wrapper select {
+  margin-top: 1rem; }
+
 textarea {
   resize: vertical; }
 
 button.close {
   position: absolute;
-  top: 25px;
+  z-index: 1000;
+  top: 30px;
   right: 25px;
   outline: none;
-  height: 30px;
-  width: 30px;
+  height: 40px;
+  width: 40px;
   border-radius: 50%;
-  background-color: white;
-  box-shadow: 2px 2px 1px rgba(33, 33, 33, 0.2), -2px -2px 1px rgba(33, 33, 33, 0.2), 2px -2px 1px rgba(33, 33, 33, 0.2), -2px 2px 1px rgba(33, 33, 33, 0.2);
-  font-size: 2.5rem; }
+  background-color: transparent;
+  font-size: 4rem;
+  opacity: 1;
+  text-align: center;
+  color: white; }
   button.close:hover {
-    background-color: #c9c9c9; }
+    background-color: white;
+    color: #e34e36; }
 
 /***************************
 ****************************
@@ -1197,9 +1201,11 @@ RIGHT PANEL
   height: 100px;
   text-align: center;
   position: relative;
-  z-index: 2000;
+  z-index: 999;
   background: #e34e36;
-  margin-bottom: 20px; }
+  -webkit-box-shadow: 0px 7px 8px -5px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 0px 7px 8px -5px rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 7px 8px -5px rgba(0, 0, 0, 0.4); }
   .submission-nav h1 {
     font-size: 3rem;
     line-height: 3.3rem;
@@ -1215,7 +1221,8 @@ RIGHT PANEL
     color: white; }
   .submission-nav .sub-btn {
     cursor: pointer;
-    color: white; }
+    color: white;
+    transition: all 0.4s; }
     .submission-nav .sub-btn:hover {
       background: #e03a20; }
   .submission-nav .fa-chevron-left, .submission-nav .fa-chevron-right {
@@ -1229,9 +1236,16 @@ RIGHT PANEL
     /* Chrome, Safari, Opera */
     transform: translateY(-50%); }
 
+.card {
+  overflow: auto;
+  margin: 20px 0;
+  -webkit-box-shadow: 0px 4px 8px -5px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 0px 4px 8px -5px rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 4px 8px -5px rgba(0, 0, 0, 0.4); }
+
 .submissions {
   display: block;
-  height: calc(80vh - 150px);
+  height: calc(80vh - 100px);
   margin-left: auto;
   margin-right: auto;
   overflow-y: auto;
@@ -1240,30 +1254,18 @@ RIGHT PANEL
     width: 0px;
     background: transparent; }
 
-#shadow1 {
+.shadow2 {
   position: absolute;
   z-index: 1000;
   height: 10px;
-  width: 80%;
+  width: 100%;
+  bottom: 1px;
   left: 0;
   right: 0;
   margin: -1px auto;
-  -webkit-box-shadow: inset 0px 7px 8px -5px rgba(0, 0, 0, 0.4);
-  -moz-box-shadow: inset 0px 7px 8px -5px rgba(0, 0, 0, 0.4);
-  box-shadow: inset 0px 7px 8px -5px rgba(0, 0, 0, 0.4); }
-
-#shadow2 {
-  position: absolute;
-  z-index: 1000;
-  height: 10px;
-  width: 80%;
-  bottom: 30px;
-  left: 0;
-  right: 0;
-  margin: -1px auto;
-  -webkit-box-shadow: inset 0px -7px 8px -5px rgba(0, 0, 0, 0.4);
-  -moz-box-shadow: inset 0px -7px 8px -5px rgba(0, 0, 0, 0.4);
-  box-shadow: inset 0px -7px 8px -5px rgba(0, 0, 0, 0.4); }
+  -webkit-box-shadow: inset 0px -5px 8px -5px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: inset 0px -5px 8px -5px rgba(0, 0, 0, 0.4);
+  box-shadow: inset 0px -5px 8px -5px rgba(0, 0, 0, 0.4); }
 
 .submission-pv:first-child, .submission-race:first-child {
   color: red; }
@@ -1272,7 +1274,8 @@ RIGHT PANEL
   color: #ca341c; }
 
 .unclickable:hover {
-  background-color: #e34e36 !important; }
+  background-color: #e34e36 !important;
+  cursor: default; }
 
 .submission-race {
   padding: 0 !important;
@@ -1283,9 +1286,8 @@ RIGHT PANEL
 
 .submission-pv, .submission-race {
   padding-left: 2rem;
-  padding-bottom: 3rem;
-  background-color: white;
-  margin-bottom: 20px; }
+  padding-bottom: 2rem;
+  background-color: white; }
   .submission-pv h1, .submission-race h1 {
     font-size: 2.4rem;
     line-height: 3.6rem;
@@ -1296,7 +1298,7 @@ RIGHT PANEL
     margin-bottom: 1rem;
     width: 100%;
     text-transform: uppercase;
-    background-color: #c9c9c9; }
+    background-color: #d1d1d1; }
   .submission-pv p, .submission-race p {
     margin-top: -0.7rem;
     font-size: 1.6rem;

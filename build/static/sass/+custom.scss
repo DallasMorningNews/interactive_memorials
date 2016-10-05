@@ -23,7 +23,15 @@ body {
 	color: #323232;
 }
 
+$panel: lighten($chartGray, 15%);
 $dark-gray: rgb(68, 68, 68);
+
+.transition {
+	-o-transition:.5s;
+	-ms-transition:.5s;
+	-moz-transition:.5s;
+	-webkit-transition: all 0.4s;;
+}
 
 .header1 {
 	font-size: 2rem;
@@ -163,10 +171,6 @@ MAP
 	}
 }
 
-.btn-default {
-	background-color: lighten(#ccc, 10%);
-}
-
 .mapboxgl-popup-content {
 	font-family: $sans;
 	h5 {
@@ -175,8 +179,9 @@ MAP
 		color: $chartRed;
 	}
 	p {
-		font-size: 1.5rem;
-		line-height: 1.8rem;
+		font-size: 1.8rem;
+		line-height: 2.1rem;
+		color: #444;
 	}
 }
 
@@ -214,6 +219,7 @@ MAP
 	background-color: $chartRed;
 	color: white;
 	outline: none;
+	@extend .transition;
 
 	&:hover {
 		color: white;
@@ -243,27 +249,16 @@ FORM
 #form-wrapper {
 	position: absolute;
 	display: none;
-	z-index: 1000;
+	z-index: 2000;
 	width: 100%;
 	height: 100%;
-	background: lighten($chartGray, 15%);
+	background: $panel;
 	overflow-y: auto;
+	overflow-x: hidden;
 	padding-bottom: 20px;
 
-	h1 {
-		font-size: 2.4rem;
-		line-height: 2.7rem;
-		font-weight: bold;
-		margin-left: auto;
-		margin-right: auto;
-		width: 90%;
-		max-width: 80rem;
-		padding-top: 3rem;
-		margin-bottom: 2.4rem;
-	}
-
 	textarea, select {
-		color: #444;
+		font-size: 1.5rem;
 	}
 
 	&.visible {
@@ -292,15 +287,13 @@ form.submission-form {
 }
 
 .control-label {
-	font-size: 15px;
 	text-align: left;
 }
 
 .form-horizontal {
 	left: 0;
 	right: 0;
-	margin-left: auto;
-	margin-right: auto;
+	margin: 2rem auto 0;
 	max-width: 80rem;
 	width: 90%;
 
@@ -309,7 +302,9 @@ form.submission-form {
 
 		@extend .header1;
 		line-height: normal;
-		font-size: 1.5rem;
+		font-size: 2rem;
+		line-height: 2.6rem;
+		font-weight: normal;
 
 		@media only screen and (max-width: 678px) {
 			font-size: 1.3rem;
@@ -317,8 +312,13 @@ form.submission-form {
 		}
 
 	}
+
+	.form-control {
+		font-size: 1.5rem;
+	}
+
 	.form-control:focus {
-		box-shadow: inset 0 -2px 0 $chartGray;
+		box-shadow: inset 0 -2px 0 $chartRed;
 	}
 	.form-group {
 		margin-left: 0;
@@ -343,24 +343,32 @@ form.submission-form {
 	}
 }
 
+#form-wrapper textarea, #form-wrapper select {
+	margin-top: 1rem;
+}
+
 textarea {
     resize: vertical;
 }
 
 button.close {
 	position: absolute;
-	top: 25px;
+	z-index: 1000;
+	top: 30px;
 	right: 25px;
 	outline: none;
-	height: 30px;
-	width: 30px;
+	height: 40px;
+	width: 40px;
 	border-radius: 50%;
-	background-color: white;
-	box-shadow: 2px 2px  1px rgba(33, 33, 33, 0.2), -2px -2px 1px rgba(33, 33, 33, 0.2), 2px -2px 1px rgba(33, 33, 33, 0.2), -2px 2px 1px rgba(33, 33, 33, 0.2);
-	font-size: 2.5rem;
+	background-color: transparent;;
+	font-size: 4rem;
+	opacity: 1;
+	text-align: center;
+	color: white;
 
 	&:hover {
-		background-color: $chartGray;
+		background-color: white;
+		color: $chartRed;
 	}
 }
 
@@ -376,8 +384,7 @@ RIGHT PANEL
 
 .right-panel {
 	border-left: 10px white solid;
-	background-color: lighten($chartGray, 15%);
-;
+	background-color: $panel;
 
 	@media only screen and (max-width: 678px) {
 		border-left: none;
@@ -393,11 +400,12 @@ RIGHT PANEL
 	height: 100px;
 	text-align: center;
 	position: relative;
+	z-index: 999;
 	// border-bottom: 4px solid #777;
-	z-index: 2000;
 	background: $chartRed;
-
-	margin-bottom: 20px;
+	-webkit-box-shadow:  0px 7px 8px -5px rgba(0,0,0,0.4);
+	-moz-box-shadow:  0px 7px 8px -5px rgba(0,0,0,0.4);
+	box-shadow:  0px 7px 8px -5px rgba(0,0,0,0.4);
 
 	h1 {
 		font-size: 3rem;
@@ -416,6 +424,7 @@ RIGHT PANEL
 	.sub-btn {
 		cursor: pointer;
 		color: white;
+		transition: all 0.4s;
 
 		&:hover {
 			background: darken($chartRed, 5%);
@@ -433,9 +442,17 @@ RIGHT PANEL
 	}
 }
 
+.card {
+	overflow: auto;
+	margin: 20px 0;
+	-webkit-box-shadow:  0px 4px 8px -5px rgba(0,0,0,0.4);
+	-moz-box-shadow:  0px 4px 8px -5px rgba(0,0,0,0.4);
+	box-shadow:  0px 4px 8px -5px rgba(0,0,0,0.4);
+}
+
 .submissions{
 	display: block;
-	height: calc(80vh - 150px);
+	height: calc(80vh - 100px);
 	margin-left: auto;
 	margin-right: auto;
 	overflow-y: auto;
@@ -446,30 +463,19 @@ RIGHT PANEL
 		background: transparent;
 	}
 }
-#shadow1 {
+
+.shadow2 {
 	position: absolute;
 	z-index: 1000;
 	height: 10px;
-	width: 80%;
+	width: 100%;
+	bottom: 1px;
 	left: 0;
 	right: 0;
 	margin: -1px auto;
-	-webkit-box-shadow: inset 0px 7px 8px -5px rgba(0,0,0,0.4);
-	-moz-box-shadow: inset 0px 7px 8px -5px rgba(0,0,0,0.4);
-	box-shadow: inset 0px 7px 8px -5px rgba(0,0,0,0.4);
-}
-#shadow2 {
-	position: absolute;
-	z-index: 1000;
-	height: 10px;
-	width: 80%;
-	bottom: 30px;
-	left: 0;
-	right: 0;
-	margin: -1px auto;
-	-webkit-box-shadow: inset 0px -7px 8px -5px rgba(0,0,0,0.4);
-	-moz-box-shadow: inset 0px -7px 8px -5px rgba(0,0,0,0.4);
-	box-shadow: inset 0px -7px 8px -5px rgba(0,0,0,0.4);
+	-webkit-box-shadow: inset 0px -5px 8px -5px rgba(0,0,0,0.4);
+	-moz-box-shadow: inset 0px -5px 8px -5px rgba(0,0,0,0.4);
+	box-shadow: inset 0px -5px 8px -5px rgba(0,0,0,0.4);
 }
 
 .submission-pv:first-child {
@@ -482,6 +488,7 @@ RIGHT PANEL
 	}
 	&:hover {
 		background-color: $chartRed !important;
+		cursor: default;
 	}
 }
 
@@ -502,9 +509,8 @@ RIGHT PANEL
 
 .submission-pv {
 	padding-left: 2rem;
-	padding-bottom: 3rem;
+	padding-bottom: 2rem;
 	background-color: white;
-	margin-bottom: 20px;
 	// border-bottom: 0.1rem #ccc solid;
 
 	h1 {
@@ -519,7 +525,7 @@ RIGHT PANEL
 		margin-bottom: 1rem;
 		width: 100%;
 		text-transform: uppercase;
-		background-color: darken(#fcfcfc, 20%);
+		background-color: darken($panel, 12%);
 	}
 	p {
 		margin-top: -0.7rem;

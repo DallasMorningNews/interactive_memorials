@@ -46,12 +46,14 @@
 {%raw%}
 
 <script id="submission" type="text/x-handlebars-template">
-    <div class="col-xs-12 submission-race" data-race="{{race}}" data-park="{{location}}">
-        <h2><span style="color: {{color}}; font-size: 2rem;">&#9679</span>  {{race}} memorial</h2>
-    </div>
-    <div id="pv" class="col-xs-12 submission-pv" data-race="{{race}}" data-park="{{location}}">
-        <h1>{{firstName}} {{lastName}}</h1>
-        <p>{{why}}</p>
+    <div class="card" data-race="{{race}}" data-park="{{location}}">
+        <div class="col-xs-12 submission-race">
+            <h2><span style="color: {{color}}; font-size: 2rem;">&#9679</span>  {{race}} memorial</h2>
+        </div>
+        <div id="pv" class="col-xs-12 submission-pv">
+            <h1>{{firstName}} {{lastName}}</h1>
+            <p>{{why}}</p>
+        </div>
     </div>
 
 </script>
@@ -172,35 +174,36 @@ googletag.enableServices();
                   </ul>
                 </div>
 
-                <h1>Add a pin</h1>
-                <button id="see-form"><span><i class="fa fa-map-marker" aria-hidden="true"></i></span></button>
+                <button id="see-form"><span><i class="fa fa-map-marker" aria-hidden="true"></i></span><span class="plus"></button>
             </div> <!-- end map wrapper -->
 
 
             <div class="col-xs-12 col-sm-4 right-panel no-pad">
 
                 <div id="form-wrapper">
-                    <h1>Suggest a memorial</h1>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <div class="submission-nav form-nav">
+                        <h1>Suggest a memorial</h1>
+                    </div><br />
                     <form class="form-horizontal">
                       <fieldset>
                         <div class="row">
                             <div class="form-group col-xs-12 col-sm-6">
-                              <label class="control-label" for="inputSmall">First name</label>
-                              <input type="text" class="form-control input-sm">
+                              <label class="control-label">First name</label>
+                              <input type="text" class="form-control">
                             </div>
                             <div class="form-group col-xs-12 col-sm-6">
-                              <label class="control-label" for="inputSmall">Last name</label>
-                              <input type="text" class="form-control input-sm">
+                              <label class="control-label">Last name</label>
+                              <input type="text" class="form-control">
                             </div>
                         </div>
                         <div class="form-group">
-                          <label class="control-label" for="inputSmall">Email</label>
-                          <input type="text" class="form-control input-sm">
+                          <label class="control-label">Email</label>
+                          <input type="text" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label class="control-label" for="inputSmall">Which race or ethnicity would this memorial commemorate?</label>
-                                <select class="form-control input-sm col-sm-12 col-sm-4">
+                            <label class="control-label">Which race or ethnicity would this memorial commemorate?</label>
+                                <select class="form-control  col-sm-12 col-sm-4">
                                   <option selected="selected">Choose race/ethnicity</option>
                                   <option>Black or African Am.</option>
                                   <option>Asian</option>
@@ -211,16 +214,16 @@ googletag.enableServices();
                                 </select>
                         </div>
                         <div class="form-group">
-                          <label class="control-label" for="inputSmall">What location do you recommend we memorialize? Be as specific as possible. You may include an address.</label>
-                          <textarea id="location-blank" class="form-control input-sm" rows="3"></textarea>
+                          <label class="control-label">What location do you recommend we memorialize? Be as specific as possible. You may include an address.</label>
+                          <textarea id="location-blank" class="form-control" rows="3"></textarea>
                         </div>
                         <div class="form-group">
-                          <label class="control-label" for="inputSmall">Why would you like to see this memorial? Do you have a personal connection to it?</label>
-                          <textarea class="form-control input-sm" rows="3"></textarea>
+                          <label class="control-label">Why would you like to see this memorial? Do you have a personal connection to it?</label>
+                          <textarea class="form-control " rows="3"></textarea>
                         </div>
                         <div class="form-group">
-                          <label class="control-label" for="inputSmall">Is there somewhere (URL, etc.) we can go to learn more about this place/person/event?</label>
-                          <textarea class="form-control input-sm" rows="3"></textarea>
+                          <label class="control-label">Is there somewhere (URL, etc.) we can go to learn more about this place/person/event?</label>
+                          <textarea class="form-control" rows="3"></textarea>
                         </div>
                         <div class="form-group">
                             <button type="reset" class="btn btn-default">Submit</button>
@@ -247,8 +250,7 @@ googletag.enableServices();
                     </div> <!-- end submission-nav -->
 
                     <div class="submissions no-pad">
-                        <div id="shadow1"></div>
-                        <div id="shadow2"></div>
+                        <div id="shadow-bottom" class="shadow2"></div>
                     </div> <!-- end submissions -->
 
                 </div> <!-- emd submission-panel -->

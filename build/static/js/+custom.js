@@ -7,8 +7,8 @@ $(document).ready(function() {
 		var clickLocation;
 		var centerCoord;
 		var coord = [];
-		var popupContentCir = "<p>Would you like to add a memorial suggestion here?</p><a class='yes-btn-cir btn btn-primary btn-sm'>Yes</a><a class='no-btn btn btn-default btn-sm'>No</a>";
-		var popupContentNoCir = "<p>Would you like to add a memorial suggestion here?</p><a class='yes-btn-nocir btn btn-primary btn-sm'>Yes</a><a class='no-btn btn btn-default btn-sm'>No</a>";
+		var popupContentCir = "<p>Add a memorial suggestion here?</p><a class='yes-btn-cir btn btn-primary btn-sm'>Yes</a><a class='no-btn btn btn-default btn-sm'>No</a>";
+		var popupContentNoCir = "<p>Add a memorial suggestion here?</p><a class='yes-btn-nocir btn btn-primary btn-sm'>Yes</a><a class='no-btn btn btn-default btn-sm'>No</a>";
 		var geocoder = new mapboxgl.Geocoder({
 			    container: 'geocoder-container' // Optional. Specify a unique container for the control to be added to.
 			});
@@ -16,8 +16,9 @@ $(document).ready(function() {
 		var parks = [];
 		var race = "all";
 		var customStyles;
-		var circleColor = "#fec44f";
+		var circleColor = "#e34e36";
 		var location;
+		var divHeight = 0;
 
 		//bootstrap dropdown
 
@@ -28,39 +29,6 @@ $(document).ready(function() {
 		  $('.mapboxgl-popup').hide();
 
 	   });
-
-
-
-
-	//    // mapbox gl code
-	//    	mapboxgl.util.getJSON('http://maps.dallasnews.com/styles.json', function(req, styles) {
-	//    	  customStyles = styles;
-	//    	  customStyles.layers = styles.layers.map(function(layer) {
-	//    		if(layer.id === 'building') {
-	//    		  layer.paint['fill-color'] = 'red';
-	//    		}
-	//    		else if(layer.id === 'waterway' || layer.id === 'waterway_stream') {
-	//    		  layer.paint['line-color'] = '#2B93B5';
-	//    		}
-	//    		else if(layer.id === 'water') {
-	//    		  layer.paint['fill-color'] = '#2B93B5';
-	//    		}
-	//    		else if(layer.id === 'landuse_park') {
-	//    		  layer.paint['fill-color'] = 'green';
-	//    		}
-	//    		return layer;
-	//    	  });
-	   //
-	//    	  // BUILDING THE MAP
-	//    		map = new mapboxgl.Map({
-	//    			container: 'map', // the #id of your map
-	//    			center: [-96.9785, 32.8924], // just like Leaflet, where the map should centers on load
-	//    			zoom: 9, // just like Leaflet, the map's default zoom level
-	//    			style: 'mapbox://styles/mapbox/streets-v9'
-	//    			// 'http://maps.dallasnews.com/styles.json' // <= this tells Mapbox GL to use our vector tiles
-	//    		});
-	//    	});
-
 
 		mapboxgl.accessToken = 'pk.eyJ1IjoibWFjbWFuIiwiYSI6ImVEbmNmZjAifQ.zVzy9cyjNT1tMYOTex51HQ';
 
@@ -97,6 +65,34 @@ $(document).ready(function() {
 					map.on('load', function () {
 						formatData(submissionData);
 					});
+
+
+
+					  jQuery(function(changeShadows) {
+					 	 $('.submissions').on('scroll', function() {
+					 		 if ($(this).scrollTop() + $(this).innerHeight() >= $(this)[0].scrollHeight - 30) {
+					 			 $('#shadow-bottom').removeClass("shadow2");
+					 		 } else if ($(this).scrollTop() + $(this).innerHeight() <= $(this)[0].scrollHeight) {
+					 			 $('#shadow-bottom').addClass("shadow2");
+					 		 }
+					 	 });
+					  });
+
+					  $(".sub-btn").click(function() {
+						 divHeight = 0;
+					 	 $('.exists').each(function() {
+					 		 divHeight += $(this).outerHeight(true);
+							 console.log(divHeight);
+					 	 });
+					 	 console.log("final height:" + divHeight);
+
+						 if (divHeight <= $('.submissions').height()) {
+						 	 $('#shadow-bottom').removeClass("shadow2");
+						 } else {
+							 $('#shadow-bottom').addClass("shadow2");
+						 }
+					  });
+
 				});
 
 				function writeSubmissions(data) {
@@ -162,7 +158,6 @@ $(document).ready(function() {
 
 				// Map points customization
 					function createMap(data) {
-						console.log(circleColor);
 						data = GeoJSON.parse(data, {Point: ['lat', 'long'], include: ['race', 'location', 'raceKey']});
 
 							// adding the data source
@@ -310,7 +305,6 @@ $(document).ready(function() {
 									circleColor = v.color;
 								}
 							});
-							console.log(circleColor);
 
 							clearMap();
 							formatData(filteredData);
@@ -327,7 +321,7 @@ $(document).ready(function() {
 
 						} else {
 							clearMap();
-							circleColor = "#fec44f";
+							circleColor = "#e34e36";
 							formatData(submissionData);
 							$(".submissions").html("");
 							$(".submission-nav h1").html("All locations");
@@ -343,11 +337,13 @@ $(document).ready(function() {
 
 					// Displays submissions
 					function displaySubmissions(parkName) {
-						$.each($(".submission-race, .submission-pv"), function() {
+						$.each($(".card"), function() {
 							if ($(this).attr("data-park") === parkName) {
 								$(this).removeClass("no-show");
+								$(this).addClass("exists");
 							} else {
 								$(this).addClass("no-show");
+								$(this).removeClass("exists");
 							}
 						});
 					}
@@ -372,7 +368,6 @@ $(document).ready(function() {
 							$("#sub-btn-prev").removeClass("unclickable");
 							$("#sub-btn-next").removeClass("unclickable");
 						}
-						console.log(submissionData, counter);
 						if (race === "all") {
 							$(".submission-nav h1").html(submissionData[counter].location);
 							displaySubmissions(submissionData[counter].location);
