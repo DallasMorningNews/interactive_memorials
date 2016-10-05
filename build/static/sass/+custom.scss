@@ -131,8 +131,8 @@ MAP
 
 #filter {
 	position: absolute;
-	top: 35px;
-	right: 70px;
+	bottom: 50px;
+	right: 130px;
 
 	@media only screen and (max-width: 678px) {
 		top: 60px;
@@ -140,14 +140,39 @@ MAP
 	}
 }
 
+.filter-btn {
+	height: 40px;
+	padding-top: 5px;
+	color: $chartRed;
+	border: white;
+	font-weight: bold;
+	font-size: 1.5rem;
+}
+
+.dropup .dropdown-menu, .navbar-fixed-bottom .dropdown .dropdown-menu {
+	margin-bottom: 10px;
+}
+
 .dropdown-menu {
 	right: 0;
 	left: auto;
+	min-width: 298.65px;
 
 	@media only screen and (max-width: 678px) {
 		left: 0;
 		right: auto;
 	}
+}
+
+.btn-group>.btn:first-child:not(:last-child):not(.dropdown-toggle) {
+	min-width: 260px;
+	width: 100%;
+}
+
+.dropdown-menu>li>a {
+	font-size: 1.5rem;
+	color: #444;
+	height: auto;
 }
 
 .yes-btn-nocir, .yes-btn-cir, .no-btn {
@@ -192,14 +217,28 @@ MAP
 
 #geocoder-container {
     position: absolute;
-    top: 0;
-    width: 500px;
+    top: 20px;
+    // width: 400px;
     margin-top: 10px;
 }
 
 #geocoder-container > div {
-    min-width: 50%;
-    margin-left: 10px;
+	width: 400px;
+	min-width: 50%;
+    margin-left: 30px;
+}
+
+.mapboxgl-ctrl-geocoder input[type='text'] {
+	font-size: 1.8rem !important;
+}
+
+button.geocoder-icon.geocoder-icon-close.active {
+    outline: none;
+	filter: none;
+	&:hover {
+		filter: invert(100%);
+		border-radius: 50%;
+	}
 }
 
 #see-form {

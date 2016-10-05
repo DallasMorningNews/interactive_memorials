@@ -994,20 +994,41 @@ MAP
 
 #filter {
   position: absolute;
-  top: 35px;
-  right: 70px; }
+  bottom: 50px;
+  right: 130px; }
   @media only screen and (max-width: 678px) {
     #filter {
       top: 60px;
       left: 10px; } }
 
+.filter-btn {
+  height: 40px;
+  padding-top: 5px;
+  color: #e34e36;
+  border: white;
+  font-weight: bold;
+  font-size: 1.5rem; }
+
+.dropup .dropdown-menu, .navbar-fixed-bottom .dropdown .dropdown-menu {
+  margin-bottom: 10px; }
+
 .dropdown-menu {
   right: 0;
-  left: auto; }
+  left: auto;
+  min-width: 298.65px; }
   @media only screen and (max-width: 678px) {
     .dropdown-menu {
       left: 0;
       right: auto; } }
+
+.btn-group > .btn:first-child:not(:last-child):not(.dropdown-toggle) {
+  min-width: 260px;
+  width: 100%; }
+
+.dropdown-menu > li > a {
+  font-size: 1.5rem;
+  color: #444;
+  height: auto; }
 
 .yes-btn-nocir, .yes-btn-cir, .no-btn {
   text-transform: none;
@@ -1042,13 +1063,23 @@ MAP
 
 #geocoder-container {
   position: absolute;
-  top: 0;
-  width: 500px;
+  top: 20px;
   margin-top: 10px; }
 
 #geocoder-container > div {
+  width: 400px;
   min-width: 50%;
-  margin-left: 10px; }
+  margin-left: 30px; }
+
+.mapboxgl-ctrl-geocoder input[type='text'] {
+  font-size: 1.8rem !important; }
+
+button.geocoder-icon.geocoder-icon-close.active {
+  outline: none;
+  filter: none; }
+  button.geocoder-icon.geocoder-icon-close.active:hover {
+    filter: invert(100%);
+    border-radius: 50%; }
 
 #see-form {
   position: absolute;
