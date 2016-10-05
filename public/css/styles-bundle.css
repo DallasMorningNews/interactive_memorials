@@ -1009,21 +1009,14 @@ MAP
   font-weight: bold;
   font-size: 1.5rem; }
 
-.dropup .dropdown-menu, .navbar-fixed-bottom .dropdown .dropdown-menu {
-  margin-bottom: 10px; }
-
 .dropdown-menu {
   right: 0;
   left: auto;
-  min-width: 298.65px; }
+  max-width: 266.93px; }
   @media only screen and (max-width: 678px) {
     .dropdown-menu {
       left: 0;
       right: auto; } }
-
-.btn-group > .btn:first-child:not(:last-child):not(.dropdown-toggle) {
-  min-width: 260px;
-  width: 100%; }
 
 .dropdown-menu > li > a {
   font-size: 1.5rem;
