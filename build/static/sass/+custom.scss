@@ -23,7 +23,7 @@ body {
 	color: #323232;
 }
 
-$panel: lighten($chartGray, 15%);
+$panel: lighten($chartGray, 20%);
 $dark-gray: rgb(68, 68, 68);
 
 .transition {
@@ -111,7 +111,7 @@ MAP
 	}
 }
 
-#filter {
+#filter-desk {
 	position: absolute;
 	bottom: 0px;
 	right: 130px;
@@ -128,7 +128,7 @@ MAP
 		display: inline-block;
 		margin-left: auto;
 		margin-right: auto;
-		margin-bottom: 20px;
+		width: 100%;
 	}
 }
 
@@ -201,14 +201,10 @@ MAP
 #geocoder-container {
     position: absolute;
     top: 20px;
-    // width: 400px;
-    margin-top: 10px;
 }
 
 #geocoder-container > div {
-	width: 400px;
-	min-width: 50%;
-    margin-left: 30px;
+    margin-left: 10px;
 }
 
 .mapboxgl-ctrl-geocoder input[type='text'] {
@@ -249,13 +245,13 @@ button.geocoder-icon.geocoder-icon-close.active {
 	}
 
 	@media only screen and (max-width: 800px) {
-		display: none;
 		border-left: none;
 		width: 5rem;
 		height: 5rem;
 		font-size: 4rem;
 		margin-bottom: 20px;
 		bottom: 10px;
+		right: 20px;
 	}
 }
 
@@ -394,7 +390,14 @@ button.close {
 	}
 }
 
+.submit {
+	background: $chartRed;
+	color: white !important;
 
+	&:hover {
+		background: darken($chartRed, 10%) !important;
+	}
+}
 
 
 
@@ -405,7 +408,8 @@ RIGHT PANEL
 ***************************/
 
 .right-panel {
-	background-color: #323232;
+	// background-color: #323232;
+	background-color: #555;
 	width: 25%;
 	display: inline-block;
 
@@ -535,9 +539,8 @@ RIGHT PANEL
 	z-index: 1000;
 	height: 10px;
 	width: 25%;
-	bottom: 4px;
+	bottom: 1px;
 	right: 0;
-	margin: -1px auto;
 	-webkit-box-shadow: inset 0px -5px 8px -5px rgba(0,0,0,0.4);
 	-moz-box-shadow: inset 0px -5px 8px -5px rgba(0,0,0,0.4);
 	box-shadow: inset 0px -10px 8px -5px rgba(0,0,0,0.4);
@@ -618,30 +621,23 @@ RIGHT PANEL
 
 @import url("http://fonts.googleapis.com/css?family=Lato:300,400,700,900");
 @import url(http://fonts.googleapis.com/css?family=Pacifico);
-body {
-  font-family: "Lato", Helvetica, Arial;
-  font-size: 16px;
-}
+
 *, *:before, *:after {
   -webkit-border-sizing: border-box;
   -moz-border-sizing: border-box;
   border-sizing: border-box;
 }
-.container {
+.filter {
   width: 350px;
-  margin: 50px auto;
+  font-size: 1.6rem;
+
+  a {
+	  font-weight: normal;
+  }
 }
-.container > ul {
+.filter > ul {
   list-style: none;
   padding: 0;
-}
-.title {
-  font-family: 'Pacifico';
-  font-weight: norma;
-  font-size: 40px;
-  text-align: center;
-  line-height: 1.4;
-  color: $chartRed;
 }
 .drop {
   position: relative;
@@ -652,8 +648,9 @@ body {
 .drop [data-toggle="drop"] {
   display: block;
   color: white;
-  background: $chartRed;
-  padding: 10px;
+  background: #555;
+  padding: 12px;
+  font-weight: bold;
 }
 .drop [data-toggle="drop"]:hover {
   background: #primary;
@@ -663,8 +660,8 @@ body {
   display: block;
   content: '\25BC';
   font-size: 0.7em;
-  color: #fff;
-  top: 13px;
+  color: white;
+  bottom: 13px;
   right: 10px;
   -moz-transform: rotate(0deg);
   -ms-transform: rotate(0deg);
@@ -693,17 +690,17 @@ body {
   -o-transition: max-height 0.6s ease-out;
   -webkit-transition: max-height 0.6s ease-out;
   transition: max-height 0.6s ease-out;
-  animation: hideAnimation 0.4s ease-out;
-  -moz-animation: hideAnimation 0.4s ease-out;
-  -webkit-animation: hideAnimation 0.4s ease-out;
+  // animation: hideAnimation 0.4s ease-out;
+  // -moz-animation: hideAnimation 0.4s ease-out;
+  // -webkit-animation: hideAnimation 0.4s ease-out;
 }
 .drop > .drop-menu li {
   padding: 0;
 }
 .drop > .drop-menu li a {
   display: block;
-  color: #6f6f6f;
-  background: #EEE;
+  color: #444;
+  background: white;
   -moz-box-shadow: 0 1px 0 white inset, 0 -1px 0 #d5d5d5 inset;
   -webkit-box-shadow: 0 1px 0 white inset, 0 -1px 0 #d5d5d5 inset;
   box-shadow: 0 1px 0 white inset, 0 -1px 0 #d5d5d5 inset;
@@ -717,7 +714,7 @@ body {
   opacity: 0;
   display: block;
   position: absolute;
-  top: 0;
+  bottom: 0;
   width: 100%;
   height: 100%;
   cursor: pointer;
@@ -729,9 +726,9 @@ body {
   -ms-transform: scaleY(1);
   -webkit-transform: scaleY(1);
   transform: scaleY(1);
-  animation: showAnimation 0.5s ease-in-out;
-  -moz-animation: showAnimation 0.5s ease-in-out;
-  -webkit-animation: showAnimation 0.5s ease-in-out;
+  // animation: showAnimation 0.5s ease-in-out;
+  // -moz-animation: showAnimation 0.5s ease-in-out;
+  // -webkit-animation: showAnimation 0.5s ease-in-out;
   -moz-transition: max-height 2s ease-in-out;
   -o-transition: max-height 2s ease-in-out;
   -webkit-transition: max-height 2s ease-in-out;

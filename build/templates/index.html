@@ -126,11 +126,11 @@ googletag.enableServices();
 
         <div class="tool-wrapper clearfix">
 
-            <div id="filter-mob" class="container">
+            <div id="filter-mob" class="filter">
               <ul>
                 <li class="drop">
                   <input type="checkbox" />
-                  <a href="#" class="filter-btn" data-toggle="drop">All races/ethnicities</a>
+                  <a href="#" class="filter-btn" data-toggle="drop">Filter by race or ethnicity</a>
                   <ul class="drop-menu">
                       <li data-race="all"><a>All races/ethnicities</a></li>
                       <li data-race="Black or African Am."><a>Black or African Am.</a></li>
@@ -149,11 +149,10 @@ googletag.enableServices();
                 <div id='geocoder-container'></div>
                 <div id="popup"></div>
 
-                <div id="filter" class="container">
+                <div id="filter-desk" class="filter">
                   <ul>
                     <li class="drop">
                       <input type="checkbox" />
-                      <a href="#" data-toggle="drop">All races/ethnicities</a>
                       <ul class="drop-menu">
                           <li data-race="all"><a>All races/ethnicities</a></li>
                           <li data-race="Black or African Am."><a>Black or African Am.</a></li>
@@ -163,6 +162,8 @@ googletag.enableServices();
                           <li data-race="Native Hawaiian or other Pacitif Isl."><a>Native Hawaiian or other Pacific Isl.</a></li>
                           <li data-race="Other"><a>Other</a></li>
                       </ul>
+                      <a href="#" data-toggle="drop">All races/ethnicities</a>
+
                     </li>
                   </ul>
                 </div>
@@ -218,7 +219,7 @@ googletag.enableServices();
                           <textarea class="form-control" rows="3"></textarea>
                         </div>
                         <div class="form-group">
-                            <button type="reset" class="btn btn-default">Submit</button>
+                            <button type="reset" class="btn btn-default submit">Submit</button>
                         </div>
                       </fieldset>
                     </form>
