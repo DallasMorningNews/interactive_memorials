@@ -20,9 +20,9 @@ $(document).ready(function() {
 		var location;
 		var divHeight = 0;
 
-		//bootstrap dropdown
+		//bootstrap drop
 
-	    $(".dropdown-menu li a").click(function(){
+	    $(".drop-menu li a").click(function(){
 
 	      $(".filter-btn:first-child").text($(this).text());
 	      $(".filter-btn:first-child").val($(this).text());
@@ -287,8 +287,8 @@ $(document).ready(function() {
 							$('#see-form, .map-wrapper h1').show();
 						});
 
-					// Getting the value of the dropdown
-						$('.dropdown-menu li').click(function() {
+					// Getting the value of the drop
+						$('.drop-menu li').click(function() {
 							race = $(this).attr("data-race");
 							filteringData(race);
 						});
@@ -384,7 +384,7 @@ $(document).ready(function() {
 					});
 
 
-					// $(".dropdown-menu li a").click(function(){
+					// $(".drop-menu li a").click(function(){
 					//
 					// }
 

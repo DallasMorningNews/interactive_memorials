@@ -85,10 +85,10 @@
 
 <script id="submission" type="text/x-handlebars-template">
     <div class="card" data-race="{{race}}" data-park="{{location}}">
-        <div class="col-xs-12 submission-race">
+        <div class="submission-race">
             <h2><span style="color: {{color}}; font-size: 2rem;">&#9679</span>  {{race}} memorial</h2>
         </div>
-        <div id="pv" class="col-xs-12 submission-pv">
+        <div id="pv" class="submission-pv">
             <h1>{{firstName}} {{lastName}}</h1>
             <p>{{why}}</p>
         </div>
@@ -186,54 +186,47 @@ googletag.enableServices();
 </section> -->
 <!-- end contentHeader -->
 
-<section class="contentWell clearFix">
 
-	<header id="storyHead">
-		<h3>Label, if needed</h3>
-		<h1>Main Headline</h1>
-		<h2>Deck head goes in this spot here</h2>
-	</header> -->
-		<!-- end storyHead -->
+        <div class="tool-wrapper clearfix">
 
-    <div class="bylineBlock">
-        <p>By <a target="_blank" href="mailto:emailaddresshere">Writer Name</a> | Staff Writer</p>
-        <p>Published Month Date, Year</p>
-         <p>Updated Month, Date, Year</p>
-    </div>
-    <!-- end bylineBlock -->
+            <div id="filter-mob" class="container">
+              <ul>
+                <li class="drop">
+                  <input type="checkbox" />
+                  <a href="#" class="filter-btn" data-toggle="drop">All races/ethnicities</a>
+                  <ul class="drop-menu">
+                      <li data-race="all"><a>All races/ethnicities</a></li>
+                      <li data-race="Black or African Am."><a>Black or African Am.</a></li>
+                      <li data-race="Asian"><a>Asian</a></li>
+                      <li data-race="Hispanic or Latino"><a>Hispanic or Latino</a></li>
+                      <li data-race="Am. Indian or Alaskan Native"><a>Am. Indian or Alaskan Native</a></li>
+                      <li data-race="Native Hawaiian or other Pacitif Isl."><a>Native Hawaiian or other Pacitif Isl.</a></li>
+                      <li data-race="Other"><a>Other</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
 
-	<div class="shareComments shareCommentsTop">
-		<ul id="share-bar1" class="width-auto-hack"></ul>
-	</div>
-	<!-- end shareComments -->
-
-    <p class="intro"><span class="dropcap">A</span>n opening paragraph goes here. I love the Weather & Opera section plagiarism Julian Assange syndicated process vs. product curmudgeon, attracting young readers cognitive surplus the audience knows more than I do discuss anonymity WikiLeaks hyperhyperlocal Arianna future scoop, Twitter topples dictators the medium is the message information overload natural-born blogger metered model Colbert bump Julian Assange CTR.</p>
-
-    <!-- <p>column-inch trolls copyboy data visualization AOL afternoon paper shoot a photo attracting young readers, MinnPost but what's the business model Instagram fair use fourth estate morgue writing, The Work of Art in the Age of Mechanical Reproduction audience atomization overcome free as in beer Pictures of Goats section kitchen table of the future masthead.</p> -->
-    <br /><br />
-
-</section> <!-- end first contentWell -->
-
-    <div class="container-fluid tool-wrapper">
-        <div class="row">
-
-
-            <div class="col-xs-12 col-sm-8 map-wrapper no-pad">
+            <div class="map-wrapper">
                 <div id="map"></div>
                 <div id='geocoder-container'></div>
                 <div id="popup"></div>
 
-                <div id="filter" class="btn-group dropup">
-                  <a class="btn btn-default filter-btn">All races/ethnicities</a>
-                  <a class="btn btn-default drop filter-btn" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></a>
-                  <ul class="dropdown-menu">
-                    <li data-race="all"><a>All races/ethnicities</a></li>
-                    <li data-race="Black or African Am."><a>Black or African Am.</a></li>
-                    <li data-race="Asian"><a>Asian</a></li>
-                    <li data-race="Hispanic or Latino"><a>Hispanic or Latino</a></li>
-                    <li data-race="Am. Indian or Alaskan Native"><a>Am. Indian or Alaskan Native</a></li>
-                    <li data-race="Native Hawaiian or other Pacitif Isl."><a>Native Hawaiian or other Pacitif Isl.</a></li>
-                    <li data-race="Other"><a>Other</a></li>
+                <div id="filter" class="container">
+                  <ul>
+                    <li class="drop">
+                      <input type="checkbox" />
+                      <a href="#" data-toggle="drop">All races/ethnicities</a>
+                      <ul class="drop-menu">
+                          <li data-race="all"><a>All races/ethnicities</a></li>
+                          <li data-race="Black or African Am."><a>Black or African Am.</a></li>
+                          <li data-race="Asian"><a>Asian</a></li>
+                          <li data-race="Hispanic or Latino"><a>Hispanic or Latino</a></li>
+                          <li data-race="Am. Indian or Alaskan Native"><a>Am. Indian or Alaskan Native</a></li>
+                          <li data-race="Native Hawaiian or other Pacitif Isl."><a>Native Hawaiian or other Pacific Isl.</a></li>
+                          <li data-race="Other"><a>Other</a></li>
+                      </ul>
+                    </li>
                   </ul>
                 </div>
 
@@ -241,8 +234,7 @@ googletag.enableServices();
             </div> <!-- end map wrapper -->
 
 
-            <div class="col-xs-12 col-sm-4 right-panel no-pad">
-
+            <div class="right-panel">
                 <div id="form-wrapper">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     <div class="submission-nav form-nav">
@@ -298,31 +290,27 @@ googletag.enableServices();
 
                 <div id="submission-panel">
 
-                    <div class="col-xs-12 submission-nav">
-                        <div class="row">
-                            <div id="sub-btn-prev" class="relative sub-btn col-xs-1">
-                                <i class="fa fa-2x fa-chevron-left" aria-hidden="true"></i>
-                            </div>
-                            <div class="park-name relative col-xs-10">
-                                <h1>All locations</h1>
-                            </div>
-                            <div id="sub-btn-next" class="relative sub-btn col-xs-1">
-                                <i class="fa fa-2x fa-chevron-right" aria-hidden="true"></i>
-                            </div>
-                        </div> <!-- end submission-nav row -->
+                    <div class="submission-nav">
+                        <div id="sub-btn-prev" class="relative sub-btn">
+                            <i class="fa fa-2x fa-chevron-left" aria-hidden="true"></i>
+                        </div>
+                        <div class="park-name relative">
+                            <h1>All locations</h1>
+                        </div>
+                        <div id="sub-btn-next" class="relative sub-btn">
+                            <i class="fa fa-2x fa-chevron-right" aria-hidden="true"></i>
+                        </div>
                     </div> <!-- end submission-nav -->
 
                     <div class="submissions no-pad">
+                        <div id="shadow-top" class="shadow1"></div>
                         <div id="shadow-bottom" class="shadow2"></div>
                     </div> <!-- end submissions -->
 
                 </div> <!-- emd submission-panel -->
 
             </div> <!-- end right panel -->
-
-
-        </div> <!-- end tool wrapper row -->
-    </div> <!-- end tool wraper -->
+        </div> <!-- end tool wraper -->
 
 <section class="contentWell clearFix">
 

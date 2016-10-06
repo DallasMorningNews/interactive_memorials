@@ -5,6 +5,8 @@ MAP - All content in left panel (map + add pin button)
 FORM - Form content (hidden until pin button is pressed)
 RIGHT PANNEL - All content in right panel (excludes form)
 ***/
+@import url("http://fonts.googleapis.com/css?family=Lato:300,400,700,900");
+@import url(http://fonts.googleapis.com/css?family=Pacifico);
 body {
   color: #323232; }
 
@@ -25,7 +27,7 @@ body {
 
 .tool-wrapper {
   font-family: "Gotham A", "Gotham B", Arial, sans-serif;
-  height: 80vh;
+  height: 100%;
   position: relative; }
 
 .relative {
@@ -40,7 +42,15 @@ MAP
 .map-wrapper {
   position: relative;
   overflow: hidden;
-  padding-bottom: .5rem; }
+  width: 75%;
+  display: inline-block;
+  float: left; }
+  @media only screen and (max-width: 1300px) {
+    .map-wrapper {
+      width: 60%; } }
+  @media only screen and (max-width: 800px) {
+    .map-wrapper {
+      width: 100%; } }
   .map-wrapper h1 {
     font-size: 1.6rem;
     font-weight: bold;
@@ -53,7 +63,7 @@ MAP
     display: none; }
     .map-wrapper h1:hover {
       display: block; }
-    @media only screen and (max-width: 678px) {
+    @media only screen and (max-width: 800px) {
       .map-wrapper h1 {
         bottom: 0.5rem;
         right: 10.5rem; } }
@@ -61,37 +71,44 @@ MAP
 #map {
   width: 100%;
   height: 80vh; }
-  @media only screen and (max-width: 678px) {
+  @media only screen and (max-width: 800px) {
     #map {
       border-left: none;
       height: 40rem; } }
 
 #filter {
   position: absolute;
-  bottom: 50px;
+  bottom: 0px;
   right: 130px; }
-  @media only screen and (max-width: 678px) {
+  @media only screen and (max-width: 800px) {
     #filter {
-      top: 60px;
-      left: 10px; } }
+      display: none; } }
+
+#filter-mob {
+  display: none; }
+  @media only screen and (max-width: 800px) {
+    #filter-mob {
+      display: inline-block;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 20px; } }
 
 .filter-btn {
   height: 40px;
-  padding-top: 5px;
   color: #e34e36;
   border: white;
   font-weight: bold;
   font-size: 1.5rem; }
 
-.dropdown-menu {
+.drop-menu {
   right: 0;
   left: auto; }
-  @media only screen and (max-width: 678px) {
-    .dropdown-menu {
+  @media only screen and (max-width: 800px) {
+    .drop-menu {
       left: 0;
       right: auto; } }
 
-.dropdown-menu > li > a {
+.drop-menu > li > a {
   font-size: 1.5rem;
   color: #444;
   height: auto; }
@@ -167,8 +184,9 @@ button.geocoder-icon.geocoder-icon-close.active {
   #see-form:hover {
     color: white;
     background-color: #ca341c; }
-  @media only screen and (max-width: 678px) {
+  @media only screen and (max-width: 800px) {
     #see-form {
+      display: none;
       border-left: none;
       width: 5rem;
       height: 5rem;
@@ -185,7 +203,6 @@ FORM
   position: absolute;
   display: none;
   z-index: 2000;
-  width: 100%;
   height: 100%;
   background: #efefef;
   overflow-y: auto;
@@ -196,7 +213,7 @@ FORM
   #form-wrapper.visible {
     top: 0;
     display: block; }
-    @media only screen and (max-width: 678px) {
+    @media only screen and (max-width: 800px) {
       #form-wrapper.visible {
         position: relative;
         overflow-y: hidden; } }
@@ -229,7 +246,7 @@ form.submission-form {
     font-size: 2rem;
     line-height: 2.6rem;
     font-weight: normal; }
-    @media only screen and (max-width: 678px) {
+    @media only screen and (max-width: 800px) {
       .form-horizontal .control-label {
         font-size: 1.3rem;
         line-height: 1.5rem; } }
@@ -284,15 +301,23 @@ RIGHT PANEL
 ****************************
 ***************************/
 .right-panel {
-  border-left: 10px white solid;
-  background-color: #efefef; }
-  @media only screen and (max-width: 678px) {
+  background-color: #323232;
+  width: 25%;
+  display: inline-block; }
+  @media only screen and (max-width: 1300px) {
+    .right-panel {
+      width: 40%; } }
+  @media only screen and (max-width: 800px) {
     .right-panel {
       border-left: none;
-      height: 100%; } }
+      margin: 0 auto;
+      width: 100%; } }
 
 #submission-panel {
   height: 80vh; }
+  @media only screen and (max-width: 800px) {
+    #submission-panel {
+      height: 500px; } }
 
 .submission-nav {
   height: 100px;
@@ -313,10 +338,17 @@ RIGHT PANEL
     /* Chrome, Safari, Opera */
     transform: translateY(-50%);
     color: white; }
+  .submission-nav .park-name {
+    width: 80%;
+    display: inline-block;
+    float: left; }
   .submission-nav .sub-btn {
     cursor: pointer;
     color: white;
-    transition: all 0.4s; }
+    transition: all 0.4s;
+    width: 10%;
+    float: left;
+    display: inline-block; }
     .submission-nav .sub-btn:hover {
       background: #e03a20; }
   .submission-nav .fa-chevron-left, .submission-nav .fa-chevron-right {
@@ -335,7 +367,10 @@ RIGHT PANEL
   margin: 25px 0;
   -webkit-box-shadow: 0px 4px 8px -5px rgba(0, 0, 0, 0.4);
   -moz-box-shadow: 0px 4px 8px -5px rgba(0, 0, 0, 0.4);
-  box-shadow: 0px 4px 8px -5px rgba(0, 0, 0, 0.4); }
+  box-shadow: 0px 4px 8px -5px rgba(0, 0, 0, 0.4);
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto; }
 
 .submissions {
   display: block;
@@ -347,19 +382,44 @@ RIGHT PANEL
   .submissions::-webkit-scrollbar {
     width: 0px;
     background: transparent; }
+  @media only screen and (max-width: 800px) {
+    .submissions {
+      height: 400px; } }
+
+.shadow1 {
+  position: absolute;
+  z-index: 1000;
+  height: 10px;
+  width: 25%;
+  right: 0;
+  margin: -1px auto;
+  -webkit-box-shadow: inset 0px 5px 8px -5px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: inset 0px 5px 8px -5px rgba(0, 0, 0, 0.4);
+  box-shadow: inset 0px 10px 8px -5px rgba(0, 0, 0, 0.4); }
+  @media only screen and (max-width: 1300px) {
+    .shadow1 {
+      width: 40%; } }
+  @media only screen and (max-width: 800px) {
+    .shadow1 {
+      width: 100%; } }
 
 .shadow2 {
   position: absolute;
   z-index: 1000;
   height: 10px;
-  width: 100%;
-  bottom: 1px;
-  left: 0;
+  width: 25%;
+  bottom: 4px;
   right: 0;
   margin: -1px auto;
   -webkit-box-shadow: inset 0px -5px 8px -5px rgba(0, 0, 0, 0.4);
   -moz-box-shadow: inset 0px -5px 8px -5px rgba(0, 0, 0, 0.4);
   box-shadow: inset 0px -10px 8px -5px rgba(0, 0, 0, 0.4); }
+  @media only screen and (max-width: 1300px) {
+    .shadow2 {
+      width: 40%; } }
+  @media only screen and (max-width: 800px) {
+    .shadow2 {
+      width: 100%; } }
 
 .submission-pv:first-child, .submission-race:first-child {
   color: red; }
@@ -380,16 +440,19 @@ RIGHT PANEL
 
 .submission-pv, .submission-race {
   padding-left: 2rem;
+  padding-right: 2rem;
   padding-bottom: 2rem;
   background-color: white; }
   .submission-pv h1, .submission-race h1 {
     font-size: 2.4rem;
     line-height: 3.6rem;
-    font-weight: normal; }
+    font-weight: normal;
+    padding-top: 1rem; }
   .submission-pv h2, .submission-race h2 {
     font-size: 1.4rem;
-    line-height: 2rem;
-    margin-bottom: 1rem;
+    line-height: 1.8rem;
+    margin-bottom: 0rem;
+    padding: 0.4rem 1rem;
     width: 100%;
     text-transform: uppercase;
     background-color: #d1d1d1; }
@@ -400,3 +463,198 @@ RIGHT PANEL
 
 .no-show {
   display: none; }
+
+body {
+  font-family: "Lato", Helvetica, Arial;
+  font-size: 16px; }
+
+*, *:before, *:after {
+  -webkit-border-sizing: border-box;
+  -moz-border-sizing: border-box;
+  border-sizing: border-box; }
+
+.container {
+  width: 350px;
+  margin: 50px auto; }
+
+.container > ul {
+  list-style: none;
+  padding: 0; }
+
+.title {
+  font-family: 'Pacifico';
+  font-weight: norma;
+  font-size: 40px;
+  text-align: center;
+  line-height: 1.4;
+  color: #e34e36; }
+
+.drop {
+  position: relative; }
+
+.drop a {
+  text-decoration: none; }
+
+.drop [data-toggle="drop"] {
+  display: block;
+  color: white;
+  background: #e34e36;
+  padding: 10px; }
+
+.drop [data-toggle="drop"]:hover {
+  background: #primary; }
+
+.drop [data-toggle="drop"]:before {
+  position: absolute;
+  display: block;
+  content: '\25BC';
+  font-size: 0.7em;
+  color: #fff;
+  top: 13px;
+  right: 10px;
+  -moz-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -moz-transition: -moz-transform 0.6s;
+  -o-transition: -o-transform 0.6s;
+  -webkit-transition: -webkit-transform 0.6s;
+  transition: transform 0.6s; }
+
+.drop > .drop-menu {
+  max-height: 0;
+  overflow: hidden;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  -moz-transform: scaleY(0);
+  -ms-transform: scaleY(0);
+  -webkit-transform: scaleY(0);
+  transform: scaleY(0);
+  -moz-transform-origin: 50% 0%;
+  -ms-transform-origin: 50% 0%;
+  -webkit-transform-origin: 50% 0%;
+  transform-origin: 50% 0%;
+  -moz-transition: max-height 0.6s ease-out;
+  -o-transition: max-height 0.6s ease-out;
+  -webkit-transition: max-height 0.6s ease-out;
+  transition: max-height 0.6s ease-out;
+  animation: hideAnimation 0.4s ease-out;
+  -moz-animation: hideAnimation 0.4s ease-out;
+  -webkit-animation: hideAnimation 0.4s ease-out; }
+
+.drop > .drop-menu li {
+  padding: 0; }
+
+.drop > .drop-menu li a {
+  display: block;
+  color: #6f6f6f;
+  background: #EEE;
+  -moz-box-shadow: 0 1px 0 white inset, 0 -1px 0 #d5d5d5 inset;
+  -webkit-box-shadow: 0 1px 0 white inset, 0 -1px 0 #d5d5d5 inset;
+  box-shadow: 0 1px 0 white inset, 0 -1px 0 #d5d5d5 inset;
+  text-shadow: 0 -1px 0 rgba(255, 255, 255, 0.3);
+  padding: 10px 10px; }
+
+.drop > .drop-menu li a:hover {
+  background: #f6f6f6; }
+
+.drop > input[type="checkbox"] {
+  opacity: 0;
+  display: block;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer; }
+
+.drop > input[type="checkbox"]:checked ~ .drop-menu {
+  max-height: 9999px;
+  display: block;
+  -moz-transform: scaleY(1);
+  -ms-transform: scaleY(1);
+  -webkit-transform: scaleY(1);
+  transform: scaleY(1);
+  animation: showAnimation 0.5s ease-in-out;
+  -moz-animation: showAnimation 0.5s ease-in-out;
+  -webkit-animation: showAnimation 0.5s ease-in-out;
+  -moz-transition: max-height 2s ease-in-out;
+  -o-transition: max-height 2s ease-in-out;
+  -webkit-transition: max-height 2s ease-in-out;
+  transition: max-height 2s ease-in-out; }
+
+.drop > input[type="checkbox"]:checked + a[data-toggle="drop"]:before {
+  -moz-transform: rotate(-180deg);
+  -ms-transform: rotate(-180deg);
+  -webkit-transform: rotate(-180deg);
+  transform: rotate(-180deg);
+  -moz-transition: -moz-transform 0.6s;
+  -o-transition: -o-transform 0.6s;
+  -webkit-transition: -webkit-transform 0.6s;
+  transition: transform 0.6s; }
+
+@keyframes hideAnimation {
+  0% {
+    -moz-transform: scaleY(1);
+    -ms-transform: scaleY(1);
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1); }
+  60% {
+    -moz-transform: scaleY(0.98);
+    -ms-transform: scaleY(0.98);
+    -webkit-transform: scaleY(0.98);
+    transform: scaleY(0.98); }
+  80% {
+    -moz-transform: scaleY(1.02);
+    -ms-transform: scaleY(1.02);
+    -webkit-transform: scaleY(1.02);
+    transform: scaleY(1.02); }
+  100% {
+    -moz-transform: scaleY(0);
+    -ms-transform: scaleY(0);
+    -webkit-transform: scaleY(0);
+    transform: scaleY(0); } }
+
+@-moz-keyframes hideAnimation {
+  0% {
+    -moz-transform: scaleY(1);
+    -ms-transform: scaleY(1);
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1); }
+  60% {
+    -moz-transform: scaleY(0.98);
+    -ms-transform: scaleY(0.98);
+    -webkit-transform: scaleY(0.98);
+    transform: scaleY(0.98); }
+  80% {
+    -moz-transform: scaleY(1.02);
+    -ms-transform: scaleY(1.02);
+    -webkit-transform: scaleY(1.02);
+    transform: scaleY(1.02); }
+  100% {
+    -moz-transform: scaleY(0);
+    -ms-transform: scaleY(0);
+    -webkit-transform: scaleY(0);
+    transform: scaleY(0); } }
+
+@-webkit-keyframes hideAnimation {
+  0% {
+    -moz-transform: scaleY(1);
+    -ms-transform: scaleY(1);
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1); }
+  60% {
+    -moz-transform: scaleY(0.98);
+    -ms-transform: scaleY(0.98);
+    -webkit-transform: scaleY(0.98);
+    transform: scaleY(0.98); }
+  80% {
+    -moz-transform: scaleY(1.02);
+    -ms-transform: scaleY(1.02);
+    -webkit-transform: scaleY(1.02);
+    transform: scaleY(1.02); }
+  100% {
+    -moz-transform: scaleY(0);
+    -ms-transform: scaleY(0);
+    -webkit-transform: scaleY(0);
+    transform: scaleY(0); } }
