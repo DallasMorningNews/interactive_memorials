@@ -22,12 +22,20 @@ $(document).ready(function() {
 
 		//bootstrap drop
 
-	    $(".drop-menu li a").click(function(){
+	    $(".dropmenu li a").click(function(){
 
 	      $(".filter-btn:first-child").text($(this).text());
 	      $(".filter-btn:first-child").val($(this).text());
 		  $('.mapboxgl-popup').hide();
 
+	   });
+
+	   $('#filter-desk').click(function() {
+		  $('ul.dropmenu').slideToggle();
+	   });
+
+	   $('#filter-mob').click(function() {
+		  $('ul.dropmenu').slideToggle(); 
 	   });
 
 		mapboxgl.accessToken = 'pk.eyJ1IjoibWFjbWFuIiwiYSI6ImVEbmNmZjAifQ.zVzy9cyjNT1tMYOTex51HQ';
@@ -288,7 +296,7 @@ $(document).ready(function() {
 						});
 
 					// Getting the value of the drop
-						$('.drop-menu li').click(function() {
+						$('.dropmenu li').click(function() {
 							race = $(this).attr("data-race");
 							filteringData(race);
 						});
@@ -384,7 +392,7 @@ $(document).ready(function() {
 					});
 
 
-					// $(".drop-menu li a").click(function(){
+					// $(".dropmenu li a").click(function(){
 					//
 					// }
 

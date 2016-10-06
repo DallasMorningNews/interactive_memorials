@@ -70,16 +70,23 @@ MAP
 
 #map {
   width: 100%;
-  height: 80vh; }
+  height: calc(100vh - 51px); }
   @media only screen and (max-width: 800px) {
     #map {
       border-left: none;
-      height: 40rem; } }
+      height: calc(100vh - 91px);
+      width: 90%;
+      margin-left: auto;
+      margin-right: auto; } }
+
+.mapboxgl-ctrl-bottom-right {
+  left: 0;
+  right: inherit !important; }
 
 #filter-desk {
   position: absolute;
-  bottom: 0px;
-  right: 130px; }
+  bottom: 45px;
+  right: 135px; }
   @media only screen and (max-width: 800px) {
     #filter-desk {
       display: none; } }
@@ -100,15 +107,15 @@ MAP
   font-weight: bold;
   font-size: 1.5rem; }
 
-.drop-menu {
+.dropmenu {
   right: 0;
   left: auto; }
   @media only screen and (max-width: 800px) {
-    .drop-menu {
+    .dropmenu {
       left: 0;
       right: auto; } }
 
-.drop-menu > li > a {
+.dropmenu > li > a {
   font-size: 1.5rem;
   color: #444;
   height: auto; }
@@ -149,7 +156,7 @@ MAP
   top: 20px; }
 
 #geocoder-container > div {
-  margin-left: 10px; }
+  margin-left: 30px; }
 
 .mapboxgl-ctrl-geocoder input[type='text'] {
   font-size: 1.8rem !important; }
@@ -165,7 +172,7 @@ button.geocoder-icon.geocoder-icon-close.active {
   position: absolute;
   display: block;
   z-index: 2000;
-  bottom: 40px;
+  bottom: 30px;
   right: 40px;
   width: 7rem;
   height: 7rem;
@@ -317,7 +324,7 @@ RIGHT PANEL
       width: 100%; } }
 
 #submission-panel {
-  height: 80vh; }
+  height: calc(100vh - 51px); }
   @media only screen and (max-width: 800px) {
     #submission-panel {
       height: 500px; } }
@@ -353,7 +360,7 @@ RIGHT PANEL
     float: left;
     display: inline-block; }
     .submission-nav .sub-btn:hover {
-      background: #e03a20; }
+      background: #ca341c; }
   .submission-nav .fa-chevron-left, .submission-nav .fa-chevron-right {
     position: absolute;
     left: 0;
@@ -377,7 +384,7 @@ RIGHT PANEL
 
 .submissions {
   display: block;
-  height: calc(80vh - 100px);
+  height: calc(100vh - 151px);
   margin-left: auto;
   margin-right: auto;
   overflow-y: auto;
@@ -497,13 +504,19 @@ RIGHT PANEL
 .drop [data-toggle="drop"]:hover {
   background: #primary; }
 
-.drop [data-toggle="drop"]:before {
+.drop-desk [data-toggle="drop"]:before {
+  bottom: 13px; }
+
+.drop-desk [data-toggle="drop"]:before {
+  bottom: 13px; }
+
+.drop-mob [data-toggle="drop"]:before {
   position: absolute;
   display: block;
   content: '\25BC';
   font-size: 0.7em;
   color: white;
-  bottom: 13px;
+  top: 13px;
   right: 10px;
   -moz-transform: rotate(0deg);
   -ms-transform: rotate(0deg);
@@ -514,29 +527,18 @@ RIGHT PANEL
   -webkit-transition: -webkit-transform 0.6s;
   transition: transform 0.6s; }
 
-.drop > .drop-menu {
-  max-height: 0;
+.dropmenu {
+  display: none;
+  max-height: 9999px;
   overflow: hidden;
   list-style: none;
   padding: 0;
-  margin: 0;
-  -moz-transform: scaleY(0);
-  -ms-transform: scaleY(0);
-  -webkit-transform: scaleY(0);
-  transform: scaleY(0);
-  -moz-transform-origin: 50% 0%;
-  -ms-transform-origin: 50% 0%;
-  -webkit-transform-origin: 50% 0%;
-  transform-origin: 50% 0%;
-  -moz-transition: max-height 0.6s ease-out;
-  -o-transition: max-height 0.6s ease-out;
-  -webkit-transition: max-height 0.6s ease-out;
-  transition: max-height 0.6s ease-out; }
+  margin: 0; }
 
-.drop > .drop-menu li {
+.drop > .dropmenu li {
   padding: 0; }
 
-.drop > .drop-menu li a {
+.drop > .dropmenu li a {
   display: block;
   color: #444;
   background: white;
@@ -545,103 +547,5 @@ RIGHT PANEL
   box-shadow: 0 1px 0 white inset, 0 -1px 0 #d5d5d5 inset;
   text-shadow: 0 -1px 0 rgba(255, 255, 255, 0.3);
   padding: 10px 10px; }
-
-.drop > .drop-menu li a:hover {
-  background: #f6f6f6; }
-
-.drop > input[type="checkbox"] {
-  opacity: 0;
-  display: block;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-  cursor: pointer; }
-
-.drop > input[type="checkbox"]:checked ~ .drop-menu {
-  max-height: 9999px;
-  display: block;
-  -moz-transform: scaleY(1);
-  -ms-transform: scaleY(1);
-  -webkit-transform: scaleY(1);
-  transform: scaleY(1);
-  -moz-transition: max-height 2s ease-in-out;
-  -o-transition: max-height 2s ease-in-out;
-  -webkit-transition: max-height 2s ease-in-out;
-  transition: max-height 2s ease-in-out; }
-
-.drop > input[type="checkbox"]:checked + a[data-toggle="drop"]:before {
-  -moz-transform: rotate(-180deg);
-  -ms-transform: rotate(-180deg);
-  -webkit-transform: rotate(-180deg);
-  transform: rotate(-180deg);
-  -moz-transition: -moz-transform 0.6s;
-  -o-transition: -o-transform 0.6s;
-  -webkit-transition: -webkit-transform 0.6s;
-  transition: transform 0.6s; }
-
-@keyframes hideAnimation {
-  0% {
-    -moz-transform: scaleY(1);
-    -ms-transform: scaleY(1);
-    -webkit-transform: scaleY(1);
-    transform: scaleY(1); }
-  60% {
-    -moz-transform: scaleY(0.98);
-    -ms-transform: scaleY(0.98);
-    -webkit-transform: scaleY(0.98);
-    transform: scaleY(0.98); }
-  80% {
-    -moz-transform: scaleY(1.02);
-    -ms-transform: scaleY(1.02);
-    -webkit-transform: scaleY(1.02);
-    transform: scaleY(1.02); }
-  100% {
-    -moz-transform: scaleY(0);
-    -ms-transform: scaleY(0);
-    -webkit-transform: scaleY(0);
-    transform: scaleY(0); } }
-
-@-moz-keyframes hideAnimation {
-  0% {
-    -moz-transform: scaleY(1);
-    -ms-transform: scaleY(1);
-    -webkit-transform: scaleY(1);
-    transform: scaleY(1); }
-  60% {
-    -moz-transform: scaleY(0.98);
-    -ms-transform: scaleY(0.98);
-    -webkit-transform: scaleY(0.98);
-    transform: scaleY(0.98); }
-  80% {
-    -moz-transform: scaleY(1.02);
-    -ms-transform: scaleY(1.02);
-    -webkit-transform: scaleY(1.02);
-    transform: scaleY(1.02); }
-  100% {
-    -moz-transform: scaleY(0);
-    -ms-transform: scaleY(0);
-    -webkit-transform: scaleY(0);
-    transform: scaleY(0); } }
-
-@-webkit-keyframes hideAnimation {
-  0% {
-    -moz-transform: scaleY(1);
-    -ms-transform: scaleY(1);
-    -webkit-transform: scaleY(1);
-    transform: scaleY(1); }
-  60% {
-    -moz-transform: scaleY(0.98);
-    -ms-transform: scaleY(0.98);
-    -webkit-transform: scaleY(0.98);
-    transform: scaleY(0.98); }
-  80% {
-    -moz-transform: scaleY(1.02);
-    -ms-transform: scaleY(1.02);
-    -webkit-transform: scaleY(1.02);
-    transform: scaleY(1.02); }
-  100% {
-    -moz-transform: scaleY(0);
-    -ms-transform: scaleY(0);
-    -webkit-transform: scaleY(0);
-    transform: scaleY(0); } }
+  .drop > .dropmenu li a:hover {
+    background: #f6f6f6; }
