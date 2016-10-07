@@ -20,7 +20,7 @@ $(document).ready(function() {
 		var location;
 		var divHeight = 0;
 
-		//bootstrap drop
+		//dropmenu
 
 	    $(".dropmenu li a").click(function(){
 
@@ -35,7 +35,7 @@ $(document).ready(function() {
 	   });
 
 	   $('#filter-mob').click(function() {
-		  $('ul.dropmenu').slideToggle(); 
+		  $('ul.dropmenu').slideToggle();
 	   });
 
 		mapboxgl.accessToken = 'pk.eyJ1IjoibWFjbWFuIiwiYSI6ImVEbmNmZjAifQ.zVzy9cyjNT1tMYOTex51HQ';
@@ -240,7 +240,7 @@ $(document).ready(function() {
 
 							$(".yes-btn-cir").click(function() {
 								$("#form-wrapper").addClass("visible");
-								$('#see-form, .map-wrapper h1').hide();
+								// $('#see-form, .map-wrapper h1').hide();
 								$('.mapboxgl-popup').hide();
 								$('textarea#location-blank').val(feature.properties.location + coord);
 							});
@@ -253,7 +253,7 @@ $(document).ready(function() {
 
 							$(".yes-btn-nocir").click(function() {
 								$("#form-wrapper").addClass("visible");
-								$('#see-form, .map-wrapper h1').hide();
+								// $('#see-form, .map-wrapper h1').hide();
 								$('.mapboxgl-popup').hide();
 								$('textarea#location-blank').val(coord);
 							});
@@ -279,20 +279,17 @@ $(document).ready(function() {
 
 				    });
 
-					// Shows add a pin text on pin button hover
-						$("#see-form").on("mouseover", function() {
-							$(".add-pin").show();
-						});
-
 					// Shows/hides submission form and respective buttons
 						$("#see-form, .map-wrapper h1").click(function() {
-							$("#form-wrapper").addClass("visible");
-							$('#see-form, .map-wrapper h1').hide();
+							if ($('#form-wrapper').hasClass("visible")) {
+								$('#form-wrapper').removeClass("visible");
+							} else {
+								$('#form-wrapper').addClass("visible");
+							}
 						});
 
 						$('.close').click(function() {
 							$('#form-wrapper').removeClass('visible');
-							$('#see-form, .map-wrapper h1').show();
 						});
 
 					// Getting the value of the drop
@@ -321,16 +318,27 @@ $(document).ready(function() {
 
 							if (filteredData.length === 0) {
 								$(".submission-nav h1").html("No locations");
+								$("#sub-btn-prev").addClass("unclickable");
+								$("#sub-btn-next").addClass("unclickable");
 							} else {
 								$(".submission-nav h1").html(filteredData[counter].location);
 								writeSubmissions(filteredData);
 								displaySubmissions(filteredData[counter].location);
+
+								$("#sub-btn-prev").removeClass("unclickable");
+								$("#sub-btn-next").removeClass("unclickable");
+								changeParks($('.sub-btn'));
 							}
 
 						} else {
 							clearMap();
 							circleColor = "#e34e36";
 							formatData(submissionData);
+
+							$("#sub-btn-prev").removeClass("unclickable");
+							$("#sub-btn-next").removeClass("unclickable");
+							changeParks($('.sub-btn'));
+
 							$(".submissions").html("");
 							$(".submission-nav h1").html("All locations");
 							writeSubmissions(submissionData);
@@ -358,24 +366,32 @@ $(document).ready(function() {
 
 					// Previous and next for park sumbissions
 					function changeParks(thisObj) {
-					    if (thisObj.attr("id") === "sub-btn-prev" && counter > 0) {
-					        counter --;
+						// If the you click the prev button and there are still more prev locations to show, keep the prev button clickable
+						if (thisObj.attr("id") === "sub-btn-prev" && counter > 0) {
+							counter --;
 							$("#sub-btn-prev").removeClass("unclickable");
-					    } else if (thisObj.attr("id") === "sub-btn-next" && counter < (parks.length - 1)) {
-					        counter ++;
+							if (("#sub-btn-next").hasClass("unclickable") && counter >= (parks.length - 1)) {
+								$("sub-btn-next").addClass("unclickable");
+							}
+						} // If you click the next button and there are still locations to the right to show, keep the next button clickable
+						else if (thisObj.attr("id") === "sub-btn-next" && counter < (parks.length - 1)) {
+							counter ++;
 							$("#sub-btn-next").removeClass("unclickable");
-					    }
+						}
 
+						// If you click the prev button and there are no prev locations to show, make the prev button unclickable and make the next button clickable
 						if (thisObj.attr("id") === "sub-btn-prev" && counter <= 0) {
 							$("#sub-btn-prev").addClass("unclickable");
 							$("#sub-btn-next").removeClass("unclickable");
-						} else if (thisObj.attr("id") == "sub-btn-next" && counter >= (parks.length - 1)) {
+						} // if you click the next button and there aren't more locations to the right to show, make the next button unclickable and make the prev button clickable
+						else if (thisObj.attr("id") == "sub-btn-next" && counter >= (parks.length - 1)) {
 							$("#sub-btn-next").addClass("unclickable");
 							$("#sub-btn-prev").removeClass("unclickable");
 						} else {
 							$("#sub-btn-prev").removeClass("unclickable");
 							$("#sub-btn-next").removeClass("unclickable");
 						}
+
 						if (race === "all") {
 							$(".submission-nav h1").html(submissionData[counter].location);
 							displaySubmissions(submissionData[counter].location);
@@ -384,21 +400,17 @@ $(document).ready(function() {
 							displaySubmissions(filteredData[counter].location);
 						}
 
+						// if ($('#sub-btn-prev').hasClass('unclickable') && $('#sub-btn-next').hasClass('unclickable')) {
+						// 	$("#sub-btn-prev").addClass("unclickable");
+						// 	$("#sub-btn-next").addClass("unclickable");
+						// }
+
 					}
 
 
 					$(".sub-btn").click(function() {
 					    changeParks($(this));
 					});
-
-
-					// $(".dropmenu li a").click(function(){
-					//
-					// }
-
-
-
-
 
 	// injecting current year into footer
 	// DO NOT DELETE
