@@ -436,7 +436,7 @@ RIGHT PANEL
 #submission-panel {
 	height: calc(100vh - 51px);
 	@media only screen and (max-width: 800px) {
-		height: 500px;
+		height: 100%;
 	}
 }
 
@@ -445,7 +445,6 @@ RIGHT PANEL
 	text-align: center;
 	position: relative;
 	z-index: 999;
-	// border-bottom: 4px solid #777;
 	background: $chartRed;
 
 	h1 {
@@ -492,11 +491,17 @@ RIGHT PANEL
 	}
 }
 
+.nav-desk {
+	display: block;
+	@media only screen and (max-width: 800px) {
+		display: none;
+	}
+}
+
 .submission-nav.nav-mob {
 	display: none;
 	@media only screen and (max-width: 800px) {
 		display: block;
-		height: 56px;
 	}
 }
 
@@ -525,7 +530,8 @@ RIGHT PANEL
 	}
 
 	@media only screen and (max-width: 800px) {
-		height: 400px;
+		height: 100%;
+		max-height: 500px;
 	}
 }
 
@@ -699,7 +705,7 @@ RIGHT PANEL
   font-weight: bold;
 
   @media only screen and (max-width: 800px) {
-	  background: $chartRed;
+	  background: #444;
   }
 }
 .drop [data-toggle="drop"]:hover {

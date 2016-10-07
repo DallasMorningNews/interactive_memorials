@@ -325,7 +325,7 @@ RIGHT PANEL
   height: calc(100vh - 51px); }
   @media only screen and (max-width: 800px) {
     #submission-panel {
-      height: 500px; } }
+      height: 100%; } }
 
 .submission-nav {
   height: 100px;
@@ -370,12 +370,17 @@ RIGHT PANEL
     /* Chrome, Safari, Opera */
     transform: translateY(-50%); }
 
+.nav-desk {
+  display: block; }
+  @media only screen and (max-width: 800px) {
+    .nav-desk {
+      display: none; } }
+
 .submission-nav.nav-mob {
   display: none; }
   @media only screen and (max-width: 800px) {
     .submission-nav.nav-mob {
-      display: block;
-      height: 56px; } }
+      display: block; } }
 
 .card {
   overflow: auto;
@@ -399,7 +404,8 @@ RIGHT PANEL
     background: transparent; }
   @media only screen and (max-width: 800px) {
     .submissions {
-      height: 400px; } }
+      height: 100%;
+      max-height: 500px; } }
 
 #shadow-left {
   display: none; }
@@ -537,7 +543,7 @@ RIGHT PANEL
   font-weight: bold; }
   @media only screen and (max-width: 800px) {
     .drop [data-toggle="drop"] {
-      background: #e34e36; } }
+      background: #444; } }
 
 .drop [data-toggle="drop"]:hover {
   background: #primary; }
