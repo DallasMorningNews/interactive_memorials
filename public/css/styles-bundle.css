@@ -982,7 +982,7 @@ TOP NAV
     height: 50px;
     width: 200px;
     background: #e34e36;
-    left: 0;
+    right: 0;
     z-index: 3000; }
     @media only screen and (max-width: 800px) {
       #top-nav #add-pin {
@@ -991,7 +991,7 @@ TOP NAV
     width: calc(100% - 200px);
     position: absolute;
     z-index: 3000;
-    right: 0;
+    left: 0;
     border-right: none; }
   #top-nav #location-desk {
     display: inline-block;
@@ -1047,7 +1047,7 @@ DROP MENU
 .drop [data-toggle="drop"] {
   display: block;
   color: white;
-  background: #666;
+  background: #444;
   height: 50px;
   font-size: 20px;
   line-height: 22px;
