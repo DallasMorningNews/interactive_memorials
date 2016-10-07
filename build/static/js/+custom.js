@@ -16,7 +16,7 @@ $(document).ready(function() {
 		var parks = [];
 		var race = "all";
 		var customStyles;
-		var circleColor = "#e34e36";
+		var circleColor = "#8554bf";
 		var location;
 		var divHeight = 0;
 
@@ -31,11 +31,27 @@ $(document).ready(function() {
 	   });
 
 	   $('#filter-desk').click(function() {
-		  $('ul.dropmenu').slideToggle();
+		   $(this).find('ul.dropmenu').slideToggle();
+		//   $('.drop-location > ul.dropmenu').slideDown();
+		//   $('.drop-filter > ul.dropmenu').slideToggle();
 	   });
 
-	   $('#filter-mob').click(function() {
-		  $('ul.dropmenu').slideToggle();
+	   $('#location-desk').click(function() {
+		   $('.drop-filter > ul.dropmenu').slideDown();
+		  $('.drop-location > ul.dropmenu').slideToggle();
+	   });
+
+	   /* Anything that gets to the document
+	      will hide the dropdown */
+	   $(document).click(function(){
+		 $('.drop-filter > ul.dropmenu').hide();
+  		 $('.drop-location > ul.dropmenu').hide();
+	   });
+
+	   /* Clicks within the dropdown won't make
+	      it past the dropdown itself */
+	   $('#filter-desk, #location-desk').click(function(e){
+	     e.stopPropagation();
 	   });
 
 		mapboxgl.accessToken = 'pk.eyJ1IjoibWFjbWFuIiwiYSI6ImVEbmNmZjAifQ.zVzy9cyjNT1tMYOTex51HQ';
@@ -332,7 +348,7 @@ $(document).ready(function() {
 
 						} else {
 							clearMap();
-							circleColor = "#e34e36";
+							circleColor = "#8554bf";
 							formatData(submissionData);
 
 							$("#sub-btn-prev").removeClass("unclickable");

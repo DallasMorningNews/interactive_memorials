@@ -37,50 +37,49 @@ body {
 TOP NAV
 ****************************
 ***************************/
-#top-nav {
-  width: 100%;
+#bottom-nav {
   height: 50px;
-  background: #444; }
-  #top-nav h1 {
+  background: #666; }
+  #bottom-nav h1 {
     font-size: 20px;
     color: white;
     line-height: 22px;
     padding-top: 13px;
     text-align: center; }
-    #top-nav h1 .fa-map-marker {
+    #bottom-nav h1 .fa-map-marker {
       padding-right: 10px; }
-  #top-nav div {
-    border-right: 1px #ccc solid; }
-  #top-nav #add-pin {
+  #bottom-nav #add-pin {
     position: absolute;
     height: 50px;
     width: 200px;
-    background: #e34e36;
-    right: 0;
+    background: #8554bf;
+    left: calc(75% - 200px);
     z-index: 3000; }
     @media only screen and (max-width: 800px) {
-      #top-nav #add-pin {
+      #bottom-nav #add-pin {
         display: none; } }
-  #top-nav #dropdown-wrapper {
-    width: calc(100% - 200px);
+  #bottom-nav #dropdown-wrapper {
+    width: calc(75% - 200px);
     position: absolute;
     z-index: 3000;
-    left: 0;
-    border-right: none; }
-  #top-nav #location-desk {
+    left: 0; }
+  #bottom-nav #location-desk {
     display: inline-block;
+    width: 50%;
     float: left;
-    border-right: none; }
+    background: #52b033; }
     @media only screen and (max-width: 800px) {
-      #top-nav #location-desk {
+      #bottom-nav #location-desk {
         display: none; } }
-  #top-nav #filter-desk {
+  #bottom-nav #filter-desk {
     display: inline-block;
-    float: left; }
+    width: 50%;
+    float: left;
+    background: #329ce8; }
     @media only screen and (max-width: 800px) {
-      #top-nav #filter-desk {
+      #bottom-nav #filter-desk {
         display: none; } }
-  #top-nav #panel-head {
+  #bottom-nav #panel-head {
     position: absolute;
     height: 100px;
     width: 25%;
@@ -89,7 +88,7 @@ TOP NAV
     right: 0;
     z-index: 3000; }
     @media only screen and (max-width: 800px) {
-      #top-nav #panel-head {
+      #bottom-nav #panel-head {
         display: none; } }
 
 .filter-btn {
@@ -110,7 +109,6 @@ DROP MENU
   border-sizing: border-box; }
 
 .filter {
-  width: 50%;
   font-size: 1.6rem; }
   .filter ul {
     list-style: none;
@@ -121,12 +119,12 @@ DROP MENU
 .drop [data-toggle="drop"] {
   display: block;
   color: white;
-  background: #444;
   height: 50px;
   font-size: 20px;
   line-height: 22px;
   padding-top: 13px;
-  text-align: center; }
+  text-align: center;
+  text-transform: uppercase; }
   @media only screen and (max-width: 800px) {
     .drop [data-toggle="drop"] {
       background: #444; } }
@@ -146,7 +144,8 @@ DROP MENU
     padding: 0;
     margin: 0; }
     .drop .dropmenu li {
-      padding: 0; }
+      padding: 0;
+      cursor: pointer; }
       .drop .dropmenu li a {
         display: block;
         color: #444;
@@ -172,8 +171,6 @@ DROP MENU
     -o-transition: -o-transform 0.6s;
     -webkit-transition: -webkit-transform 0.6s;
     transition: transform 0.6s; }
-  .drop:hover {
-    background: #f6f6f6; }
 
 /***************************
 ****************************
@@ -409,9 +406,12 @@ button.close {
     background: #2b2b2b !important; }
 
 .right-panel {
-  background-color: #444;
+  background-color: #555;
   width: 25%;
-  display: inline-block; }
+  display: inline-block;
+  position: absolute;
+  z-index: 4000;
+  right: 0; }
   @media only screen and (max-width: 1300px) {
     .right-panel {
       width: 40%; } }
@@ -422,7 +422,7 @@ button.close {
       width: 100%; } }
 
 #submission-panel {
-  height: calc(100vh - 101px); }
+  height: calc(100vh - 51px); }
   @media only screen and (max-width: 800px) {
     #submission-panel {
       height: 100%; } }
@@ -494,7 +494,7 @@ button.close {
 
 .submissions {
   display: block;
-  height: calc(100vh - 101px);
+  height: calc(100vh - 51px);
   margin-left: auto;
   margin-right: auto;
   overflow-y: auto;

@@ -61,10 +61,9 @@ TOP NAV
 ****************************
 ***************************/
 
-#top-nav {
-	width: 100%;
+#bottom-nav {
 	height: 50px;
-	background: #444;
+	background: #666;
 
 	h1 {
 		font-size: 20px;
@@ -77,16 +76,12 @@ TOP NAV
 		}
 	}
 
-	div {
-		border-right: 1px #ccc solid;
-	}
-
 	#add-pin {
 		position: absolute;
 		height: 50px;
 		width: 200px;
-		background: $chartRed;
-		right: 0;
+		background: $chartPurple;
+		left: calc(75% - 200px);
 		z-index: 3000;
 
 		@media only screen and (max-width: 800px) {
@@ -95,17 +90,17 @@ TOP NAV
 	}
 
 	#dropdown-wrapper {
-		width: calc(100% - 200px);
+		width: calc(75% - 200px);
 		position: absolute;
 		z-index: 3000;
 		left: 0;
-		border-right: none;
 	}
 
 	#location-desk {
 		display: inline-block;
+		width: 50%;
 		float: left;
-		border-right: none;
+		background: $chartGreen;
 		@media only screen and (max-width: 800px) {
 			display: none;
 		}
@@ -113,7 +108,9 @@ TOP NAV
 
 	#filter-desk {
 		display: inline-block;
+		width: 50%;
 		float: left;
+		background: $chartBlue;
 		@media only screen and (max-width: 800px) {
 			display: none;
 		}
@@ -153,7 +150,6 @@ DROP MENU
   border-sizing: border-box;
 }
 .filter {
-  width: 50%;
   font-size: 1.6rem;
   ul {
 	  list-style: none;
@@ -166,12 +162,12 @@ DROP MENU
 .drop [data-toggle="drop"] {
 	display: block;
 	color: white;
-	background: #444;
 	height: 50px;
 	font-size: 20px;
 	line-height: 22px;
 	padding-top: 13px;
 	text-align: center;
+	text-transform: uppercase;
 
   @media only screen and (max-width: 800px) {
 	  background: #444;
@@ -195,7 +191,7 @@ DROP MENU
 		margin: 0;
 		li {
 		  padding: 0;
-
+		  cursor: pointer;
 		  a {
 			  display: block;
 			  color: #444;
@@ -225,9 +221,9 @@ DROP MENU
 		-webkit-transition: -webkit-transform 0.6s;
 		transition: transform 0.6s;
 	}
-	&:hover {
-		background: #f6f6f6;
-	}
+	// &:hover {
+	// 	background: #f6f6f6;
+	// }
 }
 
 /***************************
@@ -536,9 +532,12 @@ button.close {
 
 .right-panel {
 	// background-color: #323232;
-	background-color: #444;
+	background-color: #555;
 	width: 25%;
 	display: inline-block;
+	position: absolute;
+	z-index: 4000;
+	right: 0;
 
 	@media only screen and (max-width: 1300px) {
 		width: 40%;
@@ -552,7 +551,7 @@ button.close {
 }
 
 #submission-panel {
-	height: calc(100vh - 101px);
+	height: calc(100vh - 51px);
 	@media only screen and (max-width: 800px) {
 		height: 100%;
 	}
@@ -636,7 +635,7 @@ button.close {
 
 .submissions{
 	display: block;
-	height: calc(100vh - 101px);
+	height: calc(100vh - 51px);
 	margin-left: auto;
 	margin-right: auto;
 	overflow-y: auto;
