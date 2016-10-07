@@ -124,20 +124,12 @@ googletag.enableServices();
 <!-- end contentHeader -->
 
 
-        <div class="tool-wrapper clearfix">
+        <div id="top-nav">
+            <div id="add-pin">
 
-            <div class="submission-nav nav-mob">
-                <div id="sub-btn-prev" class="relative sub-btn">
-                    <i class="fa fa-2x fa-chevron-left" aria-hidden="true"></i>
-                </div>
-                <div class="park-name relative">
-                    <h1>All locations</h1>
-                </div>
-                <div id="sub-btn-next" class="relative sub-btn">
-                    <i class="fa fa-2x fa-chevron-right" aria-hidden="true"></i>
-                </div>
-            </div> <!-- end submission-nav -->
-            <div id="filter-mob" class="filter">
+            </div>
+            <!-- end add pin -->
+            <div id="filter-desk" class="filter">
                 <ul>
                   <li class="drop drop-mob">
                     <a href="#" data-toggle="drop">All races/ethnicities</a>
@@ -153,6 +145,40 @@ googletag.enableServices();
                   </li>
                 </ul>
             </div>
+            <!-- end filter desk -->
+            <div id="location-desk" class="filter">
+                <ul>
+                  <li class="drop drop-mob">
+                    <a href="#" data-toggle="drop">All locations</a>
+                    <ul class="dropmenu">
+                        <li data-race="all"><a>All locations</a></li>
+                        <li data-race="Black or African Am."><a>Black or African Am.</a></li>
+                        <li data-race="Asian"><a>Asian</a></li>
+                        <li data-race="Hispanic or Latino"><a>Hispanic or Latino</a></li>
+                        <li data-race="Am. Indian or Alaskan Native"><a>Am. Indian or Alaskan Native</a></li>
+                        <li data-race="Native Hawaiian or other Pacitif Isl."><a>Native Hawaiian or other Pacific Isl.</a></li>
+                        <li data-race="Other"><a>Other</a></li>
+                    </ul>
+                  </li>
+                </ul>
+            </div>
+        </div>
+        <!-- end top nav-->
+
+
+        <div class="tool-wrapper clearfix">
+
+            <!-- <div class="submission-nav nav-mob">
+                <div id="sub-btn-prev" class="relative sub-btn">
+                    <i class="fa fa-2x fa-chevron-left" aria-hidden="true"></i>
+                </div>
+                <div class="park-name relative">
+                    <h1>All locations</h1>
+                </div>
+                <div id="sub-btn-next" class="relative sub-btn">
+                    <i class="fa fa-2x fa-chevron-right" aria-hidden="true"></i>
+                </div>
+            </div> <!-- end submission-nav -->
 
             <div class="map-wrapper">
                 <!-- <div id="shadow-left"></div>
@@ -162,7 +188,7 @@ googletag.enableServices();
                 <div id='geocoder-container'></div>
                 <div id="popup"></div>
 
-                <div id="filter-desk" class="filter">
+                <!-- <div id="filter-desk" class="filter">
                   <ul>
                     <li class="drop drop-desk">
                       <ul class="dropmenu">
@@ -178,7 +204,7 @@ googletag.enableServices();
 
                     </li>
                   </ul>
-                </div>
+                </div> -->
 
                 <button id="see-form"><span><i class="fa fa-map-marker" aria-hidden="true"></i></span><span class="plus"></button>
             </div> <!-- end map wrapper -->
@@ -235,31 +261,28 @@ googletag.enableServices();
                         </div>
                       </fieldset>
                     </form>
-                </div> <!-- end form wrapper -->
+                </div>
+                <!-- end form wrapper -->
 
 
                 <div id="submission-panel">
 
                     <div class="submission-nav nav-desk">
-                        <div id="sub-btn-prev" class="relative sub-btn">
-                            <i class="fa fa-2x fa-chevron-left" aria-hidden="true"></i>
-                        </div>
-                        <div class="park-name relative">
-                            <h1>All locations</h1>
-                        </div>
-                        <div id="sub-btn-next" class="relative sub-btn">
-                            <i class="fa fa-2x fa-chevron-right" aria-hidden="true"></i>
-                        </div>
-                    </div> <!-- end submission-nav -->
+                    </div>
+                    <!-- end submission-nav -->
 
                     <div class="submissions no-pad">
-                        <div id="shadow-top" class="shadow1"></div>
-                        <div id="shadow-bottom" class="shadow2"></div>
-                    </div> <!-- end submissions -->
+                        <!-- <div id="shadow-top" class="shadow1"></div> -->
+                        <!-- <div id="shadow-bottom" class="shadow2"></div> -->
+                    </div>
+                    <!-- end submissions -->
 
-                </div> <!-- emd submission-panel -->
+                </div>
+                <!-- emd submission-panel -->
 
             </div> <!-- end right panel -->
+
+
         </div> <!-- end tool wraper -->
 
 <section class="contentWell clearFix">

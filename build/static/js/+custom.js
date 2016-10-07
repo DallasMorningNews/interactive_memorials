@@ -31,6 +31,7 @@ $(document).ready(function() {
 	   });
 
 	   $('#filter-desk').click(function() {
+		   console.log("test");
 		  $('ul.dropmenu').slideToggle();
 	   });
 
