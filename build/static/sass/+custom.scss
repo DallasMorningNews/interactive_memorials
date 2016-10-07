@@ -66,34 +66,54 @@ TOP NAV
 	height: 50px;
 	background: #444;
 
+	h1 {
+		font-size: 20px;
+		color: white;
+		line-height: 22px;
+		padding-top: 13px;
+		text-align: center;
+		.fa-map-marker {
+			padding-right: 10px;
+		}
+	}
+
+	div {
+		border-right: 1px #ccc solid;
+	}
+
 	#add-pin {
 		position: absolute;
 		height: 50px;
-		width: 10%;
+		width: 200px;
 		background: $chartRed;
-		top: 0;
 		left: 0;
 		z-index: 3000;
+
 		@media only screen and (max-width: 800px) {
 			display: none;
 		}
 	}
 
-	#location-desk {
+	#dropdown-wrapper {
+		width: calc(100% - 200px);
 		position: absolute;
-		top: 0;
-		left: 55%;
 		z-index: 3000;
+		right: 0;
+		border-right: none;
+	}
+
+	#location-desk {
+		display: inline-block;
+		float: left;
+		border-right: none;
 		@media only screen and (max-width: 800px) {
 			display: none;
 		}
 	}
 
 	#filter-desk {
-		position: absolute;
-		top: 0;
-		left: 10%;
-		z-index: 3000;
+		display: inline-block;
+		float: left;
 		@media only screen and (max-width: 800px) {
 			display: none;
 		}
@@ -103,7 +123,7 @@ TOP NAV
 		position: absolute;
 		height: 100px;
 		width: 25%;
-		background: $chartRed;
+		background: #444;
 		top: 0;
 		right: 0;
 		z-index: 3000;
@@ -115,27 +135,11 @@ TOP NAV
 
 .filter-btn {
 	height: 40px;
-	color: $chartRed;
+	color: #444;
 	border: white;
 	font-weight: bold;
 	font-size: 1.5rem;
 }
-//
-// .dropmenu {
-// 	right: 0;
-// 	left: auto;
-//
-// 	@media only screen and (max-width: 800px) {
-// 		left: 0;
-// 		right: auto;
-// 	}
-// }
-//
-// .dropmenu>li>a {
-// 	font-size: 1.5rem;
-// 	color: #444;
-// 	height: auto;
-// }
 
 /***************************
 ****************************
@@ -143,102 +147,85 @@ DROP MENU
 ****************************
 ***************************/
 
-@import url("http://fonts.googleapis.com/css?family=Lato:300,400,700,900");
-@import url(http://fonts.googleapis.com/css?family=Pacifico);
-
 *, *:before, *:after {
   -webkit-border-sizing: border-box;
   -moz-border-sizing: border-box;
   border-sizing: border-box;
 }
 .filter {
-  width: 45%;
+  width: 50%;
   font-size: 1.6rem;
-
+  ul {
+	  list-style: none;
+	  padding: 0;
+  }
   a {
 	  font-weight: normal;
   }
 }
-.filter > ul {
-  list-style: none;
-  padding: 0;
-}
-.drop {
-  position: relative;
-}
-.drop a {
-  text-decoration: none;
-}
 .drop [data-toggle="drop"] {
-  display: block;
-  color: white;
-  background: #555;
-  padding: 17px;
-  font-weight: bold;
-  height: 50px;
+	display: block;
+	color: white;
+	background: #666;
+	height: 50px;
+	font-size: 20px;
+	line-height: 22px;
+	padding-top: 13px;
+	text-align: center;
 
   @media only screen and (max-width: 800px) {
 	  background: #444;
   }
 }
-.drop [data-toggle="drop"]:hover {
-  background: #primary;
-}
 
-.drop [data-toggle="drop"]:before {
-	position: absolute;
-	display: block;
-	content: '\25BC';
-	font-size: 0.7em;
-	color: white;
-	right: 10px;
-	-moz-transform: rotate(-180deg);
-	-ms-transform: rotate(-180deg);
-	-webkit-transform: rotate(-180deg);
-	transform: rotate(-180deg);
-	-moz-transition: -moz-transform 0.6s;
-	-o-transition: -o-transform 0.6s;
-	-webkit-transition: -webkit-transform 0.6s;
-	transition: transform 0.6s;
-}
+.drop {
+	position: relative;
+	a {
+		text-decoration: none;
+	}
+	.dropmenu {
+		display: none;
+		max-height: 9999px;
+		overflow: hidden;
+		list-style: none;
+		bottom: 0;
+		padding: 0;
+		margin: 0;
+		li {
+		  padding: 0;
 
-.drop-desk [data-toggle="drop"]:before {
-  bottom: 13px;
-}
-
-.drop-mob [data-toggle="drop"]:before {
-  top: 13px;
-  -moz-transform: rotate(0deg);
-  -ms-transform: rotate(0deg);
-  -webkit-transform: rotate(0deg);
-  transform: rotate(0deg);
-}
-
-.dropmenu {
-	display: none;
-	max-height: 9999px;
-	overflow: hidden;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.drop > .dropmenu li {
-  padding: 0;
-}
-.drop > .dropmenu li a {
-  display: block;
-  color: #444;
-  background: white;
-  -moz-box-shadow: 0 1px 0 white inset, 0 -1px 0 #d5d5d5 inset;
-  -webkit-box-shadow: 0 1px 0 white inset, 0 -1px 0 #d5d5d5 inset;
-  box-shadow: 0 1px 0 white inset, 0 -1px 0 #d5d5d5 inset;
-  text-shadow: 0 -1px 0 rgba(255, 255, 255, 0.3);
-  padding: 10px 10px;
-
-  &:hover {
-	  background: #f6f6f6;
-  }
+		  a {
+			  display: block;
+			  color: #444;
+			  background: white;
+			  -moz-box-shadow: 0 1px 0 white inset, 0 -1px 0 #d5d5d5 inset;
+			  -webkit-box-shadow: 0 1px 0 white inset, 0 -1px 0 #d5d5d5 inset;
+			  box-shadow: 0 1px 0 white inset, 0 -1px 0 #d5d5d5 inset;
+			  text-shadow: 0 -1px 0 rgba(255, 255, 255, 0.3);
+			  padding: 10px 10px;
+		  }
+		}
+	}
+	&:before {
+		position: absolute;
+		display: block;
+		content: '\25BC';
+		font-size: 0.7em;
+		top: 17px;
+		color: white;
+		right: 10px;
+		-moz-transform: rotate(0deg);
+		-ms-transform: rotate(0deg);
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+		-moz-transition: -moz-transform 0.6s;
+		-o-transition: -o-transform 0.6s;
+		-webkit-transition: -webkit-transform 0.6s;
+		transition: transform 0.6s;
+	}
+	&:hover {
+		background: #f6f6f6;
+	}
 }
 
 /***************************
@@ -314,11 +301,11 @@ MAP
 }
 
 .yes-btn-nocir, .yes-btn-cir {
-	background-color: $chartRed;
+	background-color: #444;
 	color: white;
 
 	&:hover, &:active, &:focus {
-		background-color: darken($chartRed, 10%) !important;
+		background-color: darken(#444, 10%) !important;
 		background-image: none;
 		color: white !important;
 	}
@@ -329,7 +316,7 @@ MAP
 	h5 {
 		font-size: 2.4rem;
 		line-height: 2.8rem;
-		color: $chartRed;
+		color: #444;
 	}
 	p {
 		font-size: 1.8rem;
@@ -380,14 +367,14 @@ button.geocoder-icon.geocoder-icon-close.active {
 	margin-top: -5rem;
 	background-color: white;
 	font-size: 4rem;
-	background-color: $chartRed;
+	background-color: #444;
 	color: white;
 	outline: none;
 	@extend .transition;
 
 	&:hover {
 		color: white;
-		background-color: darken($chartRed, 10%);
+		background-color: darken(#444, 10%);
 	}
 
 	@media only screen and (max-width: 800px) {
@@ -482,7 +469,7 @@ form.submission-form {
 	}
 
 	.form-control:focus {
-		box-shadow: inset 0 -2px 0 $chartRed;
+		box-shadow: inset 0 -2px 0 #444;
 	}
 	.form-group {
 		margin-left: 0;
@@ -532,22 +519,22 @@ button.close {
 
 	&:hover {
 		background-color: white;
-		color: $chartRed;
+		color: #444;
 	}
 }
 
 .submit {
-	background: $chartRed;
+	background: #444;
 	color: white !important;
 
 	&:hover {
-		background: darken($chartRed, 10%) !important;
+		background: darken(#444, 10%) !important;
 	}
 }
 
 .right-panel {
 	// background-color: #323232;
-	background-color: #555;
+	background-color: #444;
 	width: 25%;
 	display: inline-block;
 
@@ -574,7 +561,7 @@ button.close {
 	text-align: center;
 	position: relative;
 	z-index: 999;
-	background: $chartRed;
+	background: #444;
 
 	h1 {
 		font-size: 3rem;
@@ -605,7 +592,7 @@ button.close {
 		display: inline-block;
 
 		&:hover {
-			background: darken($chartRed, 10%);
+			background: darken(#444, 10%);
 		}
 	}
 
@@ -647,7 +634,7 @@ button.close {
 
 .submissions{
 	display: block;
-	height: calc(100vh - 151px);
+	height: calc(100vh - 101px);
 	margin-left: auto;
 	margin-right: auto;
 	overflow-y: auto;
@@ -700,12 +687,12 @@ button.close {
 	position: absolute;
 	z-index: 1000;
 	height: 10px;
-	width: 25%;
+	width: 100%;
 	right: 0;
 	margin: -1px auto;
 	-webkit-box-shadow: inset 0px 5px 8px -5px rgba(0,0,0,0.4);
 	-moz-box-shadow: inset 0px 5px 8px -5px rgba(0,0,0,0.4);
-	box-shadow: inset 0px 10px 8px -5px rgba(0,0,0,0.4);
+	box-shadow: inset 0px 5px 9px -5px rgba(0,0,0,0.9);
 
 	@media only screen and (max-width: 1300px) {
 		width: 40%;
@@ -740,10 +727,10 @@ button.close {
 
 .unclickable {
 	.fa-chevron-left, .fa-chevron-right {
-		color: darken($chartRed, 10%);
+		color: darken(#444, 10%);
 	}
 	&:hover {
-		background-color: $chartRed !important;
+		background-color: #444 !important;
 		cursor: default;
 	}
 }
