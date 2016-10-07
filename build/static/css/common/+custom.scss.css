@@ -370,6 +370,13 @@ RIGHT PANEL
     /* Chrome, Safari, Opera */
     transform: translateY(-50%); }
 
+.submission-nav.nav-mob {
+  display: none; }
+  @media only screen and (max-width: 800px) {
+    .submission-nav.nav-mob {
+      display: block;
+      height: 56px; } }
+
 .card {
   overflow: auto;
   margin: 25px 0;

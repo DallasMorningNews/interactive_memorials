@@ -370,6 +370,7 @@ $(document).ready(function() {
 						if (thisObj.attr("id") === "sub-btn-prev" && counter > 0) {
 							counter --;
 							$("#sub-btn-prev").removeClass("unclickable");
+
 							if (("#sub-btn-next").hasClass("unclickable") && counter >= (parks.length - 1)) {
 								$("sub-btn-next").addClass("unclickable");
 							}
@@ -382,7 +383,12 @@ $(document).ready(function() {
 						// If you click the prev button and there are no prev locations to show, make the prev button unclickable and make the next button clickable
 						if (thisObj.attr("id") === "sub-btn-prev" && counter <= 0) {
 							$("#sub-btn-prev").addClass("unclickable");
-							$("#sub-btn-next").removeClass("unclickable");
+
+							if (("#sub-btn-next").hasClass("unclickable") && counter >= (parks.length - 1)) {
+								$("sub-btn-next").addClass("unclickable");
+							} else {
+								$("#sub-btn-next").removeClass("unclickable");
+							}
 						} // if you click the next button and there aren't more locations to the right to show, make the next button unclickable and make the prev button clickable
 						else if (thisObj.attr("id") == "sub-btn-next" && counter >= (parks.length - 1)) {
 							$("#sub-btn-next").addClass("unclickable");
