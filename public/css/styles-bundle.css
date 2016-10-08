@@ -999,6 +999,8 @@ TOP NAV
     text-align: center; }
     .main-nav h1 .fa-map-marker {
       padding-right: 1rem; }
+    .main-nav h1 .fa-bars {
+      padding-right: 0.5rem; }
   .main-nav .add-pin {
     cursor: pointer;
     position: absolute;
@@ -1120,6 +1122,7 @@ DROP MENU
     font-weight: normal; }
 
 .drop [data-toggle="drop"] {
+  cursor: pointer;
   display: block;
   color: white;
   height: 50px;
@@ -1616,6 +1619,34 @@ button.close {
       -webkit-box-shadow: inset 0px 6px 7px -5px rgba(0, 0, 0, 0.4);
       -moz-box-shadow: inset 0px 6px 7px -5px rgba(0, 0, 0, 0.4);
       box-shadow: inset 0px 6px 7px -5px rgba(0, 0, 0, 0.4); } }
+
+.shadow5 {
+  display: block;
+  position: absolute;
+  width: 10px;
+  height: 100%;
+  top: 0;
+  left: 0;
+  -webkit-box-shadow: inset 0px 6px 7px -5px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: inset 0px 6px 7px -5px rgba(0, 0, 0, 0.4);
+  box-shadow: inset 7px 0px 8px -5px rgba(0, 0, 0, 0.4); }
+  @media only screen and (max-width: 800px) {
+    .shadow5 {
+      display: none; } }
+
+.shadow6 {
+  display: block;
+  position: absolute;
+  width: 10px;
+  height: 100%;
+  top: 0;
+  right: 0;
+  -webkit-box-shadow: inset 0px 6px 7px -5px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: inset 0px 6px 7px -5px rgba(0, 0, 0, 0.4);
+  box-shadow: inset -7px 0px 8px -5px rgba(0, 0, 0, 0.4); }
+  @media only screen and (max-width: 800px) {
+    .shadow6 {
+      display: none; } }
 
 .submission-pv:first-child, .submission-race:first-child {
   color: red; }
