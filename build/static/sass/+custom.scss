@@ -158,7 +158,8 @@ TOP NAV
 			position: static !important;
 			right: 0;
 			width: 50%;
-			background: $chartGreen;
+			background: $chartPurple;
+			border-right: 3px solid #333;
 			display: inline-block;
 			float: left;
 			cursor: pointer;
@@ -817,13 +818,6 @@ button.close {
 	-webkit-box-shadow: inset 0px 10px 8px -5px rgba(0,0,0,0.4);
 	-moz-box-shadow: inset 0px 10px 8px -5px rgba(0,0,0,0.4);
 	box-shadow: inset 0px 10px 8px -5px rgba(0,0,0,0.4);
-
-	@media only screen and (max-width: 1300px) {
-		width: 40%;
-	}
-	@media only screen and (max-width: 800px) {
-		width: 100%;
-	}
 }
 
 .shadow2 {
@@ -837,9 +831,6 @@ button.close {
 	-moz-box-shadow: inset 0px -10px 8px -5px rgba(0,0,0,0.4);
 	box-shadow: inset 0px -10px 8px -5px rgba(0,0,0,0.4);
 
-	@media only screen and (max-width: 1300px) {
-		width: 40%;
-	}
 	@media only screen and (max-width: 800px) {
 		width: 100%;
 	}
@@ -852,15 +843,31 @@ button.close {
 	width: 75%;
 	bottom: 0;
 	left: 0;
-	-webkit-box-shadow: inset 0px -10px 8px -5px rgba(0,0,0,0.4);
-	-moz-box-shadow: inset 0px -10px 8px -5px rgba(0,0,0,0.4);
+	-webkit-box-shadow: inset 0px -6px 7px -5px rgba(0,0,0,0.4);
+	-moz-box-shadow: inset 0px -6px 7px -5px rgba(0,0,0,0.4);
 	box-shadow: inset 0px -6px 7px -5px rgba(0,0,0,0.4);
 
 	@media only screen and (max-width: 1300px) {
-		width: 40%;
+		width: 60%;
 	}
 	@media only screen and (max-width: 800px) {
+		display: none;
+	}
+}
+
+.shadow4 {
+	display: none;
+	@media only screen and (max-width: 800px) {
+		display: block;
+		position: absolute;
+		z-index: 5000;
+		height: 10px;
 		width: 100%;
+		top: 0;
+		left: 0;
+		-webkit-box-shadow: inset 0px 6px 7px -5px rgba(0,0,0,0.4);
+		-moz-box-shadow: inset 0px 6px 7px -5px rgba(0,0,0,0.4);
+		box-shadow: inset 0px 6px 7px -5px rgba(0,0,0,0.4);
 	}
 }
 

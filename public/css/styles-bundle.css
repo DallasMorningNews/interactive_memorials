@@ -1044,7 +1044,8 @@ TOP NAV
         position: static !important;
         right: 0;
         width: 50%;
-        background: #52b033;
+        background: #8554bf;
+        border-right: 3px solid #333;
         display: inline-block;
         float: left;
         cursor: pointer; } }
@@ -1569,12 +1570,6 @@ button.close {
   -webkit-box-shadow: inset 0px 10px 8px -5px rgba(0, 0, 0, 0.4);
   -moz-box-shadow: inset 0px 10px 8px -5px rgba(0, 0, 0, 0.4);
   box-shadow: inset 0px 10px 8px -5px rgba(0, 0, 0, 0.4); }
-  @media only screen and (max-width: 1300px) {
-    .shadow1 {
-      width: 40%; } }
-  @media only screen and (max-width: 800px) {
-    .shadow1 {
-      width: 100%; } }
 
 .shadow2 {
   position: absolute;
@@ -1586,9 +1581,6 @@ button.close {
   -webkit-box-shadow: inset 0px -10px 8px -5px rgba(0, 0, 0, 0.4);
   -moz-box-shadow: inset 0px -10px 8px -5px rgba(0, 0, 0, 0.4);
   box-shadow: inset 0px -10px 8px -5px rgba(0, 0, 0, 0.4); }
-  @media only screen and (max-width: 1300px) {
-    .shadow2 {
-      width: 40%; } }
   @media only screen and (max-width: 800px) {
     .shadow2 {
       width: 100%; } }
@@ -1600,15 +1592,30 @@ button.close {
   width: 75%;
   bottom: 0;
   left: 0;
-  -webkit-box-shadow: inset 0px -10px 8px -5px rgba(0, 0, 0, 0.4);
-  -moz-box-shadow: inset 0px -10px 8px -5px rgba(0, 0, 0, 0.4);
+  -webkit-box-shadow: inset 0px -6px 7px -5px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: inset 0px -6px 7px -5px rgba(0, 0, 0, 0.4);
   box-shadow: inset 0px -6px 7px -5px rgba(0, 0, 0, 0.4); }
   @media only screen and (max-width: 1300px) {
     .shadow3 {
-      width: 40%; } }
+      width: 60%; } }
   @media only screen and (max-width: 800px) {
     .shadow3 {
-      width: 100%; } }
+      display: none; } }
+
+.shadow4 {
+  display: none; }
+  @media only screen and (max-width: 800px) {
+    .shadow4 {
+      display: block;
+      position: absolute;
+      z-index: 5000;
+      height: 10px;
+      width: 100%;
+      top: 0;
+      left: 0;
+      -webkit-box-shadow: inset 0px 6px 7px -5px rgba(0, 0, 0, 0.4);
+      -moz-box-shadow: inset 0px 6px 7px -5px rgba(0, 0, 0, 0.4);
+      box-shadow: inset 0px 6px 7px -5px rgba(0, 0, 0, 0.4); } }
 
 .submission-pv:first-child, .submission-race:first-child {
   color: red; }
