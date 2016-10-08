@@ -64,6 +64,7 @@ TOP NAV
 #bottom-nav {
 	height: 50px;
 	background: #666;
+	position: relative;
 
 	h1 {
 		font-size: 20px;
@@ -211,11 +212,11 @@ DROP MENU
 		font-size: 0.7em;
 		top: 17px;
 		color: white;
-		right: 10px;
-		-moz-transform: rotate(0deg);
-		-ms-transform: rotate(0deg);
-		-webkit-transform: rotate(0deg);
-		transform: rotate(0deg);
+		left: 20px;
+		-moz-transform: rotate(-180deg);
+		-ms-transform: rotate(-180deg);
+		-webkit-transform: rotate(-180deg);
+		transform: rotate(-180deg);
 		-moz-transition: -moz-transform 0.6s;
 		-o-transition: -o-transform 0.6s;
 		-webkit-transition: -webkit-transform 0.6s;
@@ -238,7 +239,7 @@ MAP
 	width: 75%;
 	display: inline-block;
 	float: left;
-	background: #555;
+	background: #444;
 
 	@media only screen and (max-width: 1300px) {
 		width: 60%;
@@ -299,7 +300,7 @@ MAP
 }
 
 .yes-btn-nocir, .yes-btn-cir {
-	background-color: #444;
+	background-color: $chartPurple;
 	color: white;
 
 	&:hover, &:active, &:focus {
@@ -557,12 +558,12 @@ button.close {
 	}
 }
 
-.submission-nav {
+.submission-hed {
 	height: 100px;
 	text-align: center;
 	position: relative;
 	z-index: 999;
-	background: #444;
+	background: $chartPurple;
 
 	h1 {
 		font-size: 3rem;
@@ -615,7 +616,7 @@ button.close {
 	}
 }
 
-.submission-nav.nav-mob {
+.submission-hed.nav-mob {
 	display: none;
 	@media only screen and (max-width: 800px) {
 		display: block;
@@ -635,7 +636,7 @@ button.close {
 
 .submissions{
 	display: block;
-	height: calc(100vh - 51px);
+	height: calc(100vh - 151px);
 	margin-left: auto;
 	margin-right: auto;
 	overflow-y: auto;
@@ -691,9 +692,9 @@ button.close {
 	width: 100%;
 	right: 0;
 	margin: -1px auto;
-	-webkit-box-shadow: inset 0px 5px 8px -5px rgba(0,0,0,0.4);
-	-moz-box-shadow: inset 0px 5px 8px -5px rgba(0,0,0,0.4);
-	box-shadow: inset 0px 5px 9px -5px rgba(0,0,0,0.9);
+	-webkit-box-shadow: inset 0px 10px 8px -5px rgba(0,0,0,0.4);
+	-moz-box-shadow: inset 0px 10px 8px -5px rgba(0,0,0,0.4);
+	box-shadow: inset 0px 10px 8px -5px rgba(0,0,0,0.4);
 
 	@media only screen and (max-width: 1300px) {
 		width: 40%;
@@ -707,12 +708,31 @@ button.close {
 	position: absolute;
 	z-index: 1000;
 	height: 10px;
-	width: 25%;
-	bottom: 1px;
+	width: 100%;
+	bottom: 0;
 	right: 0;
-	-webkit-box-shadow: inset 0px -5px 8px -5px rgba(0,0,0,0.4);
-	-moz-box-shadow: inset 0px -5px 8px -5px rgba(0,0,0,0.4);
+	-webkit-box-shadow: inset 0px -10px 8px -5px rgba(0,0,0,0.4);
+	-moz-box-shadow: inset 0px -10px 8px -5px rgba(0,0,0,0.4);
 	box-shadow: inset 0px -10px 8px -5px rgba(0,0,0,0.4);
+
+	@media only screen and (max-width: 1300px) {
+		width: 40%;
+	}
+	@media only screen and (max-width: 800px) {
+		width: 100%;
+	}
+}
+
+.shadow3 {
+	position: absolute;
+	z-index: 5000;
+	height: 10px;
+	width: 75%;
+	bottom: 0;
+	left: 0;
+	-webkit-box-shadow: inset 0px -10px 8px -5px rgba(0,0,0,0.4);
+	-moz-box-shadow: inset 0px -10px 8px -5px rgba(0,0,0,0.4);
+	box-shadow: inset 0px -6px 7px -5px rgba(0,0,0,0.4);
 
 	@media only screen and (max-width: 1300px) {
 		width: 40%;

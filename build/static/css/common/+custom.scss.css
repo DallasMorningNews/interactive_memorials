@@ -39,7 +39,8 @@ TOP NAV
 ***************************/
 #bottom-nav {
   height: 50px;
-  background: #666; }
+  background: #666;
+  position: relative; }
   #bottom-nav h1 {
     font-size: 20px;
     color: white;
@@ -162,11 +163,11 @@ DROP MENU
     font-size: 0.7em;
     top: 17px;
     color: white;
-    right: 10px;
-    -moz-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
+    left: 20px;
+    -moz-transform: rotate(-180deg);
+    -ms-transform: rotate(-180deg);
+    -webkit-transform: rotate(-180deg);
+    transform: rotate(-180deg);
     -moz-transition: -moz-transform 0.6s;
     -o-transition: -o-transform 0.6s;
     -webkit-transition: -webkit-transform 0.6s;
@@ -183,7 +184,7 @@ MAP
   width: 75%;
   display: inline-block;
   float: left;
-  background: #555; }
+  background: #444; }
   @media only screen and (max-width: 1300px) {
     .map-wrapper {
       width: 60%; } }
@@ -228,7 +229,7 @@ MAP
   margin-left: 10px; }
 
 .yes-btn-nocir, .yes-btn-cir {
-  background-color: #444;
+  background-color: #8554bf;
   color: white; }
   .yes-btn-nocir:hover, .yes-btn-nocir:active, .yes-btn-nocir:focus, .yes-btn-cir:hover, .yes-btn-cir:active, .yes-btn-cir:focus {
     background-color: #2b2b2b !important;
@@ -427,13 +428,13 @@ button.close {
     #submission-panel {
       height: 100%; } }
 
-.submission-nav {
+.submission-hed {
   height: 100px;
   text-align: center;
   position: relative;
   z-index: 999;
-  background: #444; }
-  .submission-nav h1 {
+  background: #8554bf; }
+  .submission-hed h1 {
     font-size: 3rem;
     line-height: 3.3rem;
     position: absolute;
@@ -446,20 +447,20 @@ button.close {
     /* Chrome, Safari, Opera */
     transform: translateY(-50%);
     color: white; }
-  .submission-nav .park-name {
+  .submission-hed .park-name {
     width: 80%;
     display: inline-block;
     float: left; }
-  .submission-nav .sub-btn {
+  .submission-hed .sub-btn {
     cursor: pointer;
     color: white;
     transition: all 0.4s;
     width: 10%;
     float: left;
     display: inline-block; }
-    .submission-nav .sub-btn:hover {
+    .submission-hed .sub-btn:hover {
       background: #2b2b2b; }
-  .submission-nav .fa-chevron-left, .submission-nav .fa-chevron-right {
+  .submission-hed .fa-chevron-left, .submission-hed .fa-chevron-right {
     position: absolute;
     left: 0;
     right: 0;
@@ -476,10 +477,10 @@ button.close {
     .nav-desk {
       display: none; } }
 
-.submission-nav.nav-mob {
+.submission-hed.nav-mob {
   display: none; }
   @media only screen and (max-width: 800px) {
-    .submission-nav.nav-mob {
+    .submission-hed.nav-mob {
       display: block; } }
 
 .card {
@@ -494,7 +495,7 @@ button.close {
 
 .submissions {
   display: block;
-  height: calc(100vh - 51px);
+  height: calc(100vh - 151px);
   margin-left: auto;
   margin-right: auto;
   overflow-y: auto;
@@ -544,9 +545,9 @@ button.close {
   width: 100%;
   right: 0;
   margin: -1px auto;
-  -webkit-box-shadow: inset 0px 5px 8px -5px rgba(0, 0, 0, 0.4);
-  -moz-box-shadow: inset 0px 5px 8px -5px rgba(0, 0, 0, 0.4);
-  box-shadow: inset 0px 5px 9px -5px rgba(0, 0, 0, 0.9); }
+  -webkit-box-shadow: inset 0px 10px 8px -5px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: inset 0px 10px 8px -5px rgba(0, 0, 0, 0.4);
+  box-shadow: inset 0px 10px 8px -5px rgba(0, 0, 0, 0.4); }
   @media only screen and (max-width: 1300px) {
     .shadow1 {
       width: 40%; } }
@@ -558,17 +559,34 @@ button.close {
   position: absolute;
   z-index: 1000;
   height: 10px;
-  width: 25%;
-  bottom: 1px;
+  width: 100%;
+  bottom: 0;
   right: 0;
-  -webkit-box-shadow: inset 0px -5px 8px -5px rgba(0, 0, 0, 0.4);
-  -moz-box-shadow: inset 0px -5px 8px -5px rgba(0, 0, 0, 0.4);
+  -webkit-box-shadow: inset 0px -10px 8px -5px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: inset 0px -10px 8px -5px rgba(0, 0, 0, 0.4);
   box-shadow: inset 0px -10px 8px -5px rgba(0, 0, 0, 0.4); }
   @media only screen and (max-width: 1300px) {
     .shadow2 {
       width: 40%; } }
   @media only screen and (max-width: 800px) {
     .shadow2 {
+      width: 100%; } }
+
+.shadow3 {
+  position: absolute;
+  z-index: 5000;
+  height: 10px;
+  width: 75%;
+  bottom: 0;
+  left: 0;
+  -webkit-box-shadow: inset 0px -10px 8px -5px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: inset 0px -10px 8px -5px rgba(0, 0, 0, 0.4);
+  box-shadow: inset 0px -6px 7px -5px rgba(0, 0, 0, 0.4); }
+  @media only screen and (max-width: 1300px) {
+    .shadow3 {
+      width: 40%; } }
+  @media only screen and (max-width: 800px) {
+    .shadow3 {
       width: 100%; } }
 
 .submission-pv:first-child, .submission-race:first-child {

@@ -30,16 +30,17 @@ $(document).ready(function() {
 
 	   });
 
-	   $('#filter-desk').click(function() {
-		   $(this).find('ul.dropmenu').slideToggle();
-		//   $('.drop-location > ul.dropmenu').slideDown();
-		//   $('.drop-filter > ul.dropmenu').slideToggle();
+	   // Toggles one dropdown when the other opens or when clicked elsewhere on the screen
+	   $('.filter').click(function(e) {
+			e.stopPropagation();
+		    $(this).closest('.filter').siblings('.filter').find('ul.dropmenu:visible').slideToggle();
+		    $(this).find('ul.dropmenu').slideToggle();
 	   });
 
-	   $('#location-desk').click(function() {
-		   $('.drop-filter > ul.dropmenu').slideDown();
-		  $('.drop-location > ul.dropmenu').slideToggle();
-	   });
+	//    $('#location-desk').click(function() {
+	// 	   $('.drop-filter > ul.dropmenu').slideDown();
+	// 	  $('.drop-location > ul.dropmenu').slideToggle();
+	//    });
 
 	   /* Anything that gets to the document
 	      will hide the dropdown */
@@ -48,11 +49,11 @@ $(document).ready(function() {
   		 $('.drop-location > ul.dropmenu').hide();
 	   });
 
-	   /* Clicks within the dropdown won't make
-	      it past the dropdown itself */
-	   $('#filter-desk, #location-desk').click(function(e){
-	     e.stopPropagation();
-	   });
+	//    /* Clicks within the dropdown won't make
+	//       it past the dropdown itself */
+	//    $('#filter-desk, #location-desk').click(function(e){
+	//      e.stopPropagation();
+	//    });
 
 		mapboxgl.accessToken = 'pk.eyJ1IjoibWFjbWFuIiwiYSI6ImVEbmNmZjAifQ.zVzy9cyjNT1tMYOTex51HQ';
 
