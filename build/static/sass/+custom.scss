@@ -113,6 +113,10 @@ TOP NAV
 		right: 0;
 		z-index: 3000;
 		text-align: center;
+
+		&:hover {
+			background: lighten($chartPurple, 5%);
+		}
 		@media only screen and (max-width: 1300px) {
 			width: 50px;
 			padding-right: 0 !important;
@@ -181,6 +185,9 @@ TOP NAV
 		width: 50%;
 		float: left;
 		background: $chartGreen;
+		&:hover {
+			background: lighten($chartGreen, 5%);
+		}
 		@media only screen and (max-width: 800px) {
 			display: none;
 		}
@@ -191,6 +198,9 @@ TOP NAV
 		width: 50%;
 		float: left;
 		background: $chartBlue;
+		&:hover {
+			background: lighten($chartBlue, 5%);
+		}
 		@media only screen and (max-width: 800px) {
 			display: none;
 		}
@@ -610,21 +620,21 @@ textarea {
 button.close {
 	position: absolute;
 	z-index: 1000;
-	top: 5px;
-	right: 5px;
+	top: 10px;
+	right: 10px;
 	outline: none;
-	height: 30px;
-	width: 30px;
+	height: 25px;
+	width: 25px;
 	border-radius: 50%;
 	background-color: transparent;
-	font-size: 3rem;
+	font-size: 2.5rem;
 	opacity: 1;
 	text-align: center;
 	color: white;
 
 	&:hover {
-		background-color: rgba(255, 255, 255, 0.8);
-		color: $chartPurple;
+		background-color: lighten($chartPurple, 5%);
+		color: white;
 	}
 }
 
@@ -684,7 +694,11 @@ button.close {
 		-webkit-transform: translateY(-50%); /* Chrome, Safari, Opera */
 		transform: translateY(-50%);
 		color: white;
-		padding: 0 20px;
+		padding: 0 40px;
+
+		// @media only screen and (max-width: 1300px) {
+		// 	font-size: 2.5rem;
+		// }
 	}
 
 	.park-name {

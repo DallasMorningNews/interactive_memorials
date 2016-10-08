@@ -82,6 +82,8 @@ TOP NAV
     right: 0;
     z-index: 3000;
     text-align: center; }
+    .main-nav .add-pin:hover {
+      background: #9267c6; }
     @media only screen and (max-width: 1300px) {
       .main-nav .add-pin {
         width: 50px;
@@ -138,6 +140,8 @@ TOP NAV
     width: 50%;
     float: left;
     background: #52b033; }
+    .main-nav .location-desk:hover {
+      background: #5bc439; }
     @media only screen and (max-width: 800px) {
       .main-nav .location-desk {
         display: none; } }
@@ -146,6 +150,8 @@ TOP NAV
     width: 50%;
     float: left;
     background: #329ce8; }
+    .main-nav .filter-desk:hover {
+      background: #49a7eb; }
     @media only screen and (max-width: 800px) {
       .main-nav .filter-desk {
         display: none; } }
@@ -472,20 +478,20 @@ textarea {
 button.close {
   position: absolute;
   z-index: 1000;
-  top: 5px;
-  right: 5px;
+  top: 10px;
+  right: 10px;
   outline: none;
-  height: 30px;
-  width: 30px;
+  height: 25px;
+  width: 25px;
   border-radius: 50%;
   background-color: transparent;
-  font-size: 3rem;
+  font-size: 2.5rem;
   opacity: 1;
   text-align: center;
   color: white; }
   button.close:hover {
-    background-color: rgba(255, 255, 255, 0.8);
-    color: #8554bf; }
+    background-color: #9267c6;
+    color: white; }
 
 .submit {
   background: #444;
@@ -535,7 +541,7 @@ button.close {
     /* Chrome, Safari, Opera */
     transform: translateY(-50%);
     color: white;
-    padding: 0 20px; }
+    padding: 0 40px; }
   .submission-hed .park-name {
     width: 80%;
     display: inline-block;
