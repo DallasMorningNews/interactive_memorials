@@ -68,6 +68,15 @@ TOP NAV
 	}
 }
 
+#dropdown-mob {
+	height: 500px;
+	width: 300px;
+	position: absolute;
+	top: 0;
+	z-index: 9999;
+	background: red;
+}
+
 #bottom-nav {
 	display: block;
 	width: 75%;
@@ -121,8 +130,12 @@ TOP NAV
 			width: 50%;
 			display: inline-block;
 			float: left;
+			h1 {
+				padding-top: 1.3rem;
+			}
 			i.fa.fa-map-marker {
 				padding-right: 1rem;
+				font-size: 2rem;
 			}
 		}
 	}
@@ -236,9 +249,11 @@ DROP MENU
 	text-align: left;
 	padding-left: 50px;
 	text-transform: none;
-	@media only screen and (max-width: 1400px) {
+
+	@media only screen and (max-width: 1000px) {
 		font-size: 1.5rem;
-		font-weight: bold;
+		// font-weight: bold;
+		padding-left: 35px;
 	}
 
   @media only screen and (max-width: 800px) {
@@ -262,8 +277,9 @@ DROP MENU
 		padding: 0;
 		margin: 0;
 		@media only screen and (max-width: 800px) {
-			display: none;
+			// display: none;
 			position: absolute;
+			bottom: -100px;
 			width: 0;
 			left: 0;
 			top: 0;
@@ -308,6 +324,9 @@ DROP MENU
 		-o-transition: -o-transform 0.6s;
 		-webkit-transition: -webkit-transform 0.6s;
 		transition: transform 0.6s;
+		@media only screen and (max-width: 1000px) {
+			left: 15px;
+		}
 	}
 	// &:hover {
 	// 	background: #f6f6f6;
@@ -387,11 +406,11 @@ MAP
 }
 
 .yes-btn-nocir, .yes-btn-cir {
-	background-color: $chartPurple;
+	background-color: #444;
 	color: white;
 
 	&:hover, &:active, &:focus {
-		background-color: darken(#444, 10%) !important;
+		background-color: darken(#ccc, 30%) !important;
 		background-image: none;
 		color: white !important;
 	}
@@ -539,14 +558,14 @@ form.submission-form {
 
 		@extend .header1;
 		line-height: normal;
-		font-size: 2rem;
+		font-size: 1.8rem;
 		line-height: 2.6rem;
 		font-weight: normal;
 
-		@media only screen and (max-width: 800px) {
-			font-size: 1.3rem;
-			line-height: 1.5rem;
-		}
+		// @media only screen and (max-width: 800px) {
+		// 	font-size: 1.3rem;
+		// 	line-height: 1.5rem;
+		// }
 
 	}
 
@@ -555,7 +574,7 @@ form.submission-form {
 	}
 
 	.form-control:focus {
-		box-shadow: inset 0 -2px 0 #444;
+		box-shadow: inset 0 -2px 0 $chartPurple;
 	}
 	.form-group {
 		margin-left: 0;
@@ -591,21 +610,21 @@ textarea {
 button.close {
 	position: absolute;
 	z-index: 1000;
-	top: 30px;
-	right: 25px;
+	top: 5px;
+	right: 5px;
 	outline: none;
-	height: 40px;
-	width: 40px;
+	height: 30px;
+	width: 30px;
 	border-radius: 50%;
-	background-color: transparent;;
-	font-size: 4rem;
+	background-color: transparent;
+	font-size: 3rem;
 	opacity: 1;
 	text-align: center;
 	color: white;
 
 	&:hover {
-		background-color: white;
-		color: #444;
+		background-color: rgba(255, 255, 255, 0.8);
+		color: $chartPurple;
 	}
 }
 
@@ -665,6 +684,7 @@ button.close {
 		-webkit-transform: translateY(-50%); /* Chrome, Safari, Opera */
 		transform: translateY(-50%);
 		color: white;
+		padding: 0 20px;
 	}
 
 	.park-name {

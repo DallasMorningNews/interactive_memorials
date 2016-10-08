@@ -30,16 +30,16 @@ $(document).ready(function() {
 
 	   });
 
-	   // Toggles one dropdown when the other opens or when clicked elsewhere on the screen
-	   $('.filter-mob.filter').click(function() {
-		   console.log("test");
+	   // Mobile dropdown slides from left when filter btn clicked
+	//    $('.filter-mob.filter').click(function() {
+	// 	   $("#dropmenu-mob > ul.dropmenu").animate({width:'toggle'},350);
+	   //
+	// 		// e.stopPropagation();
+	// 	    // $(this).closest('.filter').siblings('.filter').find('ul.dropmenu:visible').slideToggle();
+	// 	    // $(this).find('ul.dropmenu').slideToggle();
+	//    });
 
-		   $("#dropmenu-mob > ul.dropmenu").animate({width:'toggle'},350);
-			// e.stopPropagation();
-		    // $(this).closest('.filter').siblings('.filter').find('ul.dropmenu:visible').slideToggle();
-		    // $(this).find('ul.dropmenu').slideToggle();
-	   });
-
+		// Toggles one dropdown when the other opens or when clicked elsewhere on the screen
 	   $('.filter').click(function(e) {
 			e.stopPropagation();
 			$(this).closest('.filter').siblings('.filter').find('ul.dropmenu:visible').slideToggle();
@@ -295,7 +295,7 @@ $(document).ready(function() {
 				    });
 
 					// Shows/hides submission form and respective buttons
-						$("#see-form, .map-wrapper h1").click(function() {
+						$(".add-pin, .map-wrapper h1").click(function() {
 							if ($('#form-wrapper').hasClass("visible")) {
 								$('#form-wrapper').removeClass("visible");
 							} else {
