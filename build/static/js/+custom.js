@@ -22,13 +22,22 @@ $(document).ready(function() {
 
 		//dropmenu
 
-	    $(".drop-filter").click(function(){
+	    // $("ul.dropmenu li a").click(function(){
+	    //   $(".drop-hed").text($(this).text());
+	    //   $(".drop-hed:first-child").val($(this).text());
+			//   $('.mapboxgl-popup').hide();
+		  // });
+			$(".drop-filter ul.dropmenu li a").click(function(){
+				$(".filter-hed").text($(this).text());
+				$(".filter-hed:first-child").val($(this).text());
+				$('.mapboxgl-popup').hide();
+			});
 
-	      $("a.drop-hed").text($(this).text());
-	      $("ul.dropmenu li a:first-child").val($(this).text());
-		  $('.mapboxgl-popup').hide();
-
-	   });
+			$(".drop-location ul.dropmenu li a").click(function(){
+				$(".location-hed").text($(this).text());
+				$(".location-hed:first-child").val($(this).text());
+				$('.mapboxgl-popup').hide();
+			});
 
 		// Toggles one dropdown when the other opens or when clicked elsewhere on the screen
 	   $('.filter').click(function(e) {

@@ -209,7 +209,7 @@ DROP MENU
   @media only screen and (max-width: 1000px) {
     .drop [data-toggle="drop"] {
       font-size: 1.5rem;
-      padding-left: 35px; } }
+      padding-left: 25px; } }
   @media only screen and (max-width: 800px) {
     .drop [data-toggle="drop"] {
       background: #444; } }
@@ -272,7 +272,7 @@ DROP MENU
     transition: transform 0.6s; }
     @media only screen and (max-width: 1000px) {
       .drop:before {
-        left: 15px; } }
+        left: 10px; } }
 
 /***************************
 ****************************
