@@ -30,15 +30,6 @@ $(document).ready(function() {
 
 	   });
 
-	   // Mobile dropdown slides from left when filter btn clicked
-	//    $('.filter-mob.filter').click(function() {
-	// 	   $("#dropmenu-mob > ul.dropmenu").animate({width:'toggle'},350);
-	   //
-	// 		// e.stopPropagation();
-	// 	    // $(this).closest('.filter').siblings('.filter').find('ul.dropmenu:visible').slideToggle();
-	// 	    // $(this).find('ul.dropmenu').slideToggle();
-	//    });
-
 		// Toggles one dropdown when the other opens or when clicked elsewhere on the screen
 	   $('.filter').click(function(e) {
 			e.stopPropagation();
@@ -101,21 +92,6 @@ $(document).ready(function() {
 					 	 });
 					  });
 
-					  $(".sub-btn").click(function() {
-						 divHeight = 0;
-					 	 $('.exists').each(function() {
-					 		 divHeight += $(this).outerHeight(true);
-							 console.log(divHeight);
-					 	 });
-					 	 console.log("final height:" + divHeight);
-
-						 if (divHeight <= $('.submissions').height()) {
-						 	 $('#shadow-bottom').removeClass("shadow2");
-						 } else {
-							 $('#shadow-bottom').addClass("shadow2");
-						 }
-					  });
-
 				});
 
 				function writeSubmissions(data) {
@@ -124,9 +100,6 @@ $(document).ready(function() {
 						   $(".submissions").append(content);
 					});
 				}
-
-
-
 
 				function formatData(data) {
 					// placeholder array for parks mapfeatureg data
