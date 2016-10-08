@@ -963,50 +963,108 @@ body {
 TOP NAV
 ****************************
 ***************************/
+#top-nav {
+  display: none; }
+  @media only screen and (max-width: 800px) {
+    #top-nav {
+      display: block; } }
+
 #bottom-nav {
+  display: block;
+  width: 75%; }
+  @media only screen and (max-width: 1300px) {
+    #bottom-nav {
+      width: 60%; } }
+  @media only screen and (max-width: 800px) {
+    #bottom-nav {
+      display: none; } }
+
+.main-nav {
   height: 50px;
   background: #666;
   position: relative; }
-  #bottom-nav h1 {
-    font-size: 20px;
+  .main-nav h1 {
+    font-size: 2rem;
     color: white;
-    line-height: 22px;
-    padding-top: 13px;
+    line-height: 2.2rem;
+    padding-top: 1.3rem;
     text-align: center; }
-    #bottom-nav h1 .fa-map-marker {
-      padding-right: 10px; }
-  #bottom-nav #add-pin {
+    .main-nav h1 .fa-map-marker {
+      padding-right: 1rem; }
+  .main-nav .add-pin {
+    cursor: pointer;
     position: absolute;
     height: 50px;
     width: 200px;
     background: #8554bf;
-    left: calc(75% - 200px);
-    z-index: 3000; }
+    right: 0;
+    z-index: 3000;
+    text-align: center; }
+    @media only screen and (max-width: 1300px) {
+      .main-nav .add-pin {
+        width: 50px;
+        padding-right: 0 !important; }
+        .main-nav .add-pin h1 {
+          padding-top: 1rem; }
+        .main-nav .add-pin i.fa.fa-map-marker {
+          padding-right: 0;
+          font-size: 3rem; } }
     @media only screen and (max-width: 800px) {
-      #bottom-nav #add-pin {
+      .main-nav .add-pin {
+        position: static !important;
+        right: 0;
+        width: 50%;
+        display: inline-block;
+        float: left; }
+        .main-nav .add-pin i.fa.fa-map-marker {
+          padding-right: 1rem; } }
+  .main-nav .hide-words {
+    display: inline; }
+    @media only screen and (max-width: 1300px) {
+      .main-nav .hide-words {
         display: none; } }
-  #bottom-nav #dropdown-wrapper {
-    width: calc(75% - 200px);
+  .main-nav .filter-mob {
+    display: none;
+    height: 50px; }
+    @media only screen and (max-width: 800px) {
+      .main-nav .filter-mob {
+        position: static !important;
+        right: 0;
+        width: 50%;
+        background: #52b033;
+        display: inline-block;
+        float: left;
+        cursor: pointer; } }
+  .main-nav .dropdown-wrapper {
+    cursor: pointer;
+    width: calc(100% - 200px);
     position: absolute;
     z-index: 3000;
     left: 0; }
-  #bottom-nav #location-desk {
+    @media only screen and (max-width: 1300px) {
+      .main-nav .dropdown-wrapper {
+        width: calc( 100% - 50px); } }
+    @media only screen and (max-width: 800px) {
+      .main-nav .dropdown-wrapper {
+        width: 100%;
+        background: red; } }
+  .main-nav .location-desk {
     display: inline-block;
     width: 50%;
     float: left;
     background: #52b033; }
     @media only screen and (max-width: 800px) {
-      #bottom-nav #location-desk {
+      .main-nav .location-desk {
         display: none; } }
-  #bottom-nav #filter-desk {
+  .main-nav .filter-desk {
     display: inline-block;
     width: 50%;
     float: left;
     background: #329ce8; }
     @media only screen and (max-width: 800px) {
-      #bottom-nav #filter-desk {
+      .main-nav .filter-desk {
         display: none; } }
-  #bottom-nav #panel-head {
+  .main-nav .panel-head {
     position: absolute;
     height: 100px;
     width: 25%;
@@ -1015,7 +1073,7 @@ TOP NAV
     right: 0;
     z-index: 3000; }
     @media only screen and (max-width: 800px) {
-      #bottom-nav #panel-head {
+      .main-nav .panel-head {
         display: none; } }
 
 .filter-btn {
@@ -1047,11 +1105,16 @@ DROP MENU
   display: block;
   color: white;
   height: 50px;
-  font-size: 20px;
-  line-height: 22px;
-  padding-top: 13px;
-  text-align: center;
-  text-transform: uppercase; }
+  font-size: 2rem;
+  line-height: 2.2rem;
+  padding-top: 1.4rem;
+  text-align: left;
+  padding-left: 50px;
+  text-transform: none; }
+  @media only screen and (max-width: 1400px) {
+    .drop [data-toggle="drop"] {
+      font-size: 1.5rem;
+      font-weight: bold; } }
   @media only screen and (max-width: 800px) {
     .drop [data-toggle="drop"] {
       background: #444; } }
@@ -1070,6 +1133,18 @@ DROP MENU
     list-style: none;
     padding: 0;
     margin: 0; }
+    @media only screen and (max-width: 800px) {
+      .drop .dropmenu {
+        display: none;
+        position: absolute;
+        width: 0;
+        left: 0;
+        top: 0;
+        max-height: 9999px;
+        overflow: hidden;
+        list-style: none;
+        padding: 0;
+        margin: 0; } }
     .drop .dropmenu li {
       padding: 0;
       cursor: pointer; }
@@ -1082,12 +1157,14 @@ DROP MENU
         box-shadow: 0 1px 0 white inset, 0 -1px 0 #d5d5d5 inset;
         text-shadow: 0 -1px 0 rgba(255, 255, 255, 0.3);
         padding: 10px 10px; }
+        .drop .dropmenu li a:hover {
+          background: #e6e6e6; }
   .drop:before {
     position: absolute;
     display: block;
     content: '\25BC';
     font-size: 0.7em;
-    top: 17px;
+    top: 19px;
     color: white;
     left: 20px;
     -moz-transform: rotate(-180deg);
@@ -1344,6 +1421,7 @@ button.close {
       width: 40%; } }
   @media only screen and (max-width: 800px) {
     .right-panel {
+      position: relative;
       border-left: none;
       margin: 0 auto;
       width: 100%; } }

@@ -61,43 +61,109 @@ TOP NAV
 ****************************
 ***************************/
 
+#top-nav {
+	display: none;
+	@media only screen and (max-width: 800px) {
+	  display: block;
+	}
+}
+
 #bottom-nav {
+	display: block;
+	width: 75%;
+	@media only screen and (max-width: 1300px) {
+	  width: 60%;
+	}
+	@media only screen and (max-width: 800px) {
+	  display: none;
+	}
+}
+
+.main-nav {
 	height: 50px;
 	background: #666;
 	position: relative;
 
 	h1 {
-		font-size: 20px;
+		font-size: 2rem;
 		color: white;
-		line-height: 22px;
-		padding-top: 13px;
+		line-height: 2.2rem;
+		padding-top: 1.3rem;
 		text-align: center;
 		.fa-map-marker {
-			padding-right: 10px;
+			padding-right: 1rem;
 		}
 	}
 
-	#add-pin {
+	.add-pin {
+		cursor: pointer;
 		position: absolute;
 		height: 50px;
 		width: 200px;
 		background: $chartPurple;
-		left: calc(75% - 200px);
+		right: 0;
 		z-index: 3000;
-
+		text-align: center;
+		@media only screen and (max-width: 1300px) {
+			width: 50px;
+			padding-right: 0 !important;
+			h1 {
+				padding-top: 1rem;
+			}
+			i.fa.fa-map-marker {
+				padding-right: 0;
+				font-size: 3rem;
+			}
+		}
 		@media only screen and (max-width: 800px) {
+			position: static !important;
+			right: 0;
+			width: 50%;
+			display: inline-block;
+			float: left;
+			i.fa.fa-map-marker {
+				padding-right: 1rem;
+			}
+		}
+	}
+
+	.hide-words {
+		display: inline;
+		@media only screen and (max-width: 1300px) {
 			display: none;
 		}
 	}
 
-	#dropdown-wrapper {
-		width: calc(75% - 200px);
+	.filter-mob {
+		display: none;
+		height: 50px;
+		@media only screen and (max-width: 800px) {
+			position: static !important;
+			right: 0;
+			width: 50%;
+			background: $chartGreen;
+			display: inline-block;
+			float: left;
+			cursor: pointer;
+		}
+	}
+
+	.dropdown-wrapper {
+		cursor: pointer;
+		width: calc(100% - 200px);
 		position: absolute;
 		z-index: 3000;
 		left: 0;
+		@media only screen and (max-width: 1300px) {
+			width: calc( 100% - 50px);
+		}
+		@media only screen and (max-width: 800px) {
+			width: 100%;
+			background: red;
+		}
 	}
 
-	#location-desk {
+	.location-desk {
 		display: inline-block;
 		width: 50%;
 		float: left;
@@ -107,7 +173,7 @@ TOP NAV
 		}
 	}
 
-	#filter-desk {
+	.filter-desk {
 		display: inline-block;
 		width: 50%;
 		float: left;
@@ -117,7 +183,7 @@ TOP NAV
 		}
 	}
 
-	#panel-head {
+	.panel-head {
 		position: absolute;
 		height: 100px;
 		width: 25%;
@@ -164,11 +230,16 @@ DROP MENU
 	display: block;
 	color: white;
 	height: 50px;
-	font-size: 20px;
-	line-height: 22px;
-	padding-top: 13px;
-	text-align: center;
-	text-transform: uppercase;
+	font-size: 2rem;
+	line-height: 2.2rem;
+	padding-top: 1.4rem;
+	text-align: left;
+	padding-left: 50px;
+	text-transform: none;
+	@media only screen and (max-width: 1400px) {
+		font-size: 1.5rem;
+		font-weight: bold;
+	}
 
   @media only screen and (max-width: 800px) {
 	  background: #444;
@@ -190,6 +261,18 @@ DROP MENU
 		list-style: none;
 		padding: 0;
 		margin: 0;
+		@media only screen and (max-width: 800px) {
+			display: none;
+			position: absolute;
+			width: 0;
+			left: 0;
+			top: 0;
+			max-height: 9999px;
+			overflow: hidden;
+			list-style: none;
+			padding: 0;
+			margin: 0;
+		}
 		li {
 		  padding: 0;
 		  cursor: pointer;
@@ -202,6 +285,10 @@ DROP MENU
 			  box-shadow: 0 1px 0 white inset, 0 -1px 0 #d5d5d5 inset;
 			  text-shadow: 0 -1px 0 rgba(255, 255, 255, 0.3);
 			  padding: 10px 10px;
+
+			  &:hover {
+				  background: lighten(#ccc, 10%);
+			  }
 		  }
 		}
 	}
@@ -210,7 +297,7 @@ DROP MENU
 		display: block;
 		content: '\25BC';
 		font-size: 0.7em;
-		top: 17px;
+		top: 19px;
 		color: white;
 		left: 20px;
 		-moz-transform: rotate(-180deg);
@@ -545,6 +632,7 @@ button.close {
 	}
 
 	@media only screen and (max-width: 800px) {
+		position: relative;
 		border-left: none;
 		margin: 0 auto;
 		width: 100%;
