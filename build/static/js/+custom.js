@@ -22,10 +22,10 @@ $(document).ready(function() {
 
 		//dropmenu
 
-	    $(".drop-filter > ul.dropmenu li a").click(function(){
+	    $(".drop-filter").click(function(){
 
-	      $(".filter-desk:last-child").text($(this).text());
-	      $(".filter-desk:last-child").val($(this).text());
+	      $("a.drop-hed").text($(this).text());
+	      $("ul.dropmenu li a:first-child").val($(this).text());
 		  $('.mapboxgl-popup').hide();
 
 	   });
