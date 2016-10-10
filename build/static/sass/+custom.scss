@@ -761,6 +761,10 @@ button.close {
 	margin-right: auto;
 }
 
+.submissions-wrapper {
+	@extend .submissions;
+}
+
 .submissions{
 	display: block;
 	height: calc(100vh - 151px);
@@ -817,6 +821,7 @@ button.close {
 	z-index: 1000;
 	height: 10px;
 	width: 100%;
+	top: 100px;
 	right: 0;
 	margin: -1px auto;
 	-webkit-box-shadow: inset 0px 10px 8px -5px rgba(0,0,0,0.4);

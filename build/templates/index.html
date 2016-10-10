@@ -55,7 +55,11 @@
             <p>{{why}}</p>
         </div>
     </div>
+</script>
 
+<script id="location" type="text/x-handlebars-template">
+        <li data-park="{{location}}"><a>{{location}}</a></li>
+    </div>
 </script>
 
 {%endraw%}
@@ -202,7 +206,8 @@ googletag.enableServices();
                     <div class="submission-hed">
                         <h1>Memorial Suggestions</h1>
                     </div>
-                    <div class="submissions no-pad">
+                    <div class="submissions-wrapper">
+                        <div class="submissions"></div>
                         <div id="shadow-top" class="shadow1"></div>
                         <div id="shadow-bottom" class="shadow2"></div>
                     </div>
@@ -224,11 +229,7 @@ googletag.enableServices();
                     <ul>
                       <li class="drop drop-location">
                         <ul class="dropmenu">
-                            <li data-race="all"><a><strong>All locations</a></strong></li>
-                            <li data-race="Black or African Am."><a>Klyde Warren Park</a></li>
-                            <li data-race="Asian"><a>Arapaho Park</a></li>
-                            <li data-race="Hispanic or Latino"><a>Bahama Waterpark</a></li>
-                            <li data-race="Am. Indian or Alaskan Native"><a>Deep Ellum Dog Park</a></li>
+                            <li><a><strong>All locations</a></strong></li>
                         </ul>
                         <a class="location-hed" href="#" data-toggle="drop">All locations</a>
                       </li>

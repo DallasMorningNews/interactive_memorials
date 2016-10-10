@@ -21,37 +21,33 @@ $(document).ready(function() {
 		var divHeight = 0;
 
 		//dropmenu
+			// Changes main dropmenu text to cliked li, hides map popup if filter li clicked
+			function switchFilterHed() {
+				$(".drop-location ul.dropmenu li a").click(function(){
+					$(".location-hed").text($(this).text());
+					$(".location-hed:first-child").val($(this).text());
+					$('.mapboxgl-popup').hide();
+				});
+				$(".drop-filter ul.dropmenu li a").click(function(){
+					$(".filter-hed").text($(this).text());
+					$(".filter-hed:first-child").val($(this).text());
+					$('.mapboxgl-popup').hide();
+				});
+			}
 
-	    // $("ul.dropmenu li a").click(function(){
-	    //   $(".drop-hed").text($(this).text());
-	    //   $(".drop-hed:first-child").val($(this).text());
-			//   $('.mapboxgl-popup').hide();
-		  // });
-			$(".drop-filter ul.dropmenu li a").click(function(){
-				$(".filter-hed").text($(this).text());
-				$(".filter-hed:first-child").val($(this).text());
-				$('.mapboxgl-popup').hide();
-			});
+			// Toggles one dropdown when the other opens or when clicked elsewhere on the screen
+		   $('.filter').click(function(e) {
+				e.stopPropagation();
+				$(this).closest('.filter').siblings('.filter').find('ul.dropmenu:visible').slideToggle();
+				$(this).find('ul.dropmenu').slideToggle();
+		   });
 
-			$(".drop-location ul.dropmenu li a").click(function(){
-				$(".location-hed").text($(this).text());
-				$(".location-hed:first-child").val($(this).text());
-				$('.mapboxgl-popup').hide();
-			});
-
-		// Toggles one dropdown when the other opens or when clicked elsewhere on the screen
-	   $('.filter').click(function(e) {
-			e.stopPropagation();
-			$(this).closest('.filter').siblings('.filter').find('ul.dropmenu:visible').slideToggle();
-			$(this).find('ul.dropmenu').slideToggle();
-	   });
-
-	   /* Anything that gets to the document
-	      will hide the dropdown */
-	   $(document).click(function(){
-		 $('.drop-filter > ul.dropmenu').hide();
-  		 $('.drop-location > ul.dropmenu').hide();
-	   });
+		   /* Anything that gets to the document
+		      will hide the dropdown */
+		   $(document).click(function(){
+			 $('.drop-filter > ul.dropmenu').hide();
+	  		 $('.drop-location > ul.dropmenu').hide();
+		   });
 
 		mapboxgl.accessToken = 'pk.eyJ1IjoibWFjbWFuIiwiYSI6ImVEbmNmZjAifQ.zVzy9cyjNT1tMYOTex51HQ';
 
@@ -82,9 +78,13 @@ $(document).ready(function() {
 			// creating and compiling the template for our person objects
 			    var submissionTemplate =  Handlebars.compile($("#submission").html());
 
+				var locationTemplate =  Handlebars.compile($("#location").html());
+
 				$.getJSON('js/data.json', function(data) {
 					submissionData = data;
 					writeSubmissions(submissionData);
+					writeLocations(submissionData);
+					switchFilterHed();
 					map.on('load', function () {
 						formatData(submissionData);
 					});
@@ -110,10 +110,16 @@ $(document).ready(function() {
 					});
 				}
 
+				function writeLocations(data) {
+					$.each(data, function(k,v) {
+						   var content = locationTemplate(v);
+						   $("li.drop-location > ul.dropmenu").append(content);
+					});
+				}
+
 				function formatData(data) {
 					// placeholder array for parks mapfeatureg data
 					parks = [];
-
 
 					// iterate over our original datra and create a new object to add to our parks mapfeatureg array
 					$.each(data, function(k,v) {
@@ -295,6 +301,19 @@ $(document).ready(function() {
 							filteringData(race);
 						});
 
+					// Removes repeat locations already listed in the location filter
+					function removingExtraLocations(location) {
+						if (location !== "all") {
+							filteredData = [];
+							$.each(submissionData, function(k,v) {
+								if (v.location === location) {
+									filteredData.push(v);
+								}
+							});
+							formatData(filteredData);
+						}
+					}
+
 					// Formatting the filteredData
 					function filteringData(race) {
 						counter = 0;
@@ -360,60 +379,6 @@ $(document).ready(function() {
 							}
 						});
 					}
-
-					// Previous and next for park sumbissions
-					function changeParks(thisObj) {
-						// If the you click the prev button and there are still more prev locations to show, keep the prev button clickable
-						if (thisObj.attr("id") === "sub-btn-prev" && counter > 0) {
-							counter --;
-							$("#sub-btn-prev").removeClass("unclickable");
-
-							if (("#sub-btn-next").hasClass("unclickable") && counter >= (parks.length - 1)) {
-								$("sub-btn-next").addClass("unclickable");
-							}
-						} // If you click the next button and there are still locations to the right to show, keep the next button clickable
-						else if (thisObj.attr("id") === "sub-btn-next" && counter < (parks.length - 1)) {
-							counter ++;
-							$("#sub-btn-next").removeClass("unclickable");
-						}
-
-						// If you click the prev button and there are no prev locations to show, make the prev button unclickable and make the next button clickable
-						if (thisObj.attr("id") === "sub-btn-prev" && counter <= 0) {
-							$("#sub-btn-prev").addClass("unclickable");
-
-							if (("#sub-btn-next").hasClass("unclickable") && counter >= (parks.length - 1)) {
-								$("sub-btn-next").addClass("unclickable");
-							} else {
-								$("#sub-btn-next").removeClass("unclickable");
-							}
-						} // if you click the next button and there aren't more locations to the right to show, make the next button unclickable and make the prev button clickable
-						else if (thisObj.attr("id") == "sub-btn-next" && counter >= (parks.length - 1)) {
-							$("#sub-btn-next").addClass("unclickable");
-							$("#sub-btn-prev").removeClass("unclickable");
-						} else {
-							$("#sub-btn-prev").removeClass("unclickable");
-							$("#sub-btn-next").removeClass("unclickable");
-						}
-
-						if (race === "all") {
-							$(".submission-nav h1").html(submissionData[counter].location);
-							displaySubmissions(submissionData[counter].location);
-						} else {
-							$(".submission-nav h1").html(filteredData[counter].location);
-							displaySubmissions(filteredData[counter].location);
-						}
-
-						// if ($('#sub-btn-prev').hasClass('unclickable') && $('#sub-btn-next').hasClass('unclickable')) {
-						// 	$("#sub-btn-prev").addClass("unclickable");
-						// 	$("#sub-btn-next").addClass("unclickable");
-						// }
-
-					}
-
-
-					$(".sub-btn").click(function() {
-					    changeParks($(this));
-					});
 
 	// injecting current year into footer
 	// DO NOT DELETE
