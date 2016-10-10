@@ -17,7 +17,7 @@ $(document).ready(function() {
 		var race = "all";
 		var customStyles;
 		var circleColor = "#8554bf";
-		var location;
+		// var location;
 		var divHeight = 0;
 
 		//dropmenu
@@ -82,9 +82,12 @@ $(document).ready(function() {
 
 				$.getJSON('js/data.json', function(data) {
 					submissionData = data;
-					writeSubmissions(submissionData);
-					writeLocations(submissionData);
+ 					writeSubmissions(submissionData);
 					switchFilterHed();
+					var uniqData = displayLocations(data);
+					writeLocations(uniqData);
+					console.log(uniqData);
+
 					map.on('load', function () {
 						formatData(submissionData);
 					});
@@ -301,19 +304,6 @@ $(document).ready(function() {
 							filteringData(race);
 						});
 
-					// Removes repeat locations already listed in the location filter
-					function removingExtraLocations(location) {
-						if (location !== "all") {
-							filteredData = [];
-							$.each(submissionData, function(k,v) {
-								if (v.location === location) {
-									filteredData.push(v);
-								}
-							});
-							formatData(filteredData);
-						}
-					}
-
 					// Formatting the filteredData
 					function filteringData(race) {
 						counter = 0;
@@ -377,6 +367,14 @@ $(document).ready(function() {
 								$(this).addClass("no-show");
 								$(this).removeClass("exists");
 							}
+						});
+					}
+
+					// Displays unique locations in filter
+					function displayLocations(uniqData) {
+						return _.uniq(uniqData, function(entry) {
+							console.log(entry.location);
+							return entry.location;
 						});
 					}
 
