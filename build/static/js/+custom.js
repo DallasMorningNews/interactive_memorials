@@ -4,6 +4,7 @@ $(document).ready(function() {
 
 		var submissionData;
 		var filteredData = [];
+		var uniqArray = [];
 		var clickLocation;
 		var centerCoord;
 		var coord = [];
@@ -78,15 +79,19 @@ $(document).ready(function() {
 			// creating and compiling the template for our person objects
 			    var submissionTemplate =  Handlebars.compile($("#submission").html());
 
-				var locationTemplate =  Handlebars.compile($("#location").html());
-
 				$.getJSON('js/data.json', function(data) {
 					submissionData = data;
  					writeSubmissions(submissionData);
 					switchFilterHed();
-					var uniqData = displayLocations(data);
-					writeLocations(uniqData);
-					console.log(uniqData);
+
+			        $.each(data, function(key, value) {
+			            if (uniqArray.indexOf(value.location) === -1) {
+			                uniqArray.push(value.location);
+			            }
+			        });
+					console.log(uniqArray);
+
+					writeLocations(uniqArray);
 
 					map.on('load', function () {
 						formatData(submissionData);
@@ -115,7 +120,7 @@ $(document).ready(function() {
 
 				function writeLocations(data) {
 					$.each(data, function(k,v) {
-						   var content = locationTemplate(v);
+							var content = "<li data-park='" + v + "'><a>" + v + "</a></li>";
 						   $("li.drop-location > ul.dropmenu").append(content);
 					});
 				}
@@ -147,7 +152,7 @@ $(document).ready(function() {
 					  var currentPark = value.location;
 					  var currentRace = value.race;
 
-					  // then, iterate over the parks mapfeatureg data, and find the matching park
+					  // then, iterate over the parks mapfeature data, and find the matching park
 					  $.each(parks, function(k,v) {
 					    if (currentPark === v.location) {
 
@@ -371,12 +376,12 @@ $(document).ready(function() {
 					}
 
 					// Displays unique locations in filter
-					function displayLocations(uniqData) {
-						return _.uniq(uniqData, function(entry) {
-							console.log(entry.location);
-							return entry.location;
-						});
-					}
+					// function displayLocations(uniqData) {
+					// 	return _.uniq(uniqData, function(entry) {
+					// 		console.log(entry.location);
+					// 		return entry.location;
+					// 	});
+					// }
 
 	// injecting current year into footer
 	// DO NOT DELETE
