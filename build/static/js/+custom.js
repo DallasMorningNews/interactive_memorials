@@ -79,7 +79,7 @@ $(document).ready(function() {
 			// creating and compiling the template for our person objects
 			    var submissionTemplate =  Handlebars.compile($("#submission").html());
 
-				$.getJSON('js/data.json', function(data) {
+				$.getJSON('http://apps.dallasnews.com/livewire/memorials/approved', function(data) {
 					submissionData = data;
  					writeSubmissions(submissionData);
 					switchFilterHed();
