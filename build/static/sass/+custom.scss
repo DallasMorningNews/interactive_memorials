@@ -528,6 +528,18 @@ FORM
 	overflow-x: hidden;
 	padding-bottom: 20px;
 
+	.popup {
+		width: 90%;
+		margin: 0 auto;
+		left: 0;
+		right: 0;
+		position: absolute;
+		top: 50%;
+		@extend .translate;
+		background: white;
+		z-index: 3000;
+	}
+
 	textarea, select {
 		font-size: 1.5rem;
 	}
@@ -542,7 +554,6 @@ FORM
 			overflow-y: hidden;
 		}
 	}
-
 }
 
 form.submission-form {
@@ -587,7 +598,12 @@ form.submission-form {
 	.form-control {
 		font-size: 1.5rem;
 	}
-
+	.form-control-empty {
+		box-shadow: inset 0 -2px 0 $chartRed;
+		&:focus {
+			box-shadow: inset 0 -2px 0 $chartRed !important;
+		}
+	}
 	.form-control:focus {
 		box-shadow: inset 0 -2px 0 $chartPurple;
 	}
@@ -647,7 +663,7 @@ button.close {
 	background: #444;
 	color: white !important;
 
-	&:hover {
+	&:hover, &:focus {
 		background: darken(#444, 10%) !important;
 	}
 }

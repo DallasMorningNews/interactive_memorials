@@ -253,7 +253,7 @@ $(document).ready(function() {
 								$("#form-wrapper").addClass("visible");
 								// $('#see-form, .map-wrapper h1').hide();
 								$('.mapboxgl-popup').hide();
-								$('textarea#location-blank').val(feature.properties.location + coord);
+								$('.location-blank').val(feature.properties.location + coord);
 							});
 
 							$(".no-btn").click(function() {
@@ -316,6 +316,7 @@ $(document).ready(function() {
 						if (race !== "all") {
 							filteredData = [];
 							$.each(submissionData, function(k,v) {
+								v.race = v.race.trim();
 								if (v.race === race) {
 									filteredData.push(v);
 									circleColor = v.color;
@@ -324,6 +325,7 @@ $(document).ready(function() {
 
 							clearMap();
 							formatData(filteredData);
+							console.log(filteredData);
 
 							$(".submissions").html("");
 
@@ -336,9 +338,9 @@ $(document).ready(function() {
 								writeSubmissions(filteredData);
 								displaySubmissions(filteredData[counter].location);
 
-								$("#sub-btn-prev").removeClass("unclickable");
-								$("#sub-btn-next").removeClass("unclickable");
-								changeParks($('.sub-btn'));
+								// $("#sub-btn-prev").removeClass("unclickable");
+								// $("#sub-btn-next").removeClass("unclickable");
+								// changeParks($('.sub-btn'));
 							}
 
 						} else {
@@ -375,13 +377,65 @@ $(document).ready(function() {
 						});
 					}
 
-					// Displays unique locations in filter
-					// function displayLocations(uniqData) {
-					// 	return _.uniq(uniqData, function(entry) {
-					// 		console.log(entry.location);
-					// 		return entry.location;
-					// 	});
-					// }
+					// submits memorial submission to database
+					// Flags as approved and saves to database
+				    $('.submit').click(function() {
+						var subLong, subLat, subRace, raceKey;
+						subRace = $('#race-dropdown option:selected').text();
+						raceKey = $('#race-dropdown option:selected').index() - 1;
+
+						var valid = false;
+
+						$.each($('.form-control'), function(index, elem) {
+							if (!$(elem).val()) {
+								$(elem).addClass('form-control-empty');
+								valid = false;
+							} else {
+								$(elem).removeClass('form-control-empty');
+								valid = true;
+							}
+						});
+
+
+						if (coord.length === 0) {
+							subLong = "";
+							subLat = "";
+						} else {
+							subLong = coord[0];
+							subLat = coord[1];
+						}
+						colors = ['#8554bf', '#e34e36', '#ff8f24', '#52b033', '#329ce8'];
+				        var submission = {
+				            "approved": false,
+				            "firstName": $('.first-blank').val(),
+				            "lastName": $('.last-blank').val(),
+				            "email": $('.email-blank').val(),
+				            "race": subRace,
+							"raceKey": raceKey,
+							"color": colors[raceKey],
+				            "location": $('.location-blank').val(),
+							"lat": subLat,
+							"long": subLong,
+				            "why": $('.why-blank').val(),
+				            "learnMore": $('.learn-blank').val()
+				        };
+						coord = [];
+
+						if (valid === true) {
+							enterSubmission(submission);
+						}
+
+					});
+
+					function enterSubmission(submission) {
+						// send the report object to the database.
+						$.post("http://apps.dallasnews.com/livewire/memorials/submission", submission, function() {
+				            console.log("Success!");
+				            // $("#post-response").removeClass("no-show");
+				        }).fail(function() {
+				            console.log("Whoops, something bad happened!");
+				        });
+					}
 
 	// injecting current year into footer
 	// DO NOT DELETE
