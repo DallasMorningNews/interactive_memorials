@@ -299,8 +299,15 @@ $(document).ready(function() {
 							}
 						});
 
-						$('.close').click(function() {
+						$('.close, .modal-close').click(function() {
 							$('#form-wrapper').removeClass('visible');
+							$('.modal').hide();
+							$('.form-control').val('');
+						});
+
+						$('.add-pin, .map-wrapper').click(function() {
+							$('.modal').hide();
+							$('.form-control').val('');
 						});
 
 					// Getting the value of the drop
@@ -423,8 +430,9 @@ $(document).ready(function() {
 
 						if (valid === true) {
 							enterSubmission(submission);
+							// Display modal after submission
+							$('.modal').show();
 						}
-
 					});
 
 					function enterSubmission(submission) {

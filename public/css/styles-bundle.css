@@ -934,10 +934,10 @@ RIGHT PANNEL - All content in right panel (excludes form)
 body {
   color: #323232; }
 
-.transition, #see-form, #form-wrapper .popup {
-  -o-transition: .5s;
-  -ms-transition: .5s;
-  -moz-transition: .5s;
+.transition, #see-form {
+  -o-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -moz-transition: 0.5s;
   -webkit-transition: all 0.4s; }
 
 .header1, .form-horizontal .control-label, .form-horizontal .help-block, .submission-pv h1, .submission-race h1 {
@@ -946,8 +946,8 @@ body {
   font-weight: bold; }
 
 .no-pad {
-  padding-left: 0rem !important;
-  padding-right: 0rem !important; }
+  padding-left: 0 !important;
+  padding-right: 0 !important; }
 
 .tool-wrapper {
   font-family: "Gotham A", "Gotham B", Arial, sans-serif;
@@ -1108,7 +1108,9 @@ TOP NAV
 DROP MENU
 ****************************
 ***************************/
-*, *:before, *:after {
+*,
+*:after,
+*:before {
   -webkit-border-sizing: border-box;
   -moz-border-sizing: border-box;
   border-sizing: border-box; }
@@ -1177,7 +1179,7 @@ DROP MENU
         -webkit-box-shadow: 0 1px 0 white inset, 0 -1px 0 #d5d5d5 inset;
         box-shadow: 0 1px 0 white inset, 0 -1px 0 #d5d5d5 inset;
         text-shadow: 0 -1px 0 rgba(255, 255, 255, 0.3);
-        padding: 10px 10px; }
+        padding: 10px; }
         .drop .dropmenu li a:hover {
           background: #e6e6e6; }
   .drop:before {
@@ -1247,7 +1249,9 @@ MAP
   left: 0;
   right: inherit !important; }
 
-.yes-btn-nocir, .yes-btn-cir, .no-btn {
+.no-btn,
+.yes-btn-cir,
+.yes-btn-nocir {
   text-transform: none;
   margin-top: 1rem;
   font-weight: bold; }
@@ -1255,10 +1259,14 @@ MAP
 .no-btn {
   margin-left: 10px; }
 
-.yes-btn-nocir, .yes-btn-cir {
+.yes-btn-cir,
+.yes-btn-nocir {
   background-color: #444;
   color: white; }
-  .yes-btn-nocir:hover, .yes-btn-nocir:active, .yes-btn-nocir:focus, .yes-btn-cir:hover, .yes-btn-cir:active, .yes-btn-cir:focus {
+  .yes-btn-cir:active, .yes-btn-cir:focus, .yes-btn-cir:hover,
+  .yes-btn-nocir:active,
+  .yes-btn-nocir:focus,
+  .yes-btn-nocir:hover {
     background-color: gray !important;
     background-image: none;
     color: white !important; }
@@ -1340,15 +1348,41 @@ FORM
   overflow-y: auto;
   overflow-x: hidden;
   padding-bottom: 20px; }
-  #form-wrapper .popup {
-    width: 90%;
-    margin: 0 auto;
+  #form-wrapper .modal {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 100px;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: black;
+    background-color: rgba(0, 0, 0, 0.4); }
+  #form-wrapper .modal-content {
+    position: absolute;
+    bottom: 150px;
     left: 0;
     right: 0;
-    position: absolute;
-    background: white;
-    z-index: 3000; }
-  #form-wrapper textarea, #form-wrapper select {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; }
+    #form-wrapper .modal-content h5 {
+      padding-right: 30px; }
+  #form-wrapper .modal-close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px; }
+  #form-wrapper .modal-close:focus,
+  #form-wrapper .modal-close:hover {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer; }
+  #form-wrapper select,
+  #form-wrapper textarea {
     font-size: 1.5rem; }
   #form-wrapper.visible {
     top: 0;
@@ -1411,7 +1445,8 @@ form.submission-form {
     .form-horizontal .btn:hover {
       background-color: #c9c9c9; }
 
-#form-wrapper textarea, #form-wrapper select {
+#form-wrapper select,
+#form-wrapper textarea {
   margin-top: 1rem; }
 
 textarea {
@@ -1438,7 +1473,7 @@ button.close {
 .submit {
   background: #444;
   color: white !important; }
-  .submit:hover, .submit:focus {
+  .submit:focus, .submit:hover {
     background: #2b2b2b !important; }
 
 .right-panel {
@@ -1497,7 +1532,8 @@ button.close {
     display: inline-block; }
     .submission-hed .sub-btn:hover {
       background: #2b2b2b; }
-  .submission-hed .fa-chevron-left, .submission-hed .fa-chevron-right {
+  .submission-hed .fa-chevron-left,
+  .submission-hed .fa-chevron-right {
     position: absolute;
     left: 0;
     right: 0;
@@ -1523,9 +1559,9 @@ button.close {
 .card {
   overflow: auto;
   margin: 25px 0;
-  -webkit-box-shadow: 0px 4px 8px -5px rgba(0, 0, 0, 0.4);
-  -moz-box-shadow: 0px 4px 8px -5px rgba(0, 0, 0, 0.4);
-  box-shadow: 0px 4px 8px -5px rgba(0, 0, 0, 0.4);
+  -webkit-box-shadow: 0 4px 8px -5px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 0 4px 8px -5px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 4px 8px -5px rgba(0, 0, 0, 0.4);
   width: 90%;
   margin-left: auto;
   margin-right: auto; }
@@ -1538,7 +1574,7 @@ button.close {
   overflow-y: auto;
   width: 90%; }
   .submissions::-webkit-scrollbar, .submissions-wrapper::-webkit-scrollbar {
-    width: 0px;
+    width: 0;
     background: transparent; }
   @media only screen and (max-width: 800px) {
     .submissions, .submissions-wrapper {
@@ -1583,9 +1619,9 @@ button.close {
   top: 100px;
   right: 0;
   margin: -1px auto;
-  -webkit-box-shadow: inset 0px 10px 8px -5px rgba(0, 0, 0, 0.4);
-  -moz-box-shadow: inset 0px 10px 8px -5px rgba(0, 0, 0, 0.4);
-  box-shadow: inset 0px 10px 8px -5px rgba(0, 0, 0, 0.4); }
+  -webkit-box-shadow: inset 0 10px 8px -5px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: inset 0 10px 8px -5px rgba(0, 0, 0, 0.4);
+  box-shadow: inset 0 10px 8px -5px rgba(0, 0, 0, 0.4); }
 
 .shadow2 {
   position: absolute;
@@ -1594,9 +1630,9 @@ button.close {
   width: 100%;
   bottom: 0;
   right: 0;
-  -webkit-box-shadow: inset 0px -10px 8px -5px rgba(0, 0, 0, 0.4);
-  -moz-box-shadow: inset 0px -10px 8px -5px rgba(0, 0, 0, 0.4);
-  box-shadow: inset 0px -10px 8px -5px rgba(0, 0, 0, 0.4); }
+  -webkit-box-shadow: inset 0 -10px 8px -5px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: inset 0 -10px 8px -5px rgba(0, 0, 0, 0.4);
+  box-shadow: inset 0 -10px 8px -5px rgba(0, 0, 0, 0.4); }
   @media only screen and (max-width: 800px) {
     .shadow2 {
       width: 100%; } }
@@ -1608,9 +1644,9 @@ button.close {
   width: 75%;
   bottom: 0;
   left: 0;
-  -webkit-box-shadow: inset 0px -6px 7px -5px rgba(0, 0, 0, 0.4);
-  -moz-box-shadow: inset 0px -6px 7px -5px rgba(0, 0, 0, 0.4);
-  box-shadow: inset 0px -6px 7px -5px rgba(0, 0, 0, 0.4); }
+  -webkit-box-shadow: inset 0 -6px 7px -5px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: inset 0 -6px 7px -5px rgba(0, 0, 0, 0.4);
+  box-shadow: inset 0 -6px 7px -5px rgba(0, 0, 0, 0.4); }
   @media only screen and (max-width: 1300px) {
     .shadow3 {
       width: 60%; } }
@@ -1629,9 +1665,9 @@ button.close {
       width: 100%;
       top: 0;
       left: 0;
-      -webkit-box-shadow: inset 0px 6px 7px -5px rgba(0, 0, 0, 0.4);
-      -moz-box-shadow: inset 0px 6px 7px -5px rgba(0, 0, 0, 0.4);
-      box-shadow: inset 0px 6px 7px -5px rgba(0, 0, 0, 0.4); } }
+      -webkit-box-shadow: inset 0 6px 7px -5px rgba(0, 0, 0, 0.4);
+      -moz-box-shadow: inset 0 6px 7px -5px rgba(0, 0, 0, 0.4);
+      box-shadow: inset 0 6px 7px -5px rgba(0, 0, 0, 0.4); } }
 
 .shadow5 {
   display: block;
@@ -1640,9 +1676,9 @@ button.close {
   height: 100%;
   top: 0;
   left: 0;
-  -webkit-box-shadow: inset 0px 6px 7px -5px rgba(0, 0, 0, 0.4);
-  -moz-box-shadow: inset 0px 6px 7px -5px rgba(0, 0, 0, 0.4);
-  box-shadow: inset 7px 0px 8px -5px rgba(0, 0, 0, 0.4); }
+  -webkit-box-shadow: inset 0 6px 7px -5px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: inset 0 6px 7px -5px rgba(0, 0, 0, 0.4);
+  box-shadow: inset 7px 0 8px -5px rgba(0, 0, 0, 0.4); }
   @media only screen and (max-width: 800px) {
     .shadow5 {
       display: none; } }
@@ -1654,9 +1690,9 @@ button.close {
   height: 100%;
   top: 0;
   right: 0;
-  -webkit-box-shadow: inset 0px 6px 7px -5px rgba(0, 0, 0, 0.4);
-  -moz-box-shadow: inset 0px 6px 7px -5px rgba(0, 0, 0, 0.4);
-  box-shadow: inset -7px 0px 8px -5px rgba(0, 0, 0, 0.4); }
+  -webkit-box-shadow: inset 0 6px 7px -5px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: inset 0 6px 7px -5px rgba(0, 0, 0, 0.4);
+  box-shadow: inset -7px 0 8px -5px rgba(0, 0, 0, 0.4); }
   @media only screen and (max-width: 800px) {
     .shadow6 {
       display: none; } }
@@ -1664,7 +1700,8 @@ button.close {
 .submission-pv:first-child, .submission-race:first-child {
   color: red; }
 
-.unclickable .fa-chevron-left, .unclickable .fa-chevron-right {
+.unclickable .fa-chevron-left,
+.unclickable .fa-chevron-right {
   color: #2b2b2b; }
 
 .unclickable:hover {
@@ -1691,7 +1728,7 @@ button.close {
   .submission-pv h2, .submission-race h2 {
     font-size: 1.4rem;
     line-height: 1.8rem;
-    margin-bottom: 0rem;
+    margin-bottom: 0;
     padding: 0.4rem 1rem;
     width: 100%;
     text-transform: uppercase;
