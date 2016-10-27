@@ -18,7 +18,7 @@ $(document).ready(function() {
 		var race = "all";
 		var customStyles;
 		var circleColor = "#8554bf";
-		// var location;
+		var location = "all";
 		var divHeight = 0;
 
 		//dropmenu
@@ -50,6 +50,36 @@ $(document).ready(function() {
 	  		 $('.drop-location > ul.dropmenu').hide();
 		   });
 
+		   // Shows/hides submission form and respective buttons
+			   $(".add-pin, .map-wrapper h1").click(function() {
+				   if ($('#form-wrapper').hasClass("visible")) {
+					   $('#form-wrapper').removeClass("visible");
+				   } else {
+					   $('#form-wrapper').addClass("visible");
+				   }
+			   });
+
+			   $('.close, .modal-close').click(function() {
+				   $('#form-wrapper').removeClass('visible');
+				   $('.modal').hide();
+				   $('.form-control').val('');
+				   $('.form-group').show();
+				   $('.form-horizontal h5').hide();
+			   });
+
+			   $('.add-pin, .map-wrapper').click(function() {
+				   $('.modal').hide();
+				   $('.form-control').val('');
+				   $('.form-group').show();
+				   $('.form-horizontal h5').hide();
+			   });
+
+		   // Getting the value of the filter drop
+			   $('.drop-filter li').click(function() {
+				   race = $(this).attr("data-race");
+				   filteringData(race, location);
+			   });
+
 		mapboxgl.accessToken = 'pk.eyJ1IjoibWFjbWFuIiwiYSI6ImVEbmNmZjAifQ.zVzy9cyjNT1tMYOTex51HQ';
 
 		// BUILDING THE MAP
@@ -80,9 +110,12 @@ $(document).ready(function() {
 			    var submissionTemplate =  Handlebars.compile($("#submission").html());
 
 				$.getJSON('http://apps.dallasnews.com/livewire/memorials/approved', function(data) {
+					$.each(data, function(k,v) {
+						v.race = v.race.trim();
+						v.location = v.location.trim();
+					});
 					submissionData = data;
  					writeSubmissions(submissionData);
-					switchFilterHed();
 
 			        $.each(data, function(key, value) {
 			            if (uniqArray.indexOf(value.location) === -1) {
@@ -92,6 +125,7 @@ $(document).ready(function() {
 					console.log(uniqArray);
 
 					writeLocations(uniqArray);
+					switchFilterHed();
 
 					map.on('load', function () {
 						formatData(submissionData);
@@ -121,8 +155,19 @@ $(document).ready(function() {
 				function writeLocations(data) {
 					$.each(data, function(k,v) {
 							var content = "<li data-park='" + v + "'><a>" + v + "</a></li>";
+							var mobileContent = "<li data-park='" + v + "'>" + v + "</li>";
 						   $("li.drop-location > ul.dropmenu").append(content);
+						   $(".filter-mob-expand ul:last-child").append(mobileContent);
+						   // hide filter expansion on li click
 					});
+					$('.filter-mob-expand ul li').click(function () {
+						$('.filter-mob-expand').slideToggle();
+					});
+					// Getting the value of the location drop
+						$('.drop-location li').click(function() {
+							location = $(this).attr("data-park");
+							filteringData(race, location);
+						});
 				}
 
 				function formatData(data) {
@@ -290,41 +335,14 @@ $(document).ready(function() {
 
 				    });
 
-					// Shows/hides submission form and respective buttons
-						$(".add-pin, .map-wrapper h1").click(function() {
-							if ($('#form-wrapper').hasClass("visible")) {
-								$('#form-wrapper').removeClass("visible");
-							} else {
-								$('#form-wrapper').addClass("visible");
-							}
-						});
-
-						$('.close, .modal-close').click(function() {
-							$('#form-wrapper').removeClass('visible');
-							$('.modal').hide();
-							$('.form-control').val('');
-						});
-
-						$('.add-pin, .map-wrapper').click(function() {
-							$('.modal').hide();
-							$('.form-control').val('');
-						});
-
-					// Getting the value of the drop
-						$('.dropmenu li').click(function() {
-							race = $(this).attr("data-race");
-							filteringData(race);
-						});
-
 					// Formatting the filteredData
-					function filteringData(race) {
-						counter = 0;
+					function filteringData(race, location) {
+						// counter = 0;
 
-						if (race !== "all") {
+						if (race !== "all" && location !== "all") {
 							filteredData = [];
 							$.each(submissionData, function(k,v) {
-								v.race = v.race.trim();
-								if (v.race === race) {
+								if (v.race === race && v.location === location) {
 									filteredData.push(v);
 									circleColor = v.color;
 								}
@@ -332,36 +350,56 @@ $(document).ready(function() {
 
 							clearMap();
 							formatData(filteredData);
-							console.log(filteredData);
 
 							$(".submissions").html("");
 
-							if (filteredData.length === 0) {
-								$(".submission-nav h1").html("No locations");
-								$("#sub-btn-prev").addClass("unclickable");
-								$("#sub-btn-next").addClass("unclickable");
-							} else {
-								$(".submission-nav h1").html(filteredData[counter].location);
+							if (filteredData.length !== 0) {
 								writeSubmissions(filteredData);
-								displaySubmissions(filteredData[counter].location);
-
-								// $("#sub-btn-prev").removeClass("unclickable");
-								// $("#sub-btn-next").removeClass("unclickable");
-								// changeParks($('.sub-btn'));
+								displaySubmissions(location);
 							}
 
-						} else {
+						}
+						if (race === "all" && location === "all") {
 							clearMap();
 							circleColor = "#8554bf";
 							formatData(submissionData);
-
-							$("#sub-btn-prev").removeClass("unclickable");
-							$("#sub-btn-next").removeClass("unclickable");
-							changeParks($('.sub-btn'));
+							writeSubmissions(submissionData);
+						}
+						if (race === "all" && location !== "all") {
+							filteredData = [];
+							$.each(submissionData, function(k,v) {
+								if (v.location === location) {
+									filteredData.push(v);
+									circleColor = "#8554bf";
+								}
+							});
+							clearMap();
+							formatData(filteredData);
 
 							$(".submissions").html("");
-							$(".submission-nav h1").html("All locations");
-							writeSubmissions(submissionData);
+
+							if (filteredData.length !== 0) {
+								writeSubmissions(filteredData);
+								displaySubmissions(location);
+							}
+						}
+						if (location === "all" && race !== "all") {
+							filteredData = [];
+							$.each(submissionData, function(k,v) {
+								if (v.race === race) {
+									filteredData.push(v);
+									circleColor = "#8554bf";
+								}
+							});
+							clearMap();
+							formatData(filteredData);
+
+							$(".submissions").html("");
+
+							if (filteredData.length !== 0) {
+								writeSubmissions(filteredData);
+								displaySubmissions(location);
+							}
 						}
 					}
 
@@ -374,7 +412,7 @@ $(document).ready(function() {
 					// Displays submissions
 					function displaySubmissions(parkName) {
 						$.each($(".card"), function() {
-							if ($(this).attr("data-park") === parkName) {
+							if (parkName === "all" || $(this).attr("data-park") === parkName) {
 								$(this).removeClass("no-show");
 								$(this).addClass("exists");
 							} else {
@@ -411,7 +449,7 @@ $(document).ready(function() {
 							subLong = coord[0];
 							subLat = coord[1];
 						}
-						colors = ['#8554bf', '#e34e36', '#ff8f24', '#52b033', '#329ce8'];
+						colors = ['#e34e36', '#329ce8', '#ff8f24', '#52b033', '#fec44f'];
 				        var submission = {
 				            "approved": false,
 				            "firstName": $('.first-blank').val(),
@@ -431,7 +469,8 @@ $(document).ready(function() {
 						if (valid === true) {
 							enterSubmission(submission);
 							// Display modal after submission
-							$('.modal').show();
+							$('.form-group').hide();
+							$('.form-horizontal h5').show();
 						}
 					});
 
@@ -444,6 +483,11 @@ $(document).ready(function() {
 				            console.log("Whoops, something bad happened!");
 				        });
 					}
+
+					// show filter expansion on click
+					$('.filter-mob').click(function () {
+						$('.filter-mob-expand').slideToggle();
+					});
 
 	// injecting current year into footer
 	// DO NOT DELETE

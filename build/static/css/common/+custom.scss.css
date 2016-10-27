@@ -8,13 +8,17 @@ RIGHT PANNEL - All content in right panel (excludes form)
 body {
   color: #323232; }
 
+hr {
+  margin: 0.5rem;
+  border-color: #888; }
+
 .transition, #see-form {
   -o-transition: 0.5s;
   -ms-transition: 0.5s;
   -moz-transition: 0.5s;
   -webkit-transition: all 0.4s; }
 
-.header1, .form-horizontal .control-label, .form-horizontal .help-block, .submission-pv h1, .submission-race h1 {
+.header1, .form-horizontal .control-label, .form-horizontal .help-block, .submission-pv h1, .submission-race h1, .submission-location h1 {
   font-size: 2rem;
   line-height: 2.5rem;
   font-weight: bold; }
@@ -27,6 +31,43 @@ body {
   font-family: "Gotham A", "Gotham B", Arial, sans-serif;
   height: 100%;
   position: relative; }
+  .tool-wrapper .filter-mob-expand {
+    display: none;
+    height: 50px; }
+    @media only screen and (max-width: 800px) {
+      .tool-wrapper .filter-mob-expand {
+        display: none;
+        height: 100vh;
+        position: absolute;
+        top: 50px;
+        z-index: 100000;
+        width: 100%;
+        font-size: 2rem;
+        color: #555;
+        background: #dddddd;
+        line-height: 2.5rem; }
+        .tool-wrapper .filter-mob-expand ul {
+          max-height: 500px;
+          overflow-y: auto; }
+        .tool-wrapper .filter-mob-expand li {
+          cursor: pointer;
+          border-radius: 0.2;
+          padding: 1rem;
+          border-top: 1px solid #c4c4c4; }
+          .tool-wrapper .filter-mob-expand li:first-child {
+            border: none; }
+          .tool-wrapper .filter-mob-expand li:last-child {
+            border-bottom: 1px solid #c4c4c4; }
+          .tool-wrapper .filter-mob-expand li:hover {
+            background: #8554bf;
+            color: white; }
+        .tool-wrapper .filter-mob-expand h5 {
+          background: #555;
+          color: white;
+          font-size: 2.5rem;
+          line-height: 3.4rem;
+          padding: 1rem;
+          margin-bottom: 0; } }
 
 .relative {
   position: relative;
@@ -416,6 +457,7 @@ FORM
 #form-wrapper {
   position: absolute;
   display: none;
+  min-height: calc(100vh - 51);
   z-index: 2000;
   height: 100%;
   background: #fcfcfc;
@@ -424,11 +466,10 @@ FORM
   padding-bottom: 20px; }
   #form-wrapper .modal {
     display: none;
-    position: absolute;
+    position: relative;
     z-index: 1;
     padding-top: 100px;
     left: 0;
-    top: 100px;
     width: 100%;
     height: 100%;
     overflow: auto;
@@ -436,7 +477,7 @@ FORM
     background-color: rgba(0, 0, 0, 0.4); }
   #form-wrapper .modal-content {
     position: absolute;
-    bottom: 150px;
+    top: 50%;
     left: 0;
     right: 0;
     background-color: #fefefe;
@@ -518,6 +559,8 @@ form.submission-form {
     box-shadow: none; }
     .form-horizontal .btn:hover {
       background-color: #c9c9c9; }
+  .form-horizontal h5 {
+    display: none; }
 
 #form-wrapper select,
 #form-wrapper textarea {
@@ -771,7 +814,7 @@ button.close {
     .shadow6 {
       display: none; } }
 
-.submission-pv:first-child, .submission-race:first-child {
+.submission-pv:first-child, .submission-race:first-child, .submission-location:first-child {
   color: red; }
 
 .unclickable .fa-chevron-left,
@@ -782,32 +825,35 @@ button.close {
   background-color: #444 !important;
   cursor: default; }
 
-.submission-race {
+.submission-race, .submission-location {
   padding: 0 !important;
   border-bottom: none !important;
   margin-bottom: 0 !important; }
-  .submission-race h2 {
-    padding-left: 2rem; }
+  .submission-race h2, .submission-location h2 {
+    padding-left: 2rem;
+    background-color: #dddddd; }
 
-.submission-pv, .submission-race {
+.submission-location {
+  text-transform: none !important; }
+
+.submission-pv, .submission-race, .submission-location {
   padding-left: 2rem;
   padding-right: 2rem;
   padding-bottom: 2rem;
   background-color: white; }
-  .submission-pv h1, .submission-race h1 {
+  .submission-pv h1, .submission-race h1, .submission-location h1 {
     font-size: 2.4rem;
     line-height: 3.6rem;
     font-weight: normal;
     padding-top: 1rem; }
-  .submission-pv h2, .submission-race h2 {
+  .submission-pv h2, .submission-race h2, .submission-location h2 {
     font-size: 1.4rem;
     line-height: 1.8rem;
     margin-bottom: 0;
     padding: 0.4rem 1rem;
     width: 100%;
-    text-transform: uppercase;
-    background-color: #dddddd; }
-  .submission-pv p, .submission-race p {
+    text-transform: uppercase; }
+  .submission-pv p, .submission-race p, .submission-location p {
     margin-top: -0.7rem;
     font-size: 1.6rem;
     line-height: 2.4rem; }

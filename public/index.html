@@ -87,8 +87,11 @@
         <div class="submission-race">
             <h2><span style="color: {{color}}; font-size: 2rem;">&#9679</span>  {{race}} memorial</h2>
         </div>
+        <div class="submission-location">
+        </div>
         <div id="pv" class="submission-pv">
             <h1>{{firstName}} {{lastName}}</h1>
+            <!-- <h3>{{location}}</h3> -->
             <p>{{why}}</p>
         </div>
     </div>
@@ -179,18 +182,36 @@ googletag.enableServices();
 
 	
 
-        <div id="top-nav" class="main-nav">
-            <div class="filter-mob filter">
-                <h1><i class="fa fa-bars" aria-hidden="true"></i> Filter</h1>
-            </div>
 
-            <div class="add-pin">
-                <h1><i class="fa fa-map-marker" aria-hidden="true"></i>Add pin</h1>
-            </div>
-        </div>
-        <!-- end top nav-->
 
         <div class="tool-wrapper clearfix">
+            <!-- filter-mob expanded -->
+            <div class="filter-mob-expand">
+                <ul>
+                    <h5>Race/ethnicity</h5>
+                    <li>Black or African Am.</li>
+                    <li>Asian</li>
+                    <li>Hispanic or Latino</li>
+                    <li>Am. Indian or Alaskan Native</li>
+                    <li>Native Hawaiian</li>
+                    <li>Other</li>
+                </ul>
+                <ul>
+                    <h5>Location</h5>
+                </ul>
+            </div>
+            <div id="top-nav" class="main-nav">
+                <div class="filter-mob filter">
+                    <h1><i class="fa fa-bars" aria-hidden="true"></i> Filter</h1>
+                </div>
+
+                <div class="add-pin">
+                    <h1><i class="fa fa-map-marker" aria-hidden="true"></i>Add pin</h1>
+                </div>
+            </div>
+            <!-- end top nav-->
+
+
           <div id="shadow-nav-mov" class="shadow4"></div>
 
             <div class="map-wrapper">
@@ -204,27 +225,20 @@ googletag.enableServices();
             <div class="right-panel">
                 <div id="form-wrapper">
                     <!-- The Modal -->
-                    <div id="submit-modal" class="modal">
-
-                      <!-- Modal content -->
-                      <div class="modal-content">
-                        <span class="modal-close">×</span>
-                        <h5><strong>Thanks for your submission.</strong><br /> It will be pinned upon approval in our review process.</h5>
-                      </div>
-
-                      <!-- Modal content -->
-                      <div class="modal-content">
-                        <span class="modal-close">×</span>
-                        <h5><strong>Thanks for your submission.</strong><br /> It will be pinned upon approval in our review process.</h5>
-                      </div>
-
-                    </div>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     <div class="submission-hed form-nav">
                         <h1>Suggest a memorial</h1>
                     </div><br />
+                    <div id="submit-modal" class="modal">
+                      <!-- Modal content -->
+                      <div class="modal-content">
+                        <span class="modal-close">×</span>
+                        <h5><strong>Thanks for your submission.</strong><br /> It will be pinned upon approval in our review process.</h5>
+                      </div>
+                    </div>
                     <form class="form-horizontal">
                       <fieldset>
+                        <h5><strong>Thanks for your submission.</strong><br /> It will be pinned upon approval in our review process.</h5>
                         <div class="row">
                             <div class="form-group col-xs-12 col-sm-6">
                               <label class="control-label">First name</label>
@@ -237,7 +251,7 @@ googletag.enableServices();
                         </div>
                         <div class="form-group">
                           <label class="control-label">Email</label>
-                          <input type="text" class="form-control form-control-empty email-blank">
+                          <input type="text" class="form-control email-blank">
                         </div>
                         <div class="form-group">
                             <label class="control-label">Which race or ethnicity would this memorial commemorate?</label>
@@ -302,9 +316,9 @@ googletag.enableServices();
                     <ul>
                       <li class="drop drop-location">
                         <ul class="dropmenu">
-                            <li><a><strong>All locations</a></strong></li>
+                            <li data-park="all"><a><strong>All races/ethnicities</strong></a></li>
                         </ul>
-                        <a class="location-hed" href="#" data-toggle="drop">All locations</a>
+                        <a class="location-hed" href="#" data-park="all" data-toggle="drop">All locations</a>
                       </li>
                     </ul>
                 </div>
