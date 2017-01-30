@@ -34,6 +34,9 @@ $(document).ready(function() {
 					$(".filter-hed:first-child").val($(this).text());
 					$('.mapboxgl-popup').hide();
 				});
+				$('.filter-mob-expand li').click(function() {
+					$('.mapboxgl-popup').hide();
+				});
 			}
 
 			// Toggles one dropdown when the other opens or when clicked elsewhere on the screen
@@ -43,8 +46,7 @@ $(document).ready(function() {
 				$(this).find('ul.dropmenu').slideToggle();
 		   });
 
-		   /* Anything that gets to the document
-		      will hide the dropdown */
+		   // Anything clicked in the document will hide the dropdown
 		   $(document).click(function(){
 			 $('.drop-filter > ul.dropmenu').hide();
 	  		 $('.drop-location > ul.dropmenu').hide();
@@ -75,7 +77,7 @@ $(document).ready(function() {
 			   });
 
 		   // Getting the value of the filter drop
-			   $('.drop-filter li').click(function() {
+			   $('.drop-filter li, .filter-mob-race li').click(function() {
 				   race = $(this).attr("data-race");
 				   filteringData(race, location);
 			   });
@@ -164,7 +166,7 @@ $(document).ready(function() {
 						$('.filter-mob-expand').slideToggle();
 					});
 					// Getting the value of the location drop
-						$('.drop-location li').click(function() {
+						$('.drop-location li, .filter-mob-location li').click(function() {
 							location = $(this).attr("data-park");
 							filteringData(race, location);
 						});
