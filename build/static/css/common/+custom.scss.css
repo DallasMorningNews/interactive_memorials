@@ -853,6 +853,10 @@ button.close {
     padding: 0.4rem 1rem;
     width: 100%;
     text-transform: uppercase; }
+  .submission-pv h3, .submission-race h3, .submission-location h3 {
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+    margin-bottom: 0; }
   .submission-pv p, .submission-race p, .submission-location p {
     margin-top: -0.7rem;
     font-size: 1.6rem;
