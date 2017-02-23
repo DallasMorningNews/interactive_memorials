@@ -173,6 +173,7 @@ $(document).ready(function() {
 				}
 
 				function formatData(data) {
+          console.log(data);
 					// placeholder array for parks mapfeatureg data
 					parks = [];
 
@@ -451,7 +452,7 @@ $(document).ready(function() {
 							subLong = coord[0];
 							subLat = coord[1];
 						}
-						colors = ['#e34e36', '#329ce8', '#ff8f24', '#52b033', '#fec44f'];
+						colors = ['#e34e36', '#329ce8', '#ff8f24', '#52b033', '#fec44f', '#6dccf2'];
 				        var submission = {
 				            "approved": false,
 				            "firstName": $('.first-blank').val(),
