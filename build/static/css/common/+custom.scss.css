@@ -30,7 +30,8 @@ hr {
 .tool-wrapper {
   font-family: "Gotham A", "Gotham B", Arial, sans-serif;
   height: 100%;
-  position: relative; }
+  position: relative;
+  margin-top: 4.8rem; }
   .tool-wrapper .filter-mob-expand {
     display: none;
     height: 50px; }

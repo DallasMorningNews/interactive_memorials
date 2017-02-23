@@ -77,11 +77,11 @@ var adSlot0 = googletag.defineSlot('/' + DFP_networkId + '/' + DFP_sitepage, DFP
 adSlot0.setTargeting("position", "x01");
 adSlot0.addService(googletag.pubads());
 
-/*
+
 var adSlot1 = googletag.defineSlot('/' + DFP_networkId + '/' + DFP_sitepage, DFPSlotSizes, "dfpAdPositionMiddle");
 adSlot1.setTargeting("position", "x02");
 adSlot1.addService(googletag.pubads());
-*/
+
 
 /*
 var adSlot2 = googletag.defineSlot('/' + DFP_networkId + '/' + DFP_sitepage, DFPSlotSizes, "dfpAdPositionBottom");
@@ -97,11 +97,11 @@ var adSlot0 = googletag.defineSlot('/' + DFP_networkId + '/' + DFP_sitepage, DFP
 adSlot0.setTargeting("position", "Top");
 adSlot0.addService(googletag.pubads());
 
-/*
+
 var adSlot1 = googletag.defineSlot('/' + DFP_networkId + '/' + DFP_sitepage, DFPSlotSizes, "dfpAdPositionMiddle");
 adSlot1.setTargeting("position", "Top");
 adSlot1.addService(googletag.pubads());
-*/
+
 
 /*
 var adSlot2 = googletag.defineSlot('/' + DFP_networkId + '/' + DFP_sitepage, DFPSlotSizes, "dfpAdPositionBottom");
@@ -119,6 +119,35 @@ googletag.enableServices();
 
 
 {%block content%}
+<section class="content-well clearfix">
+
+	<header id="story-head">
+		<!-- <h3>Label, if needed</h3> -->
+		<h1>Dallas’ hidden history</h1>
+		<h2>For too long the history of Dallas white majority culture has muted the stories of those who really built Dallas' culture</h2>
+	</header>
+		<!-- end storyHead -->
+
+    <div class="byline-block">
+        <p>Published Feb. 28, 2017</p>
+        <!-- <p>Updated Month, Date, Year</p> -->
+    </div>
+    <!-- end bylineBlock -->
+
+	<div class="shareComments shareCommentsTop">
+		<ul id="share-bar1"></ul>
+	</div>
+	<!-- end shareComments -->
+
+    <p>It’s been said that the winners write the histories of any given place, and there is some truth to that. In Dallas, like most places, that has meant that the majority culture — white, Christian, southern — has held the pen of history for all this generations who followed John Neely Bryan and this city’s earliest settlers.</p>
+
+    <p>We see the markers to that history all over town, in the names of our buildings and our schools and streets, and in the statutes, memorials and other testaments to the past. These physical reminders of our past speak through the ages, and will continue to speak to future generations, about what went into the making of this place, and what values those who have lived here, who do live here, cherish most.</p>
+
+    <p>That’s as it should be, but the story these reminders tell is a narrow one. For in Dallas, as in most places, the true history of how we got to where we are now is made up of a 100 smaller histories, of peoples and movements and events that defined not just the majority culture, but all the myriad colors and backgrounds and perspectives of the people who have lived here. Those subtler stories, the ones so often missing from the dominant histories of the city, are vital to understanding the city.</p>
+
+    <p>Today <em>The Dallas Morning News</em> launches an effort to flesh out the histories of Dallas by inviting our readers from every background to help us map the hidden histories of their own communities within Dallas. We want to mark the places where events happened that helped shape the history of people and groups in Dallas whose stories have largely been left out of the story of Dallas.</p>
+
+{%include "adblock1.html" %}
 
         <div class="tool-wrapper clearfix">
             <!-- filter-mob expanded -->
@@ -258,7 +287,7 @@ googletag.enableServices();
                         <ul class="dropmenu">
                             <li data-park="all"><a><strong>All locations</strong></a></li>
                         </ul>
-                        <a class="location-hed" href="#" data-park="all" data-toggle="drop">All locations</a>
+                        <a class="location-hed" data-park="all" data-toggle="drop">All locations</a>
                       </li>
                     </ul>
                 </div>
@@ -275,7 +304,7 @@ googletag.enableServices();
                             <li data-race="LGBT"><a>LGBT</a></li>
                             <li data-race="Other"><a>Other</a></li>
                         </ul>
-                        <a class="filter-hed" href="#" data-toggle="drop">All races/ethnicities</a>
+                        <a class="filter-hed" data-toggle="drop">All races/ethnicities</a>
                       </li>
                     </ul>
                 </div>
@@ -291,15 +320,12 @@ googletag.enableServices();
 <section class="contentWell clearFix">
 
 
-    {%include "adblock1.html" %}
+    {%include "adblock2.html" %}
 
     <!--
       use the above include with adblock2.html and adblock3.html to place adblocks 2 and 3, then delete this comment.
       it won't self-destruct, but it is cleaner
     -->
-
-    <p class="twitterTag">Follow writer name on Twitter at <a href="urlhere">@twittertag.</a></p>
-
 
 	<section class="credits clearfix">
         <p><strong>Author:</strong> <a href="mailto:emailaddress">Name</a></p>
