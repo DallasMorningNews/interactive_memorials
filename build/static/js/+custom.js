@@ -21,6 +21,9 @@ $(document).ready(function() {
 		var location = "all";
 		var divHeight = 0;
 
+    var colors = ['#e34e36', '#329ce8', '#ff8f24', '#52b033', '#fec44f', '#6dccf2', '#323232'];
+    var races = ["Black or African Am.", "Asian", "Hispanic or Latino", "Am. Indian", "Native Hawaiian", "LGBT", "Other"];
+
 		//dropmenu
 			// Changes main dropmenu text to cliked li, hides map popup if filter li clicked
 			function switchFilterHed() {
@@ -115,6 +118,12 @@ $(document).ready(function() {
 					$.each(data, function(k,v) {
 						v.race = v.race.trim();
 						v.location = v.location.trim();
+
+            var raceIndex = races.indexOf(v.race);
+            var targetColor = colors[raceIndex];
+
+            v.raceKey = raceIndex;
+            v.color = targetColor;
 					});
 					submissionData = data;
  					writeSubmissions(submissionData);
@@ -391,7 +400,7 @@ $(document).ready(function() {
 							$.each(submissionData, function(k,v) {
 								if (v.race === race) {
 									filteredData.push(v);
-									circleColor = "#8554bf";
+									circleColor = v.color;
 								}
 							});
 							clearMap();
@@ -452,7 +461,6 @@ $(document).ready(function() {
 							subLong = coord[0];
 							subLat = coord[1];
 						}
-						colors = ['#e34e36', '#329ce8', '#ff8f24', '#52b033', '#fec44f', '#6dccf2'];
 				        var submission = {
 				            "approved": false,
 				            "firstName": $('.first-blank').val(),
@@ -460,7 +468,7 @@ $(document).ready(function() {
 				            "email": $('.email-blank').val(),
 				            "race": subRace,
 							"raceKey": raceKey,
-							"color": colors[raceKey],
+							"color": color,
 				            "location": $('.location-blank').val(),
 							"lat": subLat,
 							"long": subLong,
