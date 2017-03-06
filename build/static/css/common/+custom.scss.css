@@ -869,3 +869,6 @@ button.close {
 
 .no-show {
   display: none; }
+
+.shareComments a {
+  transition: none !important; }
