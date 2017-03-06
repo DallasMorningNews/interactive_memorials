@@ -48,12 +48,13 @@
 <script id="submission" type="text/x-handlebars-template">
     <div class="card" data-race="{{race}}" data-park="{{location}}">
         <div class="submission-race">
-            <h2><span style="color: {{color}}; font-size: 2rem;">&#9679</span>  {{race}} memorial</h2>
+            <h2><span style="color: {{color}}; font-size: 2rem;">&#9679</span>  {{race}}</h2>
         </div>
         <div class="submission-location">
         </div>
         <div id="pv" class="submission-pv">
-            <h1>{{firstName}} {{lastName}}</h1>
+            <h1>{{location}}</h1>
+            <h6><strong>Submitted by:</strong> {{firstName}} {{lastName}}</h6>
             <!-- <h3>{{location}}</h3> -->
             <p>{{why}}</p>
         </div>
@@ -195,7 +196,7 @@ googletag.enableServices();
                     <!-- The Modal -->
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     <div class="submission-hed form-nav">
-                        <h1>Suggest a memorial</h1>
+                        <h1>Suggest a place</h1>
                     </div><br />
                     <div id="submit-modal" class="modal">
                       <!-- Modal content -->
@@ -222,7 +223,7 @@ googletag.enableServices();
                           <input type="text" class="form-control email-blank">
                         </div>
                         <div class="form-group">
-                            <label class="control-label">Which race or ethnicity would this memorial commemorate?</label>
+                            <label class="control-label">Which race or ethnicity would this commemorate?</label>
                                 <select id="race-dropdown" class="form-control  col-sm-12 col-sm-4">
                                   <option selected="selected">Choose race/ethnicity</option>
                                   <option>Black or African Am.</option>
@@ -239,7 +240,7 @@ googletag.enableServices();
                           <textarea class="form-control location-blank" rows="3"></textarea>
                         </div>
                         <div class="form-group">
-                          <label class="control-label">Why would you like to see this memorial? Do you have a personal connection to it?</label>
+                          <label class="control-label">Why would you like to see this? Do you have a personal connection to it?</label>
                           <textarea class="form-control why-blank" rows="3"></textarea>
                         </div>
                         <div class="form-group">
@@ -260,7 +261,7 @@ googletag.enableServices();
                     <div id="shadow-map" class="shadow6"></div>
 
                     <div class="submission-hed">
-                        <h1>Memorial Suggestions</h1>
+                        <h1>Places</h1>
                     </div>
                     <div class="submissions-wrapper">
                         <div class="submissions"></div>
@@ -317,7 +318,7 @@ googletag.enableServices();
         </div>
         <!-- end bottom nav-->
 
-<section class="contentWell clearFix">
+<section class="content-well clearFix">
 
 
     {%include "adblock2.html" %}
@@ -328,11 +329,7 @@ googletag.enableServices();
     -->
 
 	<section class="credits clearfix">
-        <p><strong>Author:</strong> <a href="mailto:emailaddress">Name</a></p>
-        <p><strong>Editor:</strong> <a href="mailto:emailaddress">Name</a></p>
-        <p><strong>Copy Editor:</strong> <a href="mailto:emailaddress">Name</a></p>
-        <p><strong>Photos:</strong> <a href="mailto:emailaddress">Name</a></p>
-        <p><strong>Graphics:</strong> <a href="mailto:emailaddress">Name</a></p>
+        <p><strong>Producer:</strong> <a href="mailto:ddifurio@dallasnews.com">Dom DiFurio</a></p>
         <p><strong>Designer:</strong> Kristi Walker</p>
 	</section>
 	<!-- end credits -->
@@ -363,7 +360,7 @@ googletag.enableServices();
 	<!-- end shareComments -->
 
 </section>
-<!-- end contentWell -->
+<!-- end content-well -->
 {%endblock%}
 
 

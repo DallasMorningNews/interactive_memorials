@@ -2002,7 +2002,7 @@ button.close {
   background-color: white; }
   .submission-pv h1, .submission-race h1, .submission-location h1 {
     font-size: 2.4rem;
-    line-height: 3.6rem;
+    line-height: 3rem;
     font-weight: normal;
     padding-top: 1rem; }
   .submission-pv h2, .submission-race h2, .submission-location h2 {
@@ -2016,6 +2016,10 @@ button.close {
     font-size: 1.2rem;
     line-height: 1.5rem;
     margin-bottom: 0; }
+  .submission-pv h6, .submission-race h6, .submission-location h6 {
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+    margin-bottom: 1.2rem; }
   .submission-pv p, .submission-race p, .submission-location p {
     margin-top: -0.7rem;
     font-size: 1.6rem;

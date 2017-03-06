@@ -8,8 +8,8 @@ $(document).ready(function() {
 		var clickLocation;
 		var centerCoord;
 		var coord = [];
-		var popupContentCir = "<p>Add a memorial suggestion here?</p><a class='yes-btn-cir btn btn-primary btn-sm'>Yes</a><a class='no-btn btn btn-default btn-sm'>No</a>";
-		var popupContentNoCir = "<p>Add a memorial suggestion here?</p><a class='yes-btn-nocir btn btn-primary btn-sm'>Yes</a><a class='no-btn btn btn-default btn-sm'>No</a>";
+		var popupContentCir = "<p>Add a place here?</p><a class='yes-btn-cir btn btn-primary btn-sm'>Yes</a><a class='no-btn btn btn-default btn-sm'>No</a>";
+		var popupContentNoCir = "<p>Add a place here?</p><a class='yes-btn-nocir btn btn-primary btn-sm'>Yes</a><a class='no-btn btn btn-default btn-sm'>No</a>";
 		var geocoder = new mapboxgl.Geocoder({
 			    container: 'geocoder-container' // Optional. Specify a unique container for the control to be added to.
 			});
