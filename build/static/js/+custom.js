@@ -468,7 +468,7 @@ $(document).ready(function() {
 				            "email": $('.email-blank').val(),
 				            "race": subRace,
 							"raceKey": raceKey,
-							"color": color,
+							"color": colors[raceKey],
 				            "location": $('.location-blank').val(),
 							"lat": subLat,
 							"long": subLong,
