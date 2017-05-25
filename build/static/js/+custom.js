@@ -114,7 +114,7 @@ $(document).ready(function() {
 			// creating and compiling the template for our person objects
 			    var submissionTemplate =  Handlebars.compile($("#submission").html());
 
-				$.getJSON('http://apps.dallasnews.com/livewire/memorials/approved', function(data) {
+				$.getJSON('//apps.dallasnews.com/livewire/memorials/approved', function(data) {
 					$.each(data, function(k,v) {
 						v.race = v.race.trim();
 						v.location = v.location.trim();
@@ -487,7 +487,7 @@ $(document).ready(function() {
 
 					function enterSubmission(submission) {
 						// send the report object to the database.
-						$.post("http://apps.dallasnews.com/livewire/memorials/submission", submission, function() {
+						$.post("//apps.dallasnews.com/livewire/memorials/submission", submission, function() {
 				            console.log("Success!");
 				            // $("#post-response").removeClass("no-show");
 				        }).fail(function() {
